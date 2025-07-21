@@ -17,18 +17,30 @@
             padding: 10px 0;
             text-align: center;
         }
+        nav {
+            margin: 20px 0;
+            text-align: center;
+        }
+        nav button {
+            margin: 0 5px;
+            padding: 10px;
+            border: none;
+            background: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
         section {
+            display: none;
             margin: 20px 0;
             padding: 15px;
             background: white;
             border-radius: 5px;
         }
+        section.active {
+            display: block;
+        }
         h2 {
             color: #007BFF;
-        }
-        .contact-info {
-            font-size: 0.9em;
-            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -36,12 +48,24 @@
 
 <header>
     <h1>Dicaprio Cheung</h1>
-    <div class="contact-info">
-        <p>+852 6218 8414 | dhcheungaa@connect.ust.hk</p>
-    </div>
 </header>
 
-<section>
+<nav>
+    <button onclick="showSection('about')">About Me</button>
+    <button onclick="showSection('education')">Education</button>
+    <button onclick="showSection('teaching')">Teaching Experience</button>
+    <button onclick="showSection('leadership')">Leadership & Extra-Curricular</button>
+    <button onclick="showSection('awards')">Awards</button>
+    <button onclick="showSection('projects')">Programming Projects</button>
+    <button onclick="showSection('skills')">Technical Skills</button>
+</nav>
+
+<section id="about" class="active">
+    <h2>About Me</h2>
+    <p><!-- Fill in your about me paragraph here --></p>
+</section>
+
+<section id="education">
     <h2>Education</h2>
     <p><strong>Hong Kong University of Science and Technology (HKUST)</strong> <br>
     Bachelor of Engineering in Computer Engineering, First Class Honors (Sep 2021 - May 2025)<br>
@@ -51,7 +75,7 @@
     Hong Kong Diploma of Secondary Education (HKDSE) (2021)</p>
 </section>
 
-<section>
+<section id="teaching">
     <h2>Teaching Experience</h2>
     <p><strong>Undergraduate Teaching Assistant</strong>, COMP 2011 Programming with C++<br>
     HKUST, Sep - Nov 2024</p>
@@ -59,28 +83,68 @@
         <li>Assisted in organizing lab tutorials for over 60 students.</li>
         <li>Answered questions on course assignments and lecture materials.</li>
     </ul>
+
+    <p><strong>Student Tutor</strong>, COMP 2011 Programming with C++<br>
+    HKUST, Sep - Nov 2022</p>
+    <ul>
+        <li>Provided a peer-to-peer platform for students to ask questions on course assignments and lecture materials.</li>
+    </ul>
 </section>
 
-<section>
-    <h2>Leadership and Extra-Curricular Activities</h2>
+<section id="leadership">
+    <h2>Leadership & Extra-Curricular Activities</h2>
     <p><strong>Senior Software Engineer Lead</strong>, HKUST Robotics Team (Jan 2023 - Dec 2024)</p>
     <ul>
         <li>Oversaw development of competition robots and led a team of 30+ members.</li>
         <li>Organized tutorials for 100+ new recruits.</li>
     </ul>
+
+    <p><strong>Chairman</strong>, TYT Robotics Team (Aug 2019 - July 2020)</p>
+    <ul>
+        <li>Led the team in various international competitions.</li>
+        <li>Supported junior members in debugging their robots.</li>
+    </ul>
 </section>
 
-<section>
+<section id="awards">
     <h2>Awards</h2>
     <p><strong>Dean’s List</strong>, School of Engineering (Fall 2022 and Spring 2025)</p>
     <p><strong>ABU Robocon Hong Kong 2024</strong> - 2nd Runner-Up, Best Team Spirit Award</p>
 </section>
 
-<section>
+<section id="projects">
+    <h2>Programming Projects</h2>
+    <p><strong>Chinese Calligraphy Robot</strong> | Python threading, Tkinter UI (Sept 2024 - Present)</p>
+    <ul>
+        <li>Developed a 3D Bézier curve path planning algorithm for a robotic arm.</li>
+    </ul>
+
+    <p><strong>Glyphmaster</strong> | Game Programming with WebGL, Three.js & Socket.io (Sept - Dec 2024)</p>
+    <ul>
+        <li>Developed a 3D RPG game where players draw glyphs to cast spells.</li>
+    </ul>
+
+    <p><strong>Trajectory Planner Software</strong> | Python, Embedded C Programming & PyQT Framework (Sep 2023 - Jan 2024)</p>
+    <ul>
+        <li>Modified the button layout of the trajectory planner for user-friendliness.</li>
+    </ul>
+</section>
+
+<section id="skills">
     <h2>Technical Skills</h2>
     <p><strong>Languages:</strong> Proficient in C, C++; Intermediate in Python, Java; Beginner in JavaScript, HTML, SQL.</p>
     <p><strong>Tools:</strong> Extensive experience with VSCode, GitHub, CubeIDE.</p>
 </section>
+
+<script>
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            section.classList.remove('active');
+        });
+        document.getElementById(sectionId).classList.add('active');
+    }
+</script>
 
 </body>
 </html>
