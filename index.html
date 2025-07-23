@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <title>Dicaprio Cheung - Personal Website</title>
     <style>
         body {
@@ -11,16 +13,19 @@
             padding: 20px;
             background-color: #f4f4f4;
         }
+
         header {
             background: #007BFF;
             color: white;
             padding: 10px 0;
             text-align: center;
         }
+
         nav {
             margin: 20px 0;
             text-align: center;
         }
+
         nav button {
             margin: 0 5px;
             padding: 10px;
@@ -29,122 +34,384 @@
             color: white;
             cursor: pointer;
         }
-        section {
+
+        g {
             display: none;
+        }
+
+        g.active {
+            display: block;
+        }
+
+        section {
+            display: flex;
             margin: 20px 0;
             padding: 15px;
             background: white;
             border-radius: 5px;
         }
-        section.active {
-            display: block;
+
+        section.small {
+            display: flex;
+            margin: 20px 0;
+            padding: 0 15px;
+            background: white;
+            border-radius: 5px;
         }
+
+        section img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-right: 15px;
+        }
+
+        .date {
+            margin-top: 15px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
         h2 {
             color: #007BFF;
+            margin-top: 0;
         }
     </style>
 </head>
+
 <body>
 
-<header>
-    <h1>Dicaprio Cheung</h1>
-</header>
+    <header>
+        <h1>Dicaprio Cheung</h1>
+    </header>
 
-<nav>
-    <button onclick="showSection('about')">About Me</button>
-    <button onclick="showSection('education')">Education</button>
-    <button onclick="showSection('teaching')">Teaching Experience</button>
-    <button onclick="showSection('leadership')">Leadership & Extra-Curricular</button>
-    <button onclick="showSection('awards')">Awards</button>
-    <button onclick="showSection('projects')">Programming Projects</button>
-    <button onclick="showSection('skills')">Technical Skills</button>
-</nav>
+    <nav>
+        <button onclick="showGroup('about')">About Me</button>
+        <button onclick="showGroup('education')">Education</button>
+        <button onclick="showGroup('teaching')">Teaching Experience</button>
+        <button onclick="showGroup('leadership')">Leadership & Extra-Curricular</button>
+        <button onclick="showGroup('awards')">Awards</button>
+        <button onclick="showGroup('projects')">Programming Projects</button>
+        <button onclick="showGroup('skills')">Technical Skills</button>
+        <button onclick="showGroup('contacts')">Contacts</button>
+    </nav>
 
-<section id="about" class="active">
-    <h2>About Me</h2>
-    <p><!-- Fill in your about me paragraph here --></p>
-</section>
+    <g id="about" class="active">
+        <h2>About Me</h2>
+        <section>
+            <p>
+                <strong>Hi, I am Dicaprio.</strong><br>
+                This page is still under development...<br>
+                but you can still read some parts of it
+            </p>
+        </section>
+    </g>
 
-<section id="education">
-    <h2>Education</h2>
-    <p><strong>Hong Kong University of Science and Technology (HKUST)</strong> <br>
-    Bachelor of Engineering in Computer Engineering, First Class Honors (Sep 2021 - May 2025)<br>
-    CGA: 3.587 / 4.3 (Extended Major in Artificial Intelligence)</p>
+    <g id="education">
+        <h2>Education</h2>
+        <section>
+            <div>
+                <img src="./hkust.svg" alt="HKUST Logo">
+            </div>
+            <div style="flex-grow: 1;">
+                <p><strong>The Hong Kong University of Science and Technology (HKUST)</strong> <br>
+                    Bachelor of Engineering in Computer Engineering (CPEG)<br>
+                    with Extended Major in Artificial Intelligence (+AI)<br>
+                    (Minor in Robotics) <br>
+                <ul>
+                    <li>First Class Honors</li>
+                    <li>CGA: 3.587 / 4.3</li>
+                    <li>Major CGA: 3.724 / 4.3</li>
+                </ul>
+                </p>
+            </div>
+            <div class="date">Sep 2021 - May 2025</div>
+        </section>
+        <section>
+            <div>
+                <img src="./plktytc.jpg" alt="TYT Logo">
+            </div>
+            <div style="flex-grow: 1;">
+                <p><strong>Po Leung Kuk Tang Yuk Tien College (TYT)</strong> <br>
+                    Hong Kong Diploma of Secondary Education (HKDSE) (2021)
+                <ul>
+                    <li><strong>5**</strong> in Physics</li>
+                    <li><strong>5**</strong> in Mathematics (Compulsory part)</li>
+                    <li><strong>5</strong> in Information and Communication Technology</li>
+                    <li><strong>5</strong> in Mathematics Extended Part Module 2 (Algebra and Calculus)</li>
+                    <li><strong>5</strong> in English Language</li>
+                </ul>
+                </p>
+            </div>
+            <div class="date">Sep 2015 - July 2021</div>
+        </section>
+    </g>
 
-    <p><strong>Po Leung Kuk Tang Yuk Tien College (TYT)</strong> <br>
-    Hong Kong Diploma of Secondary Education (HKDSE) (2021)</p>
-</section>
+    <g id="teaching">
+        <h2>Teaching Experience</h2>
+        <section>
+            <div>
+                <img src="./hkust.svg" alt="HKUST Logo">
+            </div>
+            <div style="flex-grow: 1;">
+                <p><strong>Undergraduate Teaching Assistant (UGTA)</strong>, COMP 2011 Programming with C++<br>
+                    CSE, HKUST</p>
+                <ul>
+                    <li>Assisted in organizing lab tutorials for over 60 students.</li>
+                    <li>Answered questions on course assignments and lecture materials.</li>
+                </ul>
+            </div>
+            <div class="date">Sep - Nov 2024</div>
+        </section>
+        <section>
+            <div>
+                <img src="./hkust.svg" alt="HKUST Logo">
+            </div>
+            <div style="flex-grow: 1;">
+                <p><strong>Student Tutor</strong>, COMP 2011 Programming with C++<br>
+                    ECE, HKUST</p>
+                <ul>
+                    <li>Provided a peer-to-peer platform for students to ask questions on course assignments and lecture
+                        materials.</li>
+                </ul>
+            </div>
+            <div class="date">Sep - Nov 2022</div>
+        </section>
+    </g>
 
-<section id="teaching">
-    <h2>Teaching Experience</h2>
-    <p><strong>Undergraduate Teaching Assistant</strong>, COMP 2011 Programming with C++<br>
-    HKUST, Sep - Nov 2024</p>
-    <ul>
-        <li>Assisted in organizing lab tutorials for over 60 students.</li>
-        <li>Answered questions on course assignments and lecture materials.</li>
-    </ul>
+    <g id="leadership">
+        <h2>Leadership & Extra-Curricular Activities</h2>
+        <section>
+            <div>
+                <img src="./hkust_robotics_team.jpg" alt="HKUST Robotics Team Logo">
+            </div>
+            <div style="flex-grow: 1;">
+                <p><strong>Senior Software Engineer Lead</strong>, HKUST Robotics Team, Robocon Sub-team</p>
+                <ul>
+                    <li>Participated in the 2023 and 2024 ABU Robocon Hong Kong Regional Contests and won many different
+                        awards</li>
+                    <li>Lead a team of more than 30 members through multiple iterations of robot design.</li>
+                    <li>Oversaw the development of 10+ competition robots each year</li>
+                    <li>Organized Software Tutorials for 100+ new recruits.</li>
+                    <li>Host an internal Robot Design Comtest for 120+ contestants to select top performers for the
+                        team.</li>
 
-    <p><strong>Student Tutor</strong>, COMP 2011 Programming with C++<br>
-    HKUST, Sep - Nov 2022</p>
-    <ul>
-        <li>Provided a peer-to-peer platform for students to ask questions on course assignments and lecture materials.</li>
-    </ul>
-</section>
+                </ul>
+            </div>
+            <div class="date">Jan 2023 - Dec 2024</div>
+        </section>
+        <section>
+            <div>
+                <img src="./plktytc.jpg" alt="HKUST Logo">
+            </div>
+            <div style="flex-grow: 1;">
+                <p><strong>Chairman</strong>, TYT Robotics Team </p>
+                <ul>
+                    <li>Led the team in various international competitions.</li>
+                    <li>Supported junior members in debugging their robots.</li>
+                </ul>
+            </div>
+            <div class="date">Chairman: Aug 2019 - July 2020
+                <br>Member: Sep 2015 - Aug 2021
+            </div>
+        </section>
+    </g>
 
-<section id="leadership">
-    <h2>Leadership & Extra-Curricular Activities</h2>
-    <p><strong>Senior Software Engineer Lead</strong>, HKUST Robotics Team (Jan 2023 - Dec 2024)</p>
-    <ul>
-        <li>Oversaw development of competition robots and led a team of 30+ members.</li>
-        <li>Organized tutorials for 100+ new recruits.</li>
-    </ul>
+    <g id="awards">
+        <h2>Awards</h2>
+        <section class="small">
+            <div style="flex-grow: 1;">
+                <p><strong>Dean’s List</strong>, School of Engineering</p>
+            </div>
+            <div class="date">Spring 2025</div>
+        </section>
+        <section>
+            <div style="flex-grow: 1;">
+                <p><strong>ABU Robocon Hong Kong 2024</strong> - War Dragon - 2nd Runner-Up, Best Team Spirit Award</p>
+                <ul>
+                    <li>Collaborated with a team of 20 to design, prototype, and program 1 fully-automatic, and 1
+                        semi-automatic robot.</li>
+                    <li>Utilized STM32, RTOS, Robot Operating System 2 (ROS2), YOLO computer vision object detection
+                        model on the robots.</li>
+                    <li>Led and mentored a team of 4 junior software engineers to design the algorithm for 3+ different
+                        iterations of robots.</li>
+                    <li>Automated all robot movements between all different key positions on the map such that the
+                        robot’s controller only needs to decide where to go without the need of manual controlling how
+                        to go.
+                    </li>
+                </ul>
+            </div>
+            <div class="date">June 2024</div>
+        </section>
+        <section class="small">
+            <div style="flex-grow: 1;">
+                <p><strong>ABU Robocon Hong Kong 2023</strong> - Fiery Dragon - Top 8</p>
+            </div>
+            <div class="date">June 2023</div>
+        </section>
+        <section class="small">
+            <div style="flex-grow: 1;">
+                <p><strong>Dean’s List</strong>, School of Engineering</p>
+            </div>
+            <div class="date">Fall 2022</div>
+        </section>
+        <section>
+            <div style="flex-grow: 1;">
+                <p><strong>World Robot Olympiad Hong Kong Challenge 2021</strong> <br>
+                    - Space Challenge - Best Performance Award <br>
+                    - Speed Challenge - Best Performance Award <br>
+                    - New Sports Challenge - Best Performance Award</p>
+                </p>
+                <!-- https://www.peachcp.com/wro-hk/scoring-results/ -->
+                <!-- https://www.plktytc.edu.hk/CustomPage/paragraphGroup.aspx?webPageId=287&pageId=380 -->
+            </div>
+            <div class="date">July 2021</div>
+        </section>
+        <section>
+            <div style="flex-grow: 1;">
+                <p><strong>Robots Intelligence DIY 2021</strong> - Champion</p>
+                </p>
+                <!-- https://www.plktytc.edu.hk/CustomPage/paragraphGroup.aspx?webPageId=285&pageId=378 -->
+            </div>
+            <div class="date">July 2021</div>
+        </section>
+        <!-- APRA - Taiwan Dec 2019 *亞軍將獲邀本年12月參加在桃園小巨蛋舉行的亞太青少年機械人聯盟國際錦標賽 -->
+        <!-- https://www.hk.apra-friends.org/post/2019-apra-%E5%8F%B0%E7%81%A3%E5%9C%8B%E9%9A%9B%E9%8C%A6%E6%A8%99%E8%B3%BD -->
+        <section>
+            <div style="flex-grow: 1;">
+                <p><strong>World Robot Olympiad International - Hungary 2019</strong> - Regular Senior Category -
+                    10<sup>th</sup> out of 83 teams from 69 countries and regions</p>
+                <!-- https://scoring.wro-association.org/en/event/scoring/4/wro-international-final-2019-gyor-hungary -->
+                <ul>
+                    <li>Built and programmed LEGO Mindstorm EV3 Robot to complete some given and some hidden tasks.</li>
+                    <li>Implemented PID algorithm and Finite State Machine to control the robot's movement more
+                        accurately.</li>
+                    <li>Led a team of 3 to modify the robot's design and code to complete the hidden tasks without any
+                        instructor's assistance.</li>
+                </ul>
+            </div>
+            <div class="date">Nov 2019</div>
+        </section>
+        <section>
+            <div style="flex-grow: 1;">
+                <p><strong>World Robot Olympiad Hong Kong Selection 2019</strong> - Regular Senior Category - Champion
+                </p>
+                <!-- https://www.peachcp.com/wro-hk/scoring-results/ -->
+                <!-- https://www.plktytc.edu.hk/CustomPage/paragraphGroup.aspx?webPageId=226&pageId=312 -->
+            </div>
+            <div class="date">Sep 2019</div>
+        </section>
+    </g>
 
-    <p><strong>Chairman</strong>, TYT Robotics Team (Aug 2019 - July 2020)</p>
-    <ul>
-        <li>Led the team in various international competitions.</li>
-        <li>Supported junior members in debugging their robots.</li>
-    </ul>
-</section>
+    <g id="projects">
+        <h2>Programming Projects</h2>
+        <section>
+            <div style="flex-grow: 1;">
+                <p><strong>Chinese Calligraphy Robot</strong> | Python threading, Tkinter UI</p>
+                <ul>
+                    <li>Developed a 3D Bézier curve path planning algorithm to control the robotic arm for writing
+                        Chinese
+                        calligraphy.</li>
+                    <li>Prepared and submitted conference papers and posters to TENCON 2025, ISAM Makerspace 2025, and
+                        IET
+                        YPEC 2025.</li>
+                    <li>Utilized Python threading to manage multiple tasks simultaneously, ensuring smooth operation of
+                        the
+                        robotic system.</li>
+                </ul>
+            </div>
+            <div class="date">Sept 2024 - Present</div>
+        </section>
+        <section>
+            <div style="flex-grow: 1;">
+                <p><strong>Glyphmaster</strong> | Game Programming with WebGL, Three.js & Socket.io</p>
+                <ul>
+                    <li>Developed Glyphmaster, a 3D RPG game where players draw glyphs to cast spells and battle
+                        monsters in
+                        a fantasy world.</li>
+                    <li>Implemented a magic glyph identification algorithm that allows players to draw magic glyphs
+                        using
+                        hand or mouse input.</li>
+                    <li>Created a real-time multiplayer mode with synchronization of player movements and game states.
+                    </li>
+                </ul>
+            </div>
+            <div class="date">Sept - Dec 2024</div>
+        </section>
+        <section>
+            <div style="flex-grow: 1;">
+                <p><strong>Trajectory Planner Software</strong> | Python, Embedded C Programming & PyQT Framework</p>
+                <ul>
+                    <li>Modified the button layout of the Bézier curve trajectory planner of HKUST Robotics Team to make
+                        it
+                        more user-friendly.</li>
+                    <li>Optimized its output files with existing Embedded C pathing libraries to reduce the embedded
+                        program
+                        size by 5%.</li>
+                </ul>
+            </div>
+            <div class="date">Sep 2023 - Jan 2024</div>
+        </section>
+    </g>
 
-<section id="awards">
-    <h2>Awards</h2>
-    <p><strong>Dean’s List</strong>, School of Engineering (Fall 2022 and Spring 2025)</p>
-    <p><strong>ABU Robocon Hong Kong 2024</strong> - 2nd Runner-Up, Best Team Spirit Award</p>
-</section>
+    <g id="skills">
+        <h2>Technical Skills</h2>
+        <section>
+            <p><strong>Languages:</strong></p>
+            <ul>
+                <li>Proficient in C</li>
+                <li>Intermediate in C++, Python, Java</li>
+                <li>Beginner in HTML, CSS, JavaScript, PHP, Kotlin, SQL, Excel VBA</li>
+            </ul>
+        </section>
+        <section>
+            <p><strong>Tools:</strong></p>
+            <ul>
+                <li>Extensive experience with VSCode, Git, GitHub, Lego Mindstorm EV3, NXT</li>
+                <li>Beginner in Solidworks, CubeIDE, Arduino</li>
+            </ul>
+        </section>
+        <section>
+            <p><strong>Frameworks/Technologies:</strong></p>
+            <ul>
+                <li>Beginner in ROS2, RTOS, STM32, YOLO, Three.js, Node.js, jQuery</li>
+            </ul>
+        </section>
+        <section>
+            <p><strong>Algorithms:</strong></p>
+            <ul>
+                <li>PID Control</li>
+                <li>Finite State Machine (FSM)</li>
+                <li>Trapezoidal Acceleration Profiles</li>
+                <li>Bézier Curves and Splines</li>
+            </ul>
+        </section>
+    </g>
+    <g id="contacts">
+        <h2>Contacts</h2>
+        <section>
+            <p>
+                Phone: +852 6218 8414 <br>
+                Email: <a href="mailto:dhcheungaa@connect.ust.hk">dhcheungaa@connect.ust.hk</a> <br>
+                Gmail: <a href="mailto:dicapriocheung@gmail.com">dicapriocheung@gmail.com</a> <br>
+                GitHub: <a href="https://github.com/DicaprioCheung" target="_blank">Dicaprio Cheung</a> <br>
+                LinkedIn: <a href="https://www.linkedin.com/in/cheung-dick-ho-25b9b4284/" target="_blank">Cheung
+                    Dicaprio</a>
+                <br>
+            </p>
+        </section>
+    </g>
 
-<section id="projects">
-    <h2>Programming Projects</h2>
-    <p><strong>Chinese Calligraphy Robot</strong> | Python threading, Tkinter UI (Sept 2024 - Present)</p>
-    <ul>
-        <li>Developed a 3D Bézier curve path planning algorithm for a robotic arm.</li>
-    </ul>
-
-    <p><strong>Glyphmaster</strong> | Game Programming with WebGL, Three.js & Socket.io (Sept - Dec 2024)</p>
-    <ul>
-        <li>Developed a 3D RPG game where players draw glyphs to cast spells.</li>
-    </ul>
-
-    <p><strong>Trajectory Planner Software</strong> | Python, Embedded C Programming & PyQT Framework (Sep 2023 - Jan 2024)</p>
-    <ul>
-        <li>Modified the button layout of the trajectory planner for user-friendliness.</li>
-    </ul>
-</section>
-
-<section id="skills">
-    <h2>Technical Skills</h2>
-    <p><strong>Languages:</strong> Proficient in C, C++; Intermediate in Python, Java; Beginner in JavaScript, HTML, SQL.</p>
-    <p><strong>Tools:</strong> Extensive experience with VSCode, GitHub, CubeIDE.</p>
-</section>
-
-<script>
-    function showSection(sectionId) {
-        const sections = document.querySelectorAll('section');
-        sections.forEach(section => {
-            section.classList.remove('active');
-        });
-        document.getElementById(sectionId).classList.add('active');
-    }
-</script>
+    <script>
+        function showGroup(groupId) {
+            const groups = document.querySelectorAll('g');
+            groups.forEach(group => {
+                group.classList.remove('active');
+            });
+            document.getElementById(groupId).classList.add('active');
+        }
+    </script>
 
 </body>
+
 </html>
