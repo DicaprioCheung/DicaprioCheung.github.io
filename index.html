@@ -38,10 +38,6 @@
             background: #003f7f;
         }
 
-        strong {
-            font-size: 1.5em;
-        }
-
         g {
             display: none;
         }
@@ -87,7 +83,6 @@
 </head>
 
 <body>
-
     <header>
         <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
             <h1 style="margin: 0;">Dicaprio Cheung</h1>
@@ -108,7 +103,9 @@
         <h2>About Me</h2>
         <section>
             <p>
-                <strong>Hi, I am Cheung Dick Ho, Dicaprio.</strong><br>
+                <strong style="font-size: 1em;">Hi, I am </strong><br>
+                <strong style="font-size: 2em;">Cheung Dick Ho, Dicaprio.</strong><br>
+                <br>
                 I am a HKUST Computer Engineering graduate, currently seeking employment.<br>
                 <br>
                 This page is still under development...<br>
@@ -119,7 +116,9 @@
 
     <g id="education">
         <h2>Education</h2>
-        <section>
+        <section
+            onclick="window.open('https://registry.hkust.edu.hk/verify/EDACFC8E-C876-454B-B90B-8DF0B8251E76', '_blank')"
+            style="cursor: pointer;">
             <div>
                 <img src="./hkust.svg" alt="HKUST Logo">
             </div>
@@ -130,6 +129,7 @@
                     (Minor in Robotics) <br>
                 <ul>
                     <li>First Class Honors</li>
+                    <li>Dean’s List: Fall 2022, Spring, 2025</li>
                     <li>CGA: 3.587 / 4.3</li>
                     <li>Major CGA: 3.724 / 4.3</li>
                 </ul>
@@ -137,7 +137,8 @@
             </div>
             <div class="date">Sep 2021 - May 2025</div>
         </section>
-        <section>
+        <section onclick="window.open('https://www.plktytc.edu.hk/', '_blank')" style="cursor: pointer;">
+            <!-- https://www.plktytc.edu.hk/CustomPage/paragraphGroup.aspx?webPageId=288&pageId=381 -->
             <div>
                 <img src="./plktytc.jpg" alt="TYT Logo">
             </div>
@@ -165,7 +166,7 @@
             </div>
             <div style="flex-grow: 1;">
                 <p><strong>Undergraduate Teaching Assistant (UGTA)</strong>, COMP 2011 Programming with C++<br>
-                    CSE, HKUST</p>
+                    Department of Computer Science & Engineering, HKUST</p>
                 <ul>
                     <li>Assisted in organizing lab tutorials for over 60 students.</li>
                     <li>Answered questions on course assignments and lecture materials.</li>
@@ -179,7 +180,7 @@
             </div>
             <div style="flex-grow: 1;">
                 <p><strong>Student Tutor</strong>, COMP 2011 Programming with C++<br>
-                    ECE, HKUST</p>
+                    Department of Electronic & Computer Engineering, HKUST</p>
                 <ul>
                     <li>Provided a peer-to-peer platform for students to ask questions on course assignments and lecture
                         materials.</li>
@@ -191,7 +192,7 @@
 
     <g id="leadership">
         <h2>Leadership & Extra-Curricular Activities</h2>
-        <section>
+        <section onclick="window.open('https://robotics.hkust.edu.hk/', '_blank')" style="cursor: pointer;">
             <div>
                 <img src="./hkust_robotics_team.jpg" alt="HKUST Robotics Team Logo">
             </div>
@@ -203,14 +204,13 @@
                     <li>Lead a team of more than 30 members through multiple iterations of robot design.</li>
                     <li>Oversaw the development of 10+ competition robots each year</li>
                     <li>Organized Software Tutorials for 100+ new recruits.</li>
-                    <li>Host an internal Robot Design Comtest for 120+ contestants to select top performers for the
+                    <li>Host an internal Robot Design Contest for 120+ contestants to select top performers for the
                         team.</li>
-
                 </ul>
             </div>
             <div class="date">Jan 2023 - Dec 2024</div>
         </section>
-        <section>
+        <section onclick="window.open('https://www.instagram.com/tytroboticsteam/', '_blank')" style="cursor: pointer;">
             <div>
                 <img src="./plktytc.jpg" alt="HKUST Logo">
             </div>
@@ -229,13 +229,14 @@
 
     <g id="awards">
         <h2>Awards</h2>
-        <section class="small">
+        <!-- <section class="small">
             <div style="flex-grow: 1;">
                 <p><strong>Dean’s List</strong>, School of Engineering</p>
             </div>
             <div class="date">Spring 2025</div>
-        </section>
-        <section>
+        </section> -->
+        <section onclick="window.open('http://www.roboconhk.com/2024/final-result.html', '_blank')"
+            style="cursor: pointer;">
             <div style="flex-grow: 1;">
                 <p><strong>ABU Robocon Hong Kong 2024</strong> - War Dragon - 2nd Runner-Up, Best Team Spirit Award</p>
                 <ul>
@@ -247,53 +248,56 @@
                         iterations of robots.</li>
                     <li>Automated all robot movements between all different key positions on the map such that the
                         robot’s controller only needs to decide where to go without the need of manual controlling how
-                        to go.
-                    </li>
+                        to go.</li>
                 </ul>
             </div>
             <div class="date">June 2024</div>
         </section>
-        <section class="small">
+        <section onclick="window.open('http://www.roboconhk.com/2023/index.html', '_blank')" style="cursor: pointer;">
             <div style="flex-grow: 1;">
                 <p><strong>ABU Robocon Hong Kong 2023</strong> - Fiery Dragon - Top 8</p>
             </div>
             <div class="date">June 2023</div>
         </section>
-        <section class="small">
+        <!-- <section class="small">
             <div style="flex-grow: 1;">
                 <p><strong>Dean’s List</strong>, School of Engineering</p>
             </div>
             <div class="date">Fall 2022</div>
-        </section>
-        <section>
+        </section> -->
+        <section
+            onclick="window.open('https://www.plktytc.edu.hk/CustomPage/paragraphGroup.aspx?webPageId=287&pageId=380', '_blank')"
+            style="cursor: pointer;">
             <div style="flex-grow: 1;">
                 <p><strong>World Robot Olympiad Hong Kong Challenge 2021</strong> <br>
                     - Space Challenge - Best Performance Award <br>
                     - Speed Challenge - Best Performance Award <br>
-                    - New Sports Challenge - Best Performance Award</p>
+                    - New Sports Challenge - Best Performance Award
                 </p>
                 <!-- https://www.peachcp.com/wro-hk/scoring-results/ -->
-                <!-- https://www.plktytc.edu.hk/CustomPage/paragraphGroup.aspx?webPageId=287&pageId=380 -->
             </div>
             <div class="date">July 2021</div>
         </section>
-        <section>
+        <section
+            onclick="window.open('https://www.plktytc.edu.hk/CustomPage/paragraphGroup.aspx?webPageId=285&pageId=378', '_blank')"
+            style="cursor: pointer;">
             <div style="flex-grow: 1;">
                 <p><strong>Robots Intelligence DIY 2021</strong> - Champion</p>
-                </p>
-                <!-- https://www.plktytc.edu.hk/CustomPage/paragraphGroup.aspx?webPageId=285&pageId=378 -->
             </div>
             <div class="date">July 2021</div>
         </section>
-        <section>
+        <section
+            onclick="window.open('https://www.hk.apra-friends.org/post/2019-apra-%E5%8F%B0%E7%81%A3%E5%9C%8B%E9%9A%9B%E9%8C%A6%E6%A8%99%E8%B3%BD', '_blank')"
+            style="cursor: pointer;">
             <div style="flex-grow: 1;">
                 <p><strong>Asia Pacific Robot Alliance International - Taiwan 2019</strong> - 銀河守護任務 - 中學組 - 佳作</p>
                 <!-- APRA - Taiwan Dec 2019 *亞軍將獲邀本年12月參加在桃園小巨蛋舉行的亞太青少年機械人聯盟國際錦標賽 -->
-                <!-- https://www.hk.apra-friends.org/post/2019-apra-%E5%8F%B0%E7%81%A3%E5%9C%8B%E9%9A%9B%E9%8C%A6%E6%A8%99%E8%B3%BD -->
             </div>
             <div class="date">Dec 2019</div>
         </section>
-        <section>
+        <section
+            onclick="window.open('https://www.plktytc.edu.hk/CustomPage/paragraphGroup.aspx?webPageId=226&pageId=312', '_blank')"
+            style="cursor: pointer;">
             <div style="flex-grow: 1;">
                 <p><strong>World Robot Olympiad International - Hungary 2019</strong> - Regular Senior Category -
                     10<sup>th</sup> out of 83 teams from 69 countries and regions</p>
@@ -308,21 +312,23 @@
             </div>
             <div class="date">Nov 2019</div>
         </section>
-        <section>
+        <section
+            onclick="window.open('https://www.plktytc.edu.hk/CustomPage/paragraphGroup.aspx?webPageId=226&pageId=312', '_blank')"
+            style="cursor: pointer;">
             <div style="flex-grow: 1;">
                 <p><strong>World Robot Olympiad Hong Kong Selection 2019</strong> - Regular Senior Category - Champion
                 </p>
                 <!-- https://www.peachcp.com/wro-hk/scoring-results/ -->
-                <!-- https://www.plktytc.edu.hk/CustomPage/paragraphGroup.aspx?webPageId=226&pageId=312 -->
             </div>
             <div class="date">Sep 2019</div>
         </section>
-        <section>
+        <section
+            onclick="window.open('https://www.hk.apra-friends.org/post/2019-%E9%A6%99%E6%B8%AF%E9%81%B8%E6%8B%94%E8%B3%BD%E5%BE%97%E7%8D%8E%E5%90%8D%E5%96%AE', '_blank')"
+            style="cursor: pointer;">
             <div style="flex-grow: 1;">
                 <p><strong>Asia Pacific Robot Alliance Hong Kong Selection 2019</strong> - 銀河守護任務 - 中學組 - 亞軍</p>
                 <!-- APRA - Taiwan Dec 2019 *亞軍將獲邀本年12月參加在桃園小巨蛋舉行的亞太青少年機械人聯盟國際錦標賽 -->
                 <!-- https://www.plktytc.edu.hk/CustomPage/paragraphGroup.aspx?webPageId=218&pageId=304 -->
-                <!-- https://www.hk.apra-friends.org/post/2019-%E9%A6%99%E6%B8%AF%E9%81%B8%E6%8B%94%E8%B3%BD%E5%BE%97%E7%8D%8E%E5%90%8D%E5%96%AE -->
             </div>
             <div class="date">July 2019</div>
         </section>
@@ -330,19 +336,23 @@
 
     <g id="projects">
         <h2>Programming Projects</h2>
-        <section>
+        <section onclick="window.open('https://youtu.be/PfwRGyaZ8r0', '_blank')" style="cursor: pointer;">
             <div style="flex-grow: 1;">
                 <p><strong>Chinese Calligraphy Robot</strong> | Python threading, Tkinter UI</p>
                 <ul>
                     <li>Developed a 3D Bézier curve path planning algorithm to control the robotic arm for writing
-                        Chinese
-                        calligraphy.</li>
-                    <li>Prepared and submitted conference papers and posters to TENCON 2025, ISAM Makerspace 2025, and
-                        IET
-                        YPEC 2025.</li>
+                        Chinese calligraphy.</li>
+                    <li>Prepared and submitted conference papers and posters to
+                        <a onclick="window.open('https://ieeemy.org/tencon2025/', '_blank')"
+                            style="text-decoration: underline; color: blue; cursor: pointer;">TENCON 2025</a>,
+                        <a onclick="window.open('https://isam2025.hemi-makers.org/', '_blank')"
+                            style="text-decoration: underline; color: blue; cursor: pointer;">ISAM Makerspace 2025</a>,
+                        and
+                        <a onclick="window.open('https://www.ietypec.org/', '_blank')"
+                            style="text-decoration: underline; color: blue; cursor: pointer;">IET YPEC 2025</a>.
+                    </li>
                     <li>Utilized Python threading to manage multiple tasks simultaneously, ensuring smooth operation of
-                        the
-                        robotic system.</li>
+                        the robotic system.</li>
                 </ul>
             </div>
             <div class="date">Sept 2024 - Present</div>
@@ -417,8 +427,8 @@
         <section>
             <p>
                 Phone: +852 6218 8414 <br>
-                Email: <a href="mailto:dhcheungaa@connect.ust.hk">dhcheungaa@connect.ust.hk</a> <br>
-                Gmail: <a href="mailto:dicapriocheung@gmail.com">dicapriocheung@gmail.com</a> <br>
+                Email: <a href="mailto:dhcheungaa@connect.ust.hk" target="_blank">dhcheungaa@connect.ust.hk</a> <br>
+                Gmail: <a href="mailto:dicapriocheung@gmail.com" target="_blank">dicapriocheung@gmail.com</a> <br>
                 GitHub: <a href="https://github.com/DicaprioCheung" target="_blank">DicaprioCheung</a> <br>
                 LinkedIn: <a href="https://www.linkedin.com/in/cheung-dick-ho-25b9b4284/" target="_blank">Cheung
                     (Dicaprio) Dick Ho</a>
