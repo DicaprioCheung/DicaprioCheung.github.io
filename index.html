@@ -15,24 +15,31 @@
         }
 
         header {
+            position: sticky;
+            top: 0;
             background: #007BFF;
             color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        nav {
-            margin: 20px 0;
-            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
 
         nav button {
             margin: 0 5px;
             padding: 10px;
             border: none;
-            background: #007BFF;
+            background: #0056b3;
             color: white;
             cursor: pointer;
+            border-radius: 5px;
+        }
+
+        nav button:hover {
+            background: #003f7f;
+        }
+
+        strong {
+            font-size: 1.5em;
         }
 
         g {
@@ -82,25 +89,28 @@
 <body>
 
     <header>
-        <h1>Dicaprio Cheung</h1>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
+            <h1 style="margin: 0;">Dicaprio Cheung</h1>
+            <nav>
+                <button onclick="showGroup('about')">About Me</button>
+                <button onclick="showGroup('education')">Education</button>
+                <button onclick="showGroup('teaching')">Teaching Experience</button>
+                <button onclick="showGroup('leadership')">Leadership & Extra-Curricular</button>
+                <button onclick="showGroup('awards')">Awards</button>
+                <button onclick="showGroup('projects')">Programming Projects</button>
+                <button onclick="showGroup('skills')">Technical Skills</button>
+                <button onclick="showGroup('contacts')">Contacts</button>
+            </nav>
+        </div>
     </header>
-
-    <nav>
-        <button onclick="showGroup('about')">About Me</button>
-        <button onclick="showGroup('education')">Education</button>
-        <button onclick="showGroup('teaching')">Teaching Experience</button>
-        <button onclick="showGroup('leadership')">Leadership & Extra-Curricular</button>
-        <button onclick="showGroup('awards')">Awards</button>
-        <button onclick="showGroup('projects')">Programming Projects</button>
-        <button onclick="showGroup('skills')">Technical Skills</button>
-        <button onclick="showGroup('contacts')">Contacts</button>
-    </nav>
 
     <g id="about" class="active">
         <h2>About Me</h2>
         <section>
             <p>
-                <strong>Hi, I am Dicaprio.</strong><br>
+                <strong>Hi, I am Cheung Dick Ho, Dicaprio.</strong><br>
+                I am a HKUST Computer Engineering graduate, currently seeking employment.<br>
+                <br>
                 This page is still under development...<br>
                 but you can still read some parts of it
             </p>
@@ -275,8 +285,14 @@
             </div>
             <div class="date">July 2021</div>
         </section>
-        <!-- APRA - Taiwan Dec 2019 *亞軍將獲邀本年12月參加在桃園小巨蛋舉行的亞太青少年機械人聯盟國際錦標賽 -->
-        <!-- https://www.hk.apra-friends.org/post/2019-apra-%E5%8F%B0%E7%81%A3%E5%9C%8B%E9%9A%9B%E9%8C%A6%E6%A8%99%E8%B3%BD -->
+        <section>
+            <div style="flex-grow: 1;">
+                <p><strong>Asia Pacific Robot Alliance International - Taiwan 2019</strong> - 銀河守護任務 - 中學組 - 佳作</p>
+                <!-- APRA - Taiwan Dec 2019 *亞軍將獲邀本年12月參加在桃園小巨蛋舉行的亞太青少年機械人聯盟國際錦標賽 -->
+                <!-- https://www.hk.apra-friends.org/post/2019-apra-%E5%8F%B0%E7%81%A3%E5%9C%8B%E9%9A%9B%E9%8C%A6%E6%A8%99%E8%B3%BD -->
+            </div>
+            <div class="date">Dec 2019</div>
+        </section>
         <section>
             <div style="flex-grow: 1;">
                 <p><strong>World Robot Olympiad International - Hungary 2019</strong> - Regular Senior Category -
@@ -300,6 +316,15 @@
                 <!-- https://www.plktytc.edu.hk/CustomPage/paragraphGroup.aspx?webPageId=226&pageId=312 -->
             </div>
             <div class="date">Sep 2019</div>
+        </section>
+        <section>
+            <div style="flex-grow: 1;">
+                <p><strong>Asia Pacific Robot Alliance Hong Kong Selection 2019</strong> - 銀河守護任務 - 中學組 - 亞軍</p>
+                <!-- APRA - Taiwan Dec 2019 *亞軍將獲邀本年12月參加在桃園小巨蛋舉行的亞太青少年機械人聯盟國際錦標賽 -->
+                <!-- https://www.plktytc.edu.hk/CustomPage/paragraphGroup.aspx?webPageId=218&pageId=304 -->
+                <!-- https://www.hk.apra-friends.org/post/2019-%E9%A6%99%E6%B8%AF%E9%81%B8%E6%8B%94%E8%B3%BD%E5%BE%97%E7%8D%8E%E5%90%8D%E5%96%AE -->
+            </div>
+            <div class="date">July 2019</div>
         </section>
     </g>
 
@@ -394,9 +419,9 @@
                 Phone: +852 6218 8414 <br>
                 Email: <a href="mailto:dhcheungaa@connect.ust.hk">dhcheungaa@connect.ust.hk</a> <br>
                 Gmail: <a href="mailto:dicapriocheung@gmail.com">dicapriocheung@gmail.com</a> <br>
-                GitHub: <a href="https://github.com/DicaprioCheung" target="_blank">Dicaprio Cheung</a> <br>
+                GitHub: <a href="https://github.com/DicaprioCheung" target="_blank">DicaprioCheung</a> <br>
                 LinkedIn: <a href="https://www.linkedin.com/in/cheung-dick-ho-25b9b4284/" target="_blank">Cheung
-                    Dicaprio</a>
+                    (Dicaprio) Dick Ho</a>
                 <br>
             </p>
         </section>
