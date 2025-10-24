@@ -79,6 +79,32 @@
             color: #007BFF;
             margin-top: 0;
         }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            background-color: #003F7F;
+            padding: 10px;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
     </style>
 </head>
 
@@ -87,14 +113,53 @@
         <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
             <h1 style="margin: 0;">Dicaprio Cheung</h1>
             <nav>
-                <button onclick="showGroup('about')">About Me</button>
+                <!-- <button onclick="showGroup('about')">About Me</button>
                 <button onclick="showGroup('education')">Education</button>
                 <button onclick="showGroup('teaching')">Teaching Experience</button>
                 <button onclick="showGroup('robotics')">Robotics</button>
                 <button onclick="showGroup('awards')">Awards</button>
                 <button onclick="showGroup('projects')">Programming Projects</button>
                 <button onclick="showGroup('skills')">Technical Skills</button>
-                <button onclick="showGroup('contacts')">Contacts</button>
+                <button onclick="showGroup('contacts')">Contacts</button> -->
+
+                <ul>
+                    <li>About Me
+                        <ul>
+                            <li><button onclick="showGroup('about')">About Me</button></li>
+                            <!-- <li><a href="#About Me">About Me</a></li>
+                            <li><a href="#Education">Education</a></li>
+                            <li><a href="#Teaching Experience">Teaching Experience</a></li>
+                            <li><a href="#Robotics">Robotics</a></li>
+                            <li><a href="#Notable Projects/Awards">Notable Projects/Awards</a></li>
+                            <li><a href="#Technical Skills">Technical Skills</a></li>
+                            <li><a href="#Contact Me">Contact Me</a></li> -->
+                        </ul>
+                    </li>
+                    <li>Education
+                        <ul>
+                            <li><button onclick="showGroup('hkust')">HKUST</button></li>
+                            <li><button onclick="showGroup('plktytc')">PLKTYTC</button></li>
+                        </ul>
+                    </li>
+                    <li>Teaching
+                        <ul>
+                            <li><button onclick="showGroup('10botics')">10Botics</button></li>
+                            <li><button onclick="showGroup('hkust_comp2011')">HKUST COMP2011</button></li>
+                        </ul>
+                    </li>
+                    <li>Robotics
+                        <ul>
+                            <li><button onclick="showGroup('ust_robocon')">UST Robocon</button></li>
+                            <li><button onclick="showGroup('tyt_robotics')">TYT Robotics Team</button></li>
+                        </ul>
+                    </li>
+                    <li>Awards/Projects
+                        <ul>
+                            <li><button onclick="showGroup('awards')">Awards</button></li>
+                            <li><button onclick="showGroup('projects')">Projects</button></li>
+                        </ul>
+                    </li>
+                </ul>
             </nav>
         </div>
     </header>
@@ -112,19 +177,239 @@
                 but you can still read some parts of it
             </p>
         </section>
-        <script> window.chtlConfig = { chatbotId: "9446982141", display: "page_inline" } </script>
+        <!-- <script> window.chtlConfig = { chatbotId: "9446982141", display: "page_inline" } </script>
         <div id="chtl-inline-bot" style="width: 100%; height: 500px;"></div>
         <script async data-id="9446982141" data-display="page_inline" id="chtl-script" type="text/javascript"
-            src="https://chatling.ai/js/embed.js"></script>
+            src="https://chatling.ai/js/embed.js"></script> -->
+
+        <h2>Education</h2>
+        <section>
+            <div>
+                <img src="./images/hkust.svg" alt="HKUST Logo">
+            </div>
+            <div style="flex-grow: 1;">
+                <p><strong>The Hong Kong University of Science and Technology (HKUST)</strong> <br>
+                    Bachelor of Engineering in Computer Engineering (CPEG)<br>
+                    with Extended Major in Artificial Intelligence (+AI)<br>
+                    (Minor in Robotics) <br>
+                <ul>
+                    <li>First Class Honors</li>
+                </ul>
+                </p>
+                <button onclick="showGroup('hkust')">Know More...</button>
+            </div>
+            <div class="date">Sep 2021 - May 2025</div>
+        </section>
+        <section>
+            <div>
+                <img src="./images/plktytc.jpg" alt="TYT Logo">
+            </div>
+            <div style="flex-grow: 1;">
+                <p><strong>Po Leung Kuk Tang Yuk Tien College (TYT)</strong> <br>
+                    Hong Kong Diploma of Secondary Education (HKDSE) (2021)
+                <ul>
+                    <li>5** in Physics, 5** in Mathematics (Compulsory part)</li>
+                </ul>
+                </p>
+                <button onclick="showGroup('plktytc')">Know More...</button>
+            </div>
+            <div class="date">Sep 2015 - July 2021</div>
+        </section>
+
+        <h2>Teaching Experience</h2>
+        <section>
+            <div>
+                <img src="./images/10botics.png" alt="10botics Logo">
+            </div>
+            <div style="flex-grow: 1;">
+                <p><strong>Part-time STEM Course Instructor</strong><br>
+                    10Botics</p>
+                <ul>
+                    <li>Instructed groups of 10-20 primary school students in STEM topics, like SpaceFlight Simulator,
+                        Swift Playground,
+                        CoDrone.</li>
+                    <li>Tutored groups of 3-10 Special Educational Needs (SEN) students in maintaining saltwater
+                        aquariums with corals and
+                        fish.</li>
+                </ul>
+                <button onclick="showGroup('10botics')">Know More...</button>
+            </div>
+            <div class="date">Sep 2025 - Current</div>
+        </section>
+        <section>
+            <div>
+                <img src="./images/hkust.svg" alt="HKUST Logo">
+            </div>
+            <div style="flex-grow: 1;">
+                <p><strong>Undergraduate Teaching Assistant (UGTA)</strong>, COMP 2011 Programming with C++<br>
+                    Department of Computer Science & Engineering, HKUST</p>
+                <ul>
+                    <li>Assisted in organizing lab tutorials for over 60 students.</li>
+                    <li>Answered questions on course assignments and lecture materials.</li>
+                </ul>
+                <button onclick="showGroup('hkust_comp2011')">Know More...</button>
+            </div>
+            <div class="date">Sep - Nov 2024</div>
+        </section>
+        <section>
+            <div>
+                <img src="./images/hkust.svg" alt="HKUST Logo">
+            </div>
+            <div style="flex-grow: 1;">
+                <p><strong>Student Tutor</strong>, COMP 2011 Programming with C++<br>
+                    Department of Electronic & Computer Engineering, HKUST</p>
+                <ul>
+                    <li>Provided a peer-to-peer platform for students to ask questions on course assignments and lecture
+                        materials.</li>
+                </ul>
+                <button onclick="showGroup('hkust_comp2011')">Know More...</button>
+            </div>
+            <div class="date">Sep - Nov 2022</div>
+        </section>
+
+        <h2>Robotics</h2>
+        <section>
+            <div>
+                <img src="./images/hkust_robotics_team.jpg" alt="HKUST Robotics Team Logo">
+            </div>
+            <div style="flex-grow: 1;">
+                <p><strong>Senior Software Engineer Lead</strong>, HKUST Robotics Team, Robocon Sub-team</p>
+                <ul>
+                    <li>Participated in the 2023 and 2024 ABU Robocon Hong Kong Regional Contests and won many different
+                        awards</li>
+                    <li>Lead a team of more than 30 members through multiple iterations of robot design.</li>
+                    <li>Oversaw the development of 10+ competition robots each year</li>
+                    <li>Organized Software Tutorials for 100+ new recruits.</li>
+                    <li>Host an internal Robot Design Contest for 120+ contestants to select top performers for the
+                        team.</li>
+                </ul>
+                <button onclick="showGroup('ust_robocon')">Know More...</button>
+            </div>
+            <div class="date">Jan 2023 - Dec 2024</div>
+        </section>
+        <section>
+            <div>
+                <img src="./images/plktytc.jpg" alt="HKUST Logo">
+            </div>
+            <div style="flex-grow: 1;">
+                <p><strong>Chairman</strong>, TYT Robotics Team </p>
+                <ul>
+                    <li>Led the team in various international competitions.</li>
+                    <li>Supported junior members in debugging their robots.</li>
+                </ul>
+                <button onclick="showGroup('tyt_robotics')">Know More...</button>
+            </div>
+            <div class="date">Chairman: Aug 2019 - July 2020
+                <br>Member: Sep 2015 - Aug 2021
+            </div>
+        </section>
+
+        <h2>Notable Projects/Awards</h2>
+        <section onclick="window.open('https://isam2025.hemi-makers.org/', '_blank')" style="cursor: pointer;">
+            <div style="flex-grow: 1;">
+                <p><strong>International Symposium on Academic Makerspaces (ISAM) 2025</strong> - Best Student Poster
+                    Award</p>
+                <ul>
+                    <li>Attended ISAM 2025 Conference in UC Berkeley and Presented my poster to makerspace practitioners
+                        from USA and around the world.</li>
+                    <li>Developed a 3D Bézier curve path planning algorithm to control the robotic arm for writing
+                        Chinese calligraphy.</li>
+                    <li>Utilized Python threading to manage multiple tasks simultaneously, ensuring smooth operation of
+                        the robotic system.</li>
+                </ul>
+            </div>
+            <div class="date">August 2025</div>
+        </section>
+        <section onclick="window.open('http://www.roboconhk.com/2024/final-result.html', '_blank')"
+            style="cursor: pointer;">
+            <div style="flex-grow: 1;">
+                <p><strong>ABU Robocon Hong Kong 2024</strong> - War Dragon - 2nd Runner-Up, Best Team Spirit Award</p>
+                <ul>
+                    <li>Collaborated with a team of 20 to design, prototype, and program 1 fully-automatic, and 1
+                        semi-automatic robot.</li>
+                    <li>Utilized STM32, RTOS, Robot Operating System 2 (ROS2), YOLO computer vision object detection
+                        model on the robots.</li>
+                    <li>Led and mentored a team of 4 junior software engineers to design the algorithm for 3+ different
+                        iterations of robots.</li>
+                    <li>Automated all robot movements between all different key positions on the map such that the
+                        robot’s controller only needs to decide where to go without the need of manual controlling how
+                        to go.</li>
+                </ul>
+            </div>
+            <div class="date">June 2024</div>
+        </section>
+        <section
+            onclick="window.open('https://www.plktytc.edu.hk/CustomPage/paragraphGroup.aspx?webPageId=226&pageId=312', '_blank')"
+            style="cursor: pointer;">
+            <div style="flex-grow: 1;">
+                <p><strong>World Robot Olympiad International - Hungary 2019</strong> - Regular Senior Category -
+                    10<sup>th</sup> out of 83 teams from 69 countries and regions</p>
+                <!-- https://scoring.wro-association.org/en/event/scoring/4/wro-international-final-2019-gyor-hungary -->
+                <ul>
+                    <li>Built and programmed LEGO Mindstorm EV3 Robot to complete some given and some hidden tasks.</li>
+                    <li>Implemented PID algorithm and Finite State Machine to control the robot's movement more
+                        accurately.</li>
+                    <li>Led a team of 3 to modify the robot's design and code to complete the hidden tasks without any
+                        instructor's assistance.</li>
+                </ul>
+            </div>
+            <div class="date">Nov 2019</div>
+        </section>
+        <button onclick="showGroup('awards')">More Awards...</button><button onclick="showGroup('projects')">More
+            Projects...</button>
+
+        <h2>Technical Skills</h2>
+        <section>
+            <p><strong>Languages:</strong></p>
+            <ul>
+                <li>Proficient in C</li>
+                <li>Intermediate in C++, Python, Java</li>
+                <li>Beginner in HTML, CSS, JavaScript, PHP, Kotlin, SQL, Excel VBA</li>
+            </ul>
+        </section>
+        <section>
+            <p><strong>Tools:</strong></p>
+            <ul>
+                <li>Extensive experience with VSCode, Git, GitHub, Lego Mindstorm EV3, NXT</li>
+                <li>Beginner in Solidworks, CubeIDE, Arduino</li>
+            </ul>
+        </section>
+        <section>
+            <p><strong>Frameworks/Technologies:</strong></p>
+            <ul>
+                <li>Beginner in ROS2, RTOS, STM32, YOLO, Three.js, Node.js, jQuery</li>
+            </ul>
+        </section>
+        <section>
+            <p><strong>Algorithms:</strong></p>
+            <ul>
+                <li>PID Control</li>
+                <li>Finite State Machine (FSM)</li>
+                <li>Trapezoidal Acceleration Profiles</li>
+                <li>Bézier Curves and Splines</li>
+            </ul>
+        </section>
+        <h2>Contacts</h2>
+        <section>
+            <p>
+                Phone: +852 6218 8414 <br>
+                <!-- Email: <a href="mailto:dhcheungaa@connect.ust.hk" target="_blank">dhcheungaa@connect.ust.hk</a> <br> -->
+                Gmail: <a href="mailto:dicapriocheung@gmail.com" target="_blank">dicapriocheung@gmail.com</a> <br>
+                GitHub: <a href="https://github.com/DicaprioCheung" target="_blank">DicaprioCheung</a> <br>
+                LinkedIn: <a href="https://www.linkedin.com/in/cheung-dick-ho-25b9b4284/" target="_blank">Cheung
+                    (Dicaprio) Dick Ho</a>
+                <br>
+            </p>
+        </section>
     </g>
 
-    <g id="education">
-        <h2>Education</h2>
+    <g id="hkust">
+        <h2>HKUST</h2>
         <section
             onclick="window.open('https://registry.hkust.edu.hk/verify/EDACFC8E-C876-454B-B90B-8DF0B8251E76', '_blank')"
             style="cursor: pointer;">
             <div>
-                <img src="./hkust.svg" alt="HKUST Logo">
+                <img src="./images/hkust.svg" alt="HKUST Logo">
             </div>
             <div style="flex-grow: 1;">
                 <p><strong>The Hong Kong University of Science and Technology (HKUST)</strong> <br>
@@ -141,10 +426,14 @@
             </div>
             <div class="date">Sep 2021 - May 2025</div>
         </section>
+    </g>
+
+    <g id="plktytc">
+        <h2>PLKTYTC</h2>
         <section onclick="window.open('https://www.plktytc.edu.hk/', '_blank')" style="cursor: pointer;">
             <!-- https://www.plktytc.edu.hk/CustomPage/paragraphGroup.aspx?webPageId=288&pageId=381 -->
             <div>
-                <img src="./plktytc.jpg" alt="TYT Logo">
+                <img src="./images/plktytc.jpg" alt="TYT Logo">
             </div>
             <div style="flex-grow: 1;">
                 <p><strong>Po Leung Kuk Tang Yuk Tien College (TYT)</strong> <br>
@@ -162,11 +451,33 @@
         </section>
     </g>
 
-    <g id="teaching">
-        <h2>Teaching Experience</h2>
+    <g id="10botics">
+        <h2>10Botics</h2>
         <section>
             <div>
-                <img src="./hkust.svg" alt="HKUST Logo">
+                <img src="./images/10botics.png" alt="10botics Logo">
+            </div>
+            <div style="flex-grow: 1;">
+                <p><strong>Part-time STEM Course Instructor</strong><br>
+                    10Botics</p>
+                <ul>
+                    <li>Instructed groups of 10-20 primary school students in STEM topics, like SpaceFlight Simulator,
+                        Swift Playground,
+                        CoDrone.</li>
+                    <li>Tutored groups of 3-10 Special Educational Needs (SEN) students in maintaining saltwater
+                        aquariums with corals and
+                        fish.</li>
+                </ul>
+            </div>
+            <div class="date">Sep 2025 - Current</div>
+        </section>
+    </g>
+
+    <g id="hkust_comp2011">
+        <h2>HKUST COMP2011 Programming with C++</h2>
+        <section>
+            <div>
+                <img src="./images/hkust.svg" alt="HKUST Logo">
             </div>
             <div style="flex-grow: 1;">
                 <p><strong>Undergraduate Teaching Assistant (UGTA)</strong>, COMP 2011 Programming with C++<br>
@@ -180,7 +491,7 @@
         </section>
         <section>
             <div>
-                <img src="./hkust.svg" alt="HKUST Logo">
+                <img src="./images/hkust.svg" alt="HKUST Logo">
             </div>
             <div style="flex-grow: 1;">
                 <p><strong>Student Tutor</strong>, COMP 2011 Programming with C++<br>
@@ -194,11 +505,11 @@
         </section>
     </g>
 
-    <g id="robotics">
-        <h2>Robotics Activities</h2>
+    <g id="ust_robocon">
+        <h2>HKUST Robocon</h2>
         <section onclick="window.open('https://robotics.hkust.edu.hk/', '_blank')" style="cursor: pointer;">
             <div>
-                <img src="./hkust_robotics_team.jpg" alt="HKUST Robotics Team Logo">
+                <img src="./images/hkust_robotics_team.jpg" alt="HKUST Robotics Team Logo">
             </div>
             <div style="flex-grow: 1;">
                 <p><strong>Senior Software Engineer Lead</strong>, HKUST Robotics Team, Robocon Sub-team</p>
@@ -214,9 +525,12 @@
             </div>
             <div class="date">Jan 2023 - Dec 2024</div>
         </section>
+    </g>
+    <g id="tyt_robotics">
+        <h2>TYT Robotics Team</h2>
         <section onclick="window.open('https://www.instagram.com/tytroboticsteam/', '_blank')" style="cursor: pointer;">
             <div>
-                <img src="./plktytc.jpg" alt="HKUST Logo">
+                <img src="./images/plktytc.jpg" alt="HKUST Logo">
             </div>
             <div style="flex-grow: 1;">
                 <p><strong>Chairman</strong>, TYT Robotics Team </p>
@@ -481,54 +795,6 @@
                 </ul>
             </div>
             <div class="date">Sep 2023 - Jan 2024</div>
-        </section>
-    </g>
-
-    <g id="skills">
-        <h2>Technical Skills</h2>
-        <section>
-            <p><strong>Languages:</strong></p>
-            <ul>
-                <li>Proficient in C</li>
-                <li>Intermediate in C++, Python, Java</li>
-                <li>Beginner in HTML, CSS, JavaScript, PHP, Kotlin, SQL, Excel VBA</li>
-            </ul>
-        </section>
-        <section>
-            <p><strong>Tools:</strong></p>
-            <ul>
-                <li>Extensive experience with VSCode, Git, GitHub, Lego Mindstorm EV3, NXT</li>
-                <li>Beginner in Solidworks, CubeIDE, Arduino</li>
-            </ul>
-        </section>
-        <section>
-            <p><strong>Frameworks/Technologies:</strong></p>
-            <ul>
-                <li>Beginner in ROS2, RTOS, STM32, YOLO, Three.js, Node.js, jQuery</li>
-            </ul>
-        </section>
-        <section>
-            <p><strong>Algorithms:</strong></p>
-            <ul>
-                <li>PID Control</li>
-                <li>Finite State Machine (FSM)</li>
-                <li>Trapezoidal Acceleration Profiles</li>
-                <li>Bézier Curves and Splines</li>
-            </ul>
-        </section>
-    </g>
-    <g id="contacts">
-        <h2>Contacts</h2>
-        <section>
-            <p>
-                Phone: +852 6218 8414 <br>
-                Email: <a href="mailto:dhcheungaa@connect.ust.hk" target="_blank">dhcheungaa@connect.ust.hk</a> <br>
-                Gmail: <a href="mailto:dicapriocheung@gmail.com" target="_blank">dicapriocheung@gmail.com</a> <br>
-                GitHub: <a href="https://github.com/DicaprioCheung" target="_blank">DicaprioCheung</a> <br>
-                LinkedIn: <a href="https://www.linkedin.com/in/cheung-dick-ho-25b9b4284/" target="_blank">Cheung
-                    (Dicaprio) Dick Ho</a>
-                <br>
-            </p>
         </section>
     </g>
 
