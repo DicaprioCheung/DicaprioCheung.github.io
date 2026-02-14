@@ -19,6 +19,10 @@
             line-height: 1.6;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         /* Sticky header */
         .sticky-header {
             position: sticky;
@@ -29,16 +33,36 @@
             padding: 10px 20px;
         }
 
-        .nav-buttons {
+        .header-container {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
+            align-items: center;
+            justify-content: space-between;
             flex-wrap: wrap;
             gap: 15px;
-            justify-content: center;
         }
 
-        .nav-buttons a {
+        .header-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2c3e50;
+            white-space: nowrap;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: flex-end;
+        }
+
+        .nav-item {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-button {
             text-decoration: none;
             color: #2c3e50;
             font-weight: 600;
@@ -46,11 +70,49 @@
             border-radius: 30px;
             background: #f0f4f8;
             transition: background 0.2s, color 0.2s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
 
-        .nav-buttons a:hover {
+        .nav-button:hover {
             background: #3498db;
             color: white;
+        }
+
+
+        /* Dropdown menu */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 8px 0;
+            z-index: 1001;
+            margin-top: 0px;
+        }
+
+        .dropdown-content a {
+            color: #2c3e50;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background: #f0f4f8;
+            color: #3498db;
+        }
+
+        .nav-item:hover .dropdown-content {
+            display: block;
         }
 
         .container {
@@ -231,7 +293,7 @@
             text-decoration: underline;
         }
 
-        /* More projects button (not a card) */
+        /* More projects button */
         .more-projects {
             margin-top: 25px;
             text-align: center;
@@ -291,6 +353,33 @@
             border: 1px solid #cbd5e0;
         }
 
+        /* back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #3498db;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.2s, transform 0.2s;
+            z-index: 999;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-to-top:hover {
+            background: #2980b9;
+            transform: scale(1.1);
+        }
+
         /* footer */
         footer {
             background: #2c3e50;
@@ -333,6 +422,16 @@
         }
 
         @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-wrapper {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
             .about {
                 flex-direction: column-reverse;
                 text-align: center;
@@ -361,17 +460,59 @@
 </head>
 
 <body>
-    <!-- Sticky Header with Navigation Buttons -->
+    <!-- Sticky Header with Name and Dropdowns -->
     <header class="sticky-header">
-        <div class="nav-buttons">
-            <a href="#about">About</a>
-            <a href="#education">Education</a>
-            <a href="#work">Work</a>
-            <a href="#robotics">Robotics</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
+        <div class="header-container">
+            <span class="header-name">Dicaprio Cheung</span>
+            <div class="nav-wrapper">
+                <!-- About -->
+                <div class="nav-item">
+                    <a href="#about" class="nav-button">About</a>
+                </div>
+                <!-- Education with dropdown -->
+                <div class="nav-item">
+                    <a href="#education" class="nav-button">Education</a>
+                    <div class="dropdown-content">
+                        <a href="education/hkust.html">HKUST</a>
+                        <a href="education/plktytc.html">PLK Tang Yuk Tien College</a>
+                    </div>
+                </div>
+                <!-- Work with dropdown -->
+                <div class="nav-item">
+                    <a href="#work" class="nav-button">Work</a>
+                    <div class="dropdown-content">
+                        <a href="experience/10botics.html">10Botics</a>
+                        <a href="experience/hkust-ta.html">HKUST Teaching Assistant</a>
+                    </div>
+                </div>
+                <!-- Robotics with dropdown -->
+                <div class="nav-item">
+                    <a href="#robotics" class="nav-button">Robotics</a>
+                    <div class="dropdown-content">
+                        <a href="robotics/robocon.html">UST Robotics Team · Robocon</a>
+                        <a href="robotics/tyt-robotics.html">TYT Robotics Team</a>
+                    </div>
+                </div>
+                <!-- Projects with dropdown -->
+                <div class="nav-item">
+                    <a href="#projects" class="nav-button">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="projects/calligraphy-robot.html">Chinese Calligraphy Robot</a>
+                        <a href="projects/glyphmaster.html">Glyphmaster</a>
+                        <a href="projects/basketball.html">2v2 Basketball Game</a>
+                        <a href="projects/">More Projects...</a>
+                    </div>
+                </div>
+                <!-- Skills -->
+                <div class="nav-item">
+                    <a href="#skills" class="nav-button">Skills</a>
+                </div>
+            </div>
         </div>
     </header>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" title="Back to top">↑</a>
 
     <div class="container">
         <!-- About Me Section with Image -->
@@ -544,7 +685,7 @@
                 <div class="btn-link"><a href="projects/basketball.html">Learn more →</a></div>
             </div>
         </div>
-        <!-- More Projects button (separate, not a card) -->
+        <!-- More Projects button -->
         <div class="more-projects">
             <a href="projects/" class="btn">View All Projects →</a>
         </div>
@@ -596,7 +737,7 @@
         </div>
     </div>
 
-    <!-- Footer (Contacts) - included on every page -->
+    <!-- Footer (Contacts) -->
     <footer>
         <div class="footer-content">
             <div class="footer-contact">
@@ -612,6 +753,46 @@
             </div>
         </div>
     </footer>
+
+    <!-- Smooth scroll with offset for sticky header -->
+    <script>
+        (function () {
+            // Offset for sticky header (height of header + some gap)
+            const header = document.querySelector('.sticky-header');
+            const headerHeight = header ? header.offsetHeight : 70;
+            const offset = headerHeight + 10; // 10px extra space
+
+            // Select all links that point to an ID on the same page
+            const links = document.querySelectorAll('a[href^="#"]:not([href="#"])');
+
+            links.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        window.scrollTo({
+                            top: elementPosition - offset,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Also handle the back-to-top button (href="#") separately
+            const backToTop = document.querySelector('.back-to-top');
+            if (backToTop) {
+                backToTop.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        })();
+    </script>
 </body>
 
 </html>
