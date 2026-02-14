@@ -19,19 +19,53 @@
             line-height: 1.6;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        /* Sticky header */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
         }
 
-        /* About Me section with image */
+        .nav-buttons {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .nav-buttons a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: #f0f4f8;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .nav-buttons a:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+        }
+
+        /* About section */
         .about {
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
             align-items: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             background: white;
             padding: 30px;
             border-radius: 12px;
@@ -49,16 +83,6 @@
             text-align: center;
         }
 
-        .about-image img {
-            width: 100%;
-            max-width: 250px;
-            border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            background-color: #ddd;
-            /* fallback grey */
-        }
-
-        /* placeholder if image not available */
         .about-image .placeholder {
             width: 100%;
             max-width: 250px;
@@ -82,26 +106,19 @@
 
         h2 {
             font-size: 2rem;
-            margin: 40px 0 20px;
+            margin: 30px 0 15px;
             color: #2c3e50;
             border-bottom: 3px solid #3498db;
             padding-bottom: 8px;
             display: inline-block;
         }
 
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: #7f8c8d;
-            margin-top: -10px;
-            margin-bottom: 25px;
-        }
-
-        /* card grid layout */
+        /* card grid - tighter gaps */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
+            gap: 20px;
+            margin-top: 10px;
         }
 
         .card {
@@ -120,10 +137,48 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 8px;
+        /* card header with logo and title */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .card-logo {
+            width: 50px;
+            height: 50px;
+            background: #e0e7ff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .card-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-header h3 {
+            font-size: 1.3rem;
+            margin: 0;
             color: #2980b9;
+        }
+
+        .card-header h3 a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card-header h3 a:hover {
+            text-decoration: underline;
         }
 
         .card .subtitle {
@@ -176,45 +231,37 @@
             text-decoration: underline;
         }
 
-        /* special card for "More Projects" */
-        .more-projects-card {
-            background: #ecf0f1;
-            border: 2px dashed #b0bec5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* More projects button (not a card) */
+        .more-projects {
+            margin-top: 25px;
             text-align: center;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2c3e50;
-            transition: background 0.2s;
         }
 
-        .more-projects-card a {
-            color: #2c3e50;
+        .more-projects .btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 40px;
             text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
         }
 
-        .more-projects-card a:hover {
-            color: #3498db;
+        .more-projects .btn:hover {
+            background: #2980b9;
         }
 
-        .more-projects-card .arrow {
-            font-size: 2rem;
-            line-height: 1;
-        }
-
-        /* technical skills */
+        /* skills */
         .skills-container {
             background: white;
             padding: 25px;
             border-radius: 12px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            margin: 40px 0;
+            margin: 30px 0;
         }
 
         .skills-group {
@@ -249,7 +296,7 @@
             background: #2c3e50;
             color: white;
             padding: 30px 0;
-            margin-top: 50px;
+            margin-top: 40px;
             border-radius: 12px 12px 0 0;
         }
 
@@ -304,14 +351,31 @@
             .footer-links a {
                 margin: 0 10px;
             }
+
+            .card-header {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Sticky Header with Navigation Buttons -->
+    <header class="sticky-header">
+        <div class="nav-buttons">
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#work">Work</a>
+            <a href="#robotics">Robotics</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+        </div>
+    </header>
+
     <div class="container">
         <!-- About Me Section with Image -->
-        <section class="about">
+        <section id="about" class="about">
             <div class="about-text">
                 <h1>Dicaprio Cheung</h1>
                 <h2 style="border:none; margin:0 0 10px 0; padding:0; font-size:1.8rem;">About Me</h2>
@@ -322,18 +386,24 @@
                 <p><em>This page is still under development... but you can still read some parts of it.</em></p>
             </div>
             <div class="about-image">
-                <!-- Replace src with actual image path when available -->
+                <!-- Replace with actual image when available -->
                 <div class="placeholder">📸 Dicaprio's Photo</div>
                 <!-- <img src="path/to/your-photo.jpg" alt="Dicaprio Cheung"> -->
             </div>
         </section>
 
         <!-- Education Section -->
-        <h2>Education</h2>
+        <h2 id="education">Education</h2>
         <div class="card-grid">
             <!-- HKUST Card -->
             <div class="card">
-                <h3><a href="education/hkust.html">HKUST</a></h3>
+                <div class="card-header">
+                    <div class="card-logo">
+                        <!-- Replace src with actual logo -->
+                        <img src="https://via.placeholder.com/50?text=HKUST" alt="HKUST logo">
+                    </div>
+                    <h3><a href="education/hkust.html">HKUST</a></h3>
+                </div>
                 <div class="subtitle">BEng Computer Engineering + AI, Minor Robotics</div>
                 <div class="date">Sep 2021 - May 2025</div>
                 <p>First Class Honors · Dean's List (Fall 2022, Spring 2025) · CGA 3.587/4.3 · Major CGA 3.724/4.3</p>
@@ -343,7 +413,12 @@
             </div>
             <!-- PLK TYT Card -->
             <div class="card">
-                <h3><a href="education/plktytc.html">PLK Tang Yuk Tien College</a></h3>
+                <div class="card-header">
+                    <div class="card-logo">
+                        <img src="https://via.placeholder.com/50?text=TYT" alt="PLK TYT logo">
+                    </div>
+                    <h3><a href="education/plktytc.html">PLK Tang Yuk Tien College</a></h3>
+                </div>
                 <div class="subtitle">HKDSE 2021</div>
                 <div class="date">Sep 2015 - July 2021</div>
                 <p>5** in Physics, Mathematics · 5 in ICT, M2, English</p>
@@ -353,11 +428,16 @@
         </div>
 
         <!-- Work Experience -->
-        <h2>Work Experience</h2>
+        <h2 id="work">Work Experience</h2>
         <div class="card-grid">
             <!-- 10Botics Card -->
             <div class="card">
-                <h3><a href="experience/10botics.html">10Botics</a></h3>
+                <div class="card-header">
+                    <div class="card-logo">
+                        <img src="https://via.placeholder.com/50?text=10Botics" alt="10Botics logo">
+                    </div>
+                    <h3><a href="experience/10botics.html">10Botics</a></h3>
+                </div>
                 <div class="subtitle">Part-time STEM Course Instructor</div>
                 <div class="date">Sep 2025 - Present</div>
                 <p>Instruct groups of 10-20 primary students in STEM topics: SpaceFlight Simulator, Swift Playground,
@@ -366,7 +446,12 @@
             </div>
             <!-- HKUST Teaching Assistant Card -->
             <div class="card">
-                <h3><a href="experience/hkust-ta.html">HKUST Teaching Assistant</a></h3>
+                <div class="card-header">
+                    <div class="card-logo">
+                        <img src="https://via.placeholder.com/50?text=HKUST" alt="HKUST logo">
+                    </div>
+                    <h3><a href="experience/hkust-ta.html">HKUST Teaching Assistant</a></h3>
+                </div>
                 <div class="subtitle">UGTA & Student Tutor - COMP 2011 (C++)</div>
                 <div class="date">Sep 2022, Sep 2024</div>
                 <p>Assisted in labs, tutorials, and provided peer-to-peer support for over 60 students.</p>
@@ -375,11 +460,16 @@
         </div>
 
         <!-- Robotics Experience -->
-        <h2>Robotics Experience</h2>
+        <h2 id="robotics">Robotics Experience</h2>
         <div class="card-grid">
             <!-- UST Robocon Card -->
             <div class="card">
-                <h3><a href="robotics/robocon.html">UST Robotics Team · Robocon</a></h3>
+                <div class="card-header">
+                    <div class="card-logo">
+                        <img src="https://via.placeholder.com/50?text=Robocon" alt="Robocon logo">
+                    </div>
+                    <h3><a href="robotics/robocon.html">UST Robotics Team · Robocon</a></h3>
+                </div>
                 <div class="subtitle">Senior Software Engineer Lead</div>
                 <div class="date">Jan 2023 - Dec 2024</div>
                 <p>Led 30+ members, oversaw 10+ robots/year for ABU Robocon HK. Organized tutorials for 100+ recruits,
@@ -391,7 +481,12 @@
             </div>
             <!-- TYT Robotics Card -->
             <div class="card">
-                <h3><a href="robotics/tyt-robotics.html">TYT Robotics Team</a></h3>
+                <div class="card-header">
+                    <div class="card-logo">
+                        <img src="https://via.placeholder.com/50?text=TYT" alt="TYT Robotics logo">
+                    </div>
+                    <h3><a href="robotics/tyt-robotics.html">TYT Robotics Team</a></h3>
+                </div>
                 <div class="subtitle">Chairman (2019-2020) · Member (2015-2021)</div>
                 <div class="date">Sep 2015 - July 2021</div>
                 <p>Led team in international competitions. Mentored juniors in robot debugging.</p>
@@ -403,11 +498,16 @@
         </div>
 
         <!-- Notable Projects -->
-        <h2>Notable Projects</h2>
+        <h2 id="projects">Notable Projects</h2>
         <div class="card-grid">
             <!-- Chinese Calligraphy Robot -->
             <div class="card">
-                <h3><a href="projects/calligraphy-robot.html">Chinese Calligraphy Robot</a></h3>
+                <div class="card-header">
+                    <div class="card-logo">
+                        <img src="https://via.placeholder.com/50?text=Robot" alt="Calligraphy robot">
+                    </div>
+                    <h3><a href="projects/calligraphy-robot.html">Chinese Calligraphy Robot</a></h3>
+                </div>
                 <div class="subtitle">Python, Tkinter, Threading, Bézier curves</div>
                 <div class="date">Sep 2024 - Present</div>
                 <p>3D Bézier path planning for robotic arm calligraphy. Submitted papers to TENCON 2025, ISAM 2025, IET
@@ -417,7 +517,12 @@
             </div>
             <!-- Glyphmaster -->
             <div class="card">
-                <h3><a href="projects/glyphmaster.html">Glyphmaster</a></h3>
+                <div class="card-header">
+                    <div class="card-logo">
+                        <img src="https://via.placeholder.com/50?text=Glyph" alt="Glyphmaster">
+                    </div>
+                    <h3><a href="projects/glyphmaster.html">Glyphmaster</a></h3>
+                </div>
                 <div class="subtitle">WebGL, Three.js, Socket.io</div>
                 <div class="date">Sep - Dec 2024</div>
                 <p>3D RPG where players draw glyphs to cast spells. Real-time multiplayer with synchronized game states.
@@ -426,25 +531,26 @@
             </div>
             <!-- 2v2 Basketball Game -->
             <div class="card">
-                <h3><a href="projects/basketball.html">2v2 Basketball Game</a></h3>
+                <div class="card-header">
+                    <div class="card-logo">
+                        <img src="https://via.placeholder.com/50?text=Bball" alt="Basketball game">
+                    </div>
+                    <h3><a href="projects/basketball.html">2v2 Basketball Game</a></h3>
+                </div>
                 <div class="subtitle">Unity, Photon, C#</div>
                 <div class="date">2025</div>
                 <p>Fast-paced multiplayer basketball game with online play, real-time physics, and character
                     customization.</p>
                 <div class="btn-link"><a href="projects/basketball.html">Learn more →</a></div>
             </div>
-            <!-- More Projects Button -->
-            <div class="card more-projects-card">
-                <a href="projects/">
-                    <span class="arrow">→</span>
-                    <span>More Projects</span>
-                    <small style="font-weight:normal; font-size:0.9rem;">view all 10+ projects</small>
-                </a>
-            </div>
+        </div>
+        <!-- More Projects button (separate, not a card) -->
+        <div class="more-projects">
+            <a href="projects/" class="btn">View All Projects →</a>
         </div>
 
         <!-- Technical Skills -->
-        <h2>Technical Skills</h2>
+        <h2 id="skills">Technical Skills</h2>
         <div class="skills-container">
             <div class="skills-group">
                 <h4>Languages</h4>
@@ -490,7 +596,7 @@
         </div>
     </div>
 
-    <!-- Footer (Contacts) - will be included on every page -->
+    <!-- Footer (Contacts) - included on every page -->
     <footer>
         <div class="footer-content">
             <div class="footer-contact">
