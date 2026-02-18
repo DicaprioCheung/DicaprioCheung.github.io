@@ -7,7 +7,6 @@
     <title>Dicaprio Cheung - HKUST</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Copy all styles from index.html */
         * {
             margin: 0;
             padding: 0;
@@ -151,6 +150,11 @@
             border-bottom: 3px solid #3498db;
             padding-bottom: 8px;
             display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #34495e;
         }
 
         .detail-card {
@@ -301,6 +305,68 @@
             color: #3498db;
         }
 
+        .verification-links {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .verification-links a {
+            background: #f0f4f8;
+            padding: 8px 15px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .verification-links a:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .course-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .course-table th {
+            background: #3498db;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .course-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .course-table tr:hover {
+            background: #f5f9ff;
+        }
+
+        .course-table th:nth-child(2),
+        .course-table td:nth-child(2) {
+            width: 60%;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+
+        .course-table a {
+            text-decoration: none;
+            color: #2980b9;
+        }
+
+        .course-table a:hover {
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -327,6 +393,81 @@
                 flex-direction: column;
                 text-align: center;
             }
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .card-logo {
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f4f8;
+        }
+
+        .card-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            font-size: 0.85rem;
+            color: #95a5a6;
+            margin-bottom: 15px;
+        }
+
+        .award-badge {
+            display: inline-block;
+            background: #f0f4f8;
+            color: #2c3e50;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 5px 5px 0 0;
+        }
+
+        .btn-link {
+            margin-top: 15px;
+        }
+
+        .btn-link a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .btn-link a:hover {
+            color: #2980b9;
         }
     </style>
 </head>
@@ -376,38 +517,626 @@
 
     <div class="main-content">
         <a href="../index.html" class="back-home">← Back to Home</a>
+
         <div class="detail-card">
             <div class="detail-header">
                 <div class="logo-large">
                     <img src="../images/hkust.svg" alt="HKUST logo">
                 </div>
-                <h1 class="detail-title">HKUST</h1>
+                <h1 class="detail-title">The Hong Kong University of Science and Technology(HKUST)</h1>
             </div>
+
             <h2>Bachelor of Engineering in Computer Engineering<br>
                 with Extended Major in Artificial Intelligence</h2>
             <p class="date-badge">Sep 2021 - May 2025</p>
-            <p>Bachelor of Engineering in Computer Engineering (CPEG) <br>
-                with Extended Major in Artificial Intelligence (+AI) <br>
-                Minor in Robotics</p>
+            <h3>Minor in Robotics</h3>
+            <!-- <p><strong>
+                    <a href="https://cpeg.hkust.edu.hk/" target="_blank">Bachelor of Engineering in Computer Engineering
+                        (CPEG)</a><br>
+                    with <a href="https://emia.hkust.edu.hk/extended-major-artificial-intelligence-majorai"
+                        target="_blank">Extended Major in Artificial Intelligence (+AI)</a><br>
+                    <a href="https://prog-crs.hkust.edu.hk/ugprog/2024-25/MINOR-ROBO" target="_blank">Minor in
+                        Robotics</a>
+                </strong>
+            </p> -->
 
-            <h2>Achievements</h2>
+            <!-- <a href="https://seng.hkust.edu.hk/academics/undergraduate/extended-major" target="_blank">What is Extended
+                Major?</a><br> -->
+
             <ul class="award-list">
                 <li>🏅 First Class Honors</li>
-                <li>📚 Dean's List: Fall 2022, Spring 2025</li>
-                <li>📊 CGA: 3.587 / 4.3</li>
-                <li>📊 Major CGA: 3.724 / 4.3</li>
+                <li>📚 Dean's List: Spring 2025</li>
+                <li>📚 Dean's List: Fall 2022</li>
+                <li>📊 CGA: 3.587 / 4.3, Major CGA: 3.724 / 4.3</li>
             </ul>
 
-            <h2>Relevant Coursework</h2>
-            <ul>
-                <li>Computer Organization, Data Structures, Algorithms, Operating Systems</li>
-                <li>Artificial Intelligence, Machine Learning, Robotics</li>
-                <li>Embedded Systems, Digital Logic Design</li>
-            </ul>
+            <!-- Verification Links -->
+            <div class="verification-links">
+                <a href="https://registry.hkust.edu.hk/verify/093591F9-664D-4CEE-B0D5-1B37EEBF8BBF" target="_blank"><i
+                        class="fas fa-certificate"></i> Award Certification Letter</a>
+                <a href="https://registry.hkust.edu.hk/verify/EDACFC8E-C876-454B-B90B-8DF0B8251E76" target="_blank"><i
+                        class="fas fa-award"></i> Diploma</a>
+                <a href="https://registry.hkust.edu.hk/verify/AA958827-C2B0-49D4-8B58-00809E0B882B" target="_blank"><i
+                        class="fas fa-scroll"></i> Official Transcript</a>
+                <a href="https://booklet.congregation.ust.hk/2025/cbook_book4/36/index.html" target="_blank"><i
+                        class="fas fa-book"></i> Congregation Booklet</a>
+            </div>
 
             <h2>Activities</h2>
-            <p>Member of HKUST Robotics Team (Robocon sub-team) – led software development for competition robots.
-                Organized programming tutorials for new members.</p>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-logo">
+                        <img src="../images/hkust_robotics_team.jpg" alt="Robocon logo">
+                    </div>
+                    <h3><a href="../robotics/robocon.html">UST Robotics Team · Robocon</a></h3>
+                </div>
+                <div class="subtitle">Senior Software Engineer Lead</div>
+                <div class="date">Jan 2023 - Dec 2024</div>
+                <p>Led 30+ members, oversaw 10+ robots/year for ABU Robocon HK. <br>
+                    Organized tutorials for 100+ recruits, hosted internal contest for 120+.</p>
+                <div class="award-badge">🏆 Robocon 2024 2nd Runner-Up</div>
+                <div class="award-badge">🏅 Robocon 2024 Best Team Spirit</div>
+                <div class="award-badge">🎯 Robocon 2023 Top 8</div>
+                <div class="btn-link"><a href="../robotics/robocon.html">Learn more →</a></div>
+            </div>
+
+            <!-- Detailed Coursework by Semester -->
+            <h2>Relevant Coursework & Grades</h2>
+            <p><em>Each course links to the HKUST Course Catalog. Grades shown are from official transcript.</em></p>
+
+            <h3>2021-22 Fall (Year 1 Full Semester 1)</h3>
+            <table class="course-table">
+                <tr>
+                    <th>Course</th>
+                    <th>Title</th>
+                    <th>Credits</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP1021"
+                            target="_blank">COMP1021</a></td>
+                    <td>Introduction to Computer Science</td>
+                    <td>3.0</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=MATH1013"
+                            target="_blank">MATH1013</a></td>
+                    <td>Calculus IB</td>
+                    <td>3.0</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=MECH1906"
+                            target="_blank">MECH1906</a></td>
+                    <td>Mechanical Engineering for Modern Life</td>
+                    <td>3.0</td>
+                    <td>B+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=PHYS1112"
+                            target="_blank">PHYS1112</a></td>
+                    <td>General Physics I with Calculus</td>
+                    <td>3.0</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=LANG1002A"
+                            target="_blank">LANG1002A</a>
+                    </td>
+                    <td>English Language for University Studies I</td>
+                    <td>3.0</td>
+                    <td>F</td>
+                </tr>
+                <tr>
+                    <td colspan="4"><i>Plus non-graded: ENGG1010, HLTH1010 (Pass)</i></td>
+                </tr>
+            </table>
+
+            <h3>2021-22 Spring (Year 1 Full Semester 2) (Full Online Due to COVID)</h3>
+            <table class="course-table">
+                <tr>
+                    <th>Course</th>
+                    <th>Title</th>
+                    <th>Credits</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP2011"
+                            target="_blank">COMP2011</a></td>
+                    <td>Programming with C++</td>
+                    <td>4.0</td>
+                    <td>A+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=ELEC1100"
+                            target="_blank">ELEC1100</a></td>
+                    <td>Introduction to Electro-Robot Design</td>
+                    <td>4.0</td>
+                    <td>B+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=ENGG1200"
+                            target="_blank">ENGG1200</a></td>
+                    <td>Engineering Team Design Experience: Airship</td>
+                    <td>3.0</td>
+                    <td>B-</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=MATH1014"
+                            target="_blank">MATH1014</a></td>
+                    <td>Calculus II</td>
+                    <td>3.0</td>
+                    <td>B+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=PHYS1114"
+                            target="_blank">PHYS1114</a></td>
+                    <td>General Physics II</td>
+                    <td>3.0</td>
+                    <td>B+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP1029J"
+                            target="_blank">COMP1029J</a></td>
+                    <td>Java Programming Bridging Course</td>
+                    <td>1.0</td>
+                    <td>P</td>
+                </tr>
+                <tr>
+                    <td colspan="4"><i>Plus non-graded: ENGG1010, HLTH1010 (Pass)</i></td>
+                </tr>
+            </table>
+
+            <h3>2021-22 Summer (Year 1 Half Semester 2)</h3>
+            <table class="course-table">
+                <tr>
+                    <th>Course</th>
+                    <th>Title</th>
+                    <th>Credits</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=ISOM1380"
+                            target="_blank">ISOM1380</a></td>
+                    <td>Technology and Innovation: Social and Business Perspectives</td>
+                    <td>3.0</td>
+                    <td>A+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=MATH2111"
+                            target="_blank">MATH2111</a></td>
+                    <td>Matrix Algebra and Applications</td>
+                    <td>3.0</td>
+                    <td>A</td>
+                </tr>
+            </table>
+
+            <h3>2022-23 Fall (Year 2 Full Semester 1)</h3>
+            <table class="course-table">
+                <tr>
+                    <th>Course</th>
+                    <th>Title</th>
+                    <th>Credits</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP2012"
+                            target="_blank">COMP2012</a></td>
+                    <td>Object-Oriented Programming and Data Structures</td>
+                    <td>4.0</td>
+                    <td>A+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP2611"
+                            target="_blank">COMP2611</a></td>
+                    <td>Computer Organization</td>
+                    <td>4.0</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=CORE1402"
+                            target="_blank">CORE1402</a></td>
+                    <td>English Language for University Studies</td>
+                    <td>3.0</td>
+                    <td>B-</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=ELEC1200"
+                            target="_blank">ELEC1200</a></td>
+                    <td>A System View of Communications: from Signals to Packets</td>
+                    <td>4.0</td>
+                    <td>A+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=MATH2001"
+                            target="_blank">MATH2001</a></td>
+                    <td>Foundation of Mathematics</td>
+                    <td>2.0</td>
+                    <td>A-</td>
+                </tr>
+                <tr>
+                    <td colspan="4"><i>Plus non-graded: CPEG2930, EMIA2010A, ENGG2010 (Pass)</i></td>
+                </tr>
+            </table>
+
+            <h3>2022-23 Winter (Year 2 Half Semester 1)</h3>
+            <table class="course-table">
+                <tr>
+                    <th>Course</th>
+                    <th>Title</th>
+                    <th>Credits</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=ISOM2400"
+                            target="_blank">ISOM2400</a></td>
+                    <td>Global Information Infrastructure and Policy</td>
+                    <td>3.0</td>
+                    <td>B+</td>
+                </tr>
+            </table>
+
+            <h3>2022-23 Spring (Year 2 Full Semester 2)</h3>
+            <table class="course-table">
+                <tr>
+                    <th>Course</th>
+                    <th>Title</th>
+                    <th>Credits</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP2211"
+                            target="_blank">COMP2211</a></td>
+                    <td>Exploring Artificial Intelligence</td>
+                    <td>3.0</td>
+                    <td>A-</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP2711"
+                            target="_blank">COMP2711</a></td>
+                    <td>Discrete Mathematical Tools for Computer Science</td>
+                    <td>4.0</td>
+                    <td>B-</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=CORE1403S"
+                            target="_blank">CORE1403S</a></td>
+                    <td>Academic English for University Studies</td>
+                    <td>3.0</td>
+                    <td>A-</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=ELEC2400"
+                            target="_blank">ELEC2400</a></td>
+                    <td>Electronic Circuits</td>
+                    <td>4.0</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=MATH2411"
+                            target="_blank">MATH2411</a></td>
+                    <td>Applied Statistics</td>
+                    <td>4.0</td>
+                    <td>B+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://seng.hkust.edu.hk/sites/default/files/IMCE/UG/Course%20Syllabus/Spring_2022-2023/ENGG%203960V_Spring_22-23.pdf"
+                            target="_blank">ENGG3960V</a></td>
+                    <td>Robotics Special Project: ABU Robocon 2023</td>
+                    <td>4.0</td>
+                    <td>PP</td>
+                </tr>
+                <tr>
+                    <td colspan="4"><i>Plus non-graded: CPEG1971, CPEG2930, ENGG2010 (Pass)</i></td>
+                </tr>
+            </table>
+
+            <h3>2022-23 Summer (Year 2 Half Semester 2)</h3>
+            <table class="course-table">
+                <tr>
+                    <th>Course</th>
+                    <th>Title</th>
+                    <th>Credits</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP3311"
+                            target="_blank">COMP3311</a></td>
+                    <td>Database Management Systems</td>
+                    <td>3.0</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td><a href="https://seng.hkust.edu.hk/sites/default/files/IMCE/UG/Course%20Syllabus/Spring_2022-2023/ENGG%203960V_Spring_22-23.pdf"
+                            target="_blank">ENGG3960V</a></td>
+                    <td>Robotics Special Project: ABU Robocon 2023</td>
+                    <td>4.0</td>
+                    <td>A+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP1029V"
+                            target="_blank">COMP1029V</a>
+                    </td>
+                    <td>Excel VBA Programming Bridging</td>
+                    <td>1.0</td>
+                    <td>P</td>
+                </tr>
+            </table>
+
+            <h3>2023-24 Fall (Year 3 Full Semester 1)</h3>
+            <table class="course-table">
+                <tr>
+                    <th>Course</th>
+                    <th>Title</th>
+                    <th>Credits</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP3511"
+                            target="_blank">COMP3511</a></td>
+                    <td>Operating Systems</td>
+                    <td>3.0</td>
+                    <td>B+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP3711"
+                            target="_blank">COMP3711</a></td>
+                    <td>Design and Analysis of Algorithms</td>
+                    <td>3.0</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=ELEC3300"
+                            target="_blank">ELEC3300</a></td>
+                    <td>Introduction to Embedded Systems</td>
+                    <td>4.0</td>
+                    <td>A+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=HUMA2680"
+                            target="_blank">HUMA2680</a></td>
+                    <td>Understanding Western Architecture</td>
+                    <td>3.0</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=LANG2030"
+                            target="_blank">LANG2030</a></td>
+                    <td>Technical Communication I</td>
+                    <td>3.0</td>
+                    <td>B+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=MATH2011"
+                            target="_blank">MATH2011</a></td>
+                    <td>Introduction to Multivariable Calculus</td>
+                    <td>3.0</td>
+                    <td>A-</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=GNED2510"
+                            target="_blank">GNED2510</a>
+                    </td>
+                    <td>Career Building</td>
+                    <td>1.0</td>
+                    <td>P</td>
+                </tr>
+                <tr>
+                    <td colspan="4"><i>Plus non-graded: CPEG1971, CPEG3930 (Pass)</i></td>
+                </tr>
+            </table>
+
+            <h3>2023-24 Winter (Year 3 Half Semester 1)</h3>
+            <table class="course-table">
+                <tr>
+                    <th>Course</th>
+                    <th>Title</th>
+                    <th>Credits</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=ENGG3960E"
+                            target="_blank">ENGG3960E</a></td>
+                    <td>Robotics Special Project: Development of Robot Design Contest Course</td>
+                    <td>3.0</td>
+                    <td>A-</td>
+                </tr>
+            </table>
+
+            <h3>2023-24 Spring (Year 3 Full Semester 2)</h3>
+            <table class="course-table">
+                <tr>
+                    <th>Course</th>
+                    <th>Title</th>
+                    <th>Credits</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP4211"
+                            target="_blank">COMP4211</a></td>
+                    <td>Machine Learning</td>
+                    <td>3.0</td>
+                    <td>C</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP4321"
+                            target="_blank">COMP4321</a></td>
+                    <td>Search Engines for Web and Enterprise Data</td>
+                    <td>3.0</td>
+                    <td>B+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP4411"
+                            target="_blank">COMP4411</a></td>
+                    <td>Computer Graphics</td>
+                    <td>3.0</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP4421"
+                            target="_blank">COMP4421</a></td>
+                    <td>Image Processing</td>
+                    <td>3.0</td>
+                    <td>B+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP4521"
+                            target="_blank">COMP4521</a></td>
+                    <td>Mobile Application Development</td>
+                    <td>3.0</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=ENGG1400"
+                            target="_blank">ENGG1400</a></td>
+                    <td>Designing Your Life for Engineering Students</td>
+                    <td>1.0</td>
+                    <td>P</td>
+                </tr>
+                <tr>
+                    <td><a href="https://seng.hkust.edu.hk/sites/default/files/IMCE/UG/Course%20Syllabus/Spring_2023-2024/ENGG%203961A_Spring_Summer_23-24.pdf"
+                            target="_blank">ENGG3961A</a></td>
+                    <td>Robotics Special Project: ABU Robocon 2024</td>
+                    <td>4.0</td>
+                    <td>PP</td>
+                </tr>
+                <tr>
+                    <td colspan="4"><i>Plus non-graded: CPEG1971, CPEG3930 (Pass)</i></td>
+                </tr>
+            </table>
+
+            <h3>2023-24 Summer (Year 3 Half Semester 2)</h3>
+            <table class="course-table">
+                <tr>
+                    <th>Course</th>
+                    <th>Title</th>
+                    <th>Credits</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td><a href="https://seng.hkust.edu.hk/sites/default/files/IMCE/UG/Course%20Syllabus/Spring_2023-2024/ENGG%203961A_Spring_Summer_23-24.pdf"
+                            target="_blank">ENGG3961A</a></td>
+                    <td>Robotics Special Project: ABU Robocon 2024</td>
+                    <td>4.0</td>
+                    <td>A+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP4911"
+                            target="_blank">COMP4911</a>
+                    </td>
+                    <td>Computer Engineering Final Year Project in ELEC</td>
+                    <td>6.0</td>
+                    <td>PP</td>
+                </tr>
+            </table>
+
+            <h3>2024-25 Fall (Year 4 Full Semester 1)</h3>
+            <table class="course-table">
+                <tr>
+                    <th>Course</th>
+                    <th>Title</th>
+                    <th>Credits</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP4451"
+                            target="_blank">COMP4451</a></td>
+                    <td>Game Programming</td>
+                    <td>3.0</td>
+                    <td>A+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=HUMA1000A"
+                            target="_blank">HUMA1000A</a></td>
+                    <td>Cultures and Values: Language, Communication and Society</td>
+                    <td>3.0</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=LANG4031"
+                            target="_blank">LANG4031</a></td>
+                    <td>Technology Communication II for ECE & CPEG</td>
+                    <td>3.0</td>
+                    <td>A-</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP4911"
+                            target="_blank">COMP4911</a>
+                    </td>
+                    <td>Computer Engineering Final Year Project in ELEC</td>
+                    <td>6.0</td>
+                    <td>PP</td>
+                </tr>
+                <tr>
+                    <td colspan="4"><i>Plus non-graded: CPEG1971 (Pass)</i></td>
+                </tr>
+            </table>
+
+            <h3>2024-25 Winter (Year 4 Half Semester 1)</h3>
+            <table class="course-table">
+                <tr>
+                    <th>Course</th>
+                    <th>Title</th>
+                    <th>Credits</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=ELEC4940A"
+                            target="_blank">ELEC4940A</a></td>
+                    <td>Independent Study</td>
+                    <td>3.0</td>
+                    <td>A+</td>
+                </tr>
+            </table>
+
+            <h3>2024-25 Spring (Year 4 Full Semester 2)</h3>
+            <table class="course-table">
+                <tr>
+                    <th>Course</th>
+                    <th>Title</th>
+                    <th>Credits</th>
+                    <th>Grade</th>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP3021"
+                            target="_blank">COMP3021</a></td>
+                    <td>Java Programming</td>
+                    <td>3.0</td>
+                    <td>A+</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=COMP4021"
+                            target="_blank">COMP4021</a></td>
+                    <td>Internet Computing</td>
+                    <td>3.0</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=CPEG4911"
+                            target="_blank">CPEG4911</a></td>
+                    <td>Computer Engineering Final Year Project in ELEC</td>
+                    <td>6.0</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=EMIA2020"
+                            target="_blank">EMIA2020</a></td>
+                    <td>Cross-disciplinary Design Thinking</td>
+                    <td>3.0</td>
+                    <td>A-</td>
+                </tr>
+                <tr>
+                    <td><a href="https://prog-crs.hkust.edu.hk/ugcourse/2025-26/search?keyword=LANG1422"
+                            target="_blank">LANG1422</a></td>
+                    <td>Chinese for Workplace Applications</td>
+                    <td>3.0</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td colspan="4"><i>Plus non-graded: EMIA4990 (Pass)</i></td>
+                </tr>
+            </table>
         </div>
     </div>
 
