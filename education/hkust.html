@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dicaprio Cheung - HKUST</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -673,9 +674,22 @@
                 <div class="btn-link"><a href="../robotics/robocon.html">Learn more →</a></div>
             </div>
 
+            <!-- Add this where you want the plot to appear, e.g., after the Activities card and before the Coursework section -->
+            <h2>Academic Performance Over Time</h2>
+            <div
+                style="background: white; border-radius: 12px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <canvas id="gradeChart" style="width:100%; max-height:400px;"></canvas>
+                <p style="text-align: center; margin-top: 10px; color: #7f8c8d;">
+                    <i class="fas fa-info-circle"></i>
+                    TGA = Term Grade Average, CGA = Cumulative Grade Average, <br>Major CGA = Major Cumulative Grade
+                    Average.
+                    Hover for values.
+                </p>
+            </div>
             <!-- Detailed Coursework by Semester -->
             <h2>Relevant Coursework & Grades</h2>
-            <p><em>Each course links to the HKUST Course Catalog. Grades shown are from official transcript.</em></p>
+            <p><em>Each course links to the HKUST Course Catalog. Grades shown are from official transcript.</em>
+            </p>
 
             <!-- 2021-22 Fall (Year 1 Full Semester 1) -->
             <h3>2021-22 Fall (Year 1 Full Semester 1)</h3>
@@ -1331,6 +1345,114 @@
         document.querySelector('.back-to-top').addEventListener('click', function (e) {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Grade data from official transcript (fill in missing values from your records)
+        const gradeData = {
+            // Format: 'Semester Label': { tga: value, cga: value, majorCga: value (optional) }
+            // 2021-22 (you need to fill these from your transcript)
+            '2021-22 Fall': { tga: 2.860, cga: 2.860, majorCga: 3.667 },
+            '2021-22 Winter': { tga: null, cga: null, majorCga: null },
+            '2021-22 Spring': { tga: 3.429, cga: 3.163, majorCga: 3.617 },
+            '2021-22 Summer': { tga: 4.150, cga: 3.318, majorCga: 3.662 },
+            // 2022-23
+            '2022-23 Fall': { tga: 3.876, cga: 3.491, majorCga: 3.832 },
+            '2022-23 Winter': { tga: 3.300, cga: 3.481, majorCga: null },
+            '2022-23 Spring': { tga: 3.456, cga: 3.475, majorCga: 3.745 },
+            '2022-23 Summer': { tga: 4.171, cga: 3.534, majorCga: null },
+            // 2023-24
+            '2023-24 Fall': { tga: 3.637, cga: 3.553, majorCga: 3.748 },
+            '2023-24 Winter': { tga: 3.700, cga: 3.557, majorCga: null },
+            '2023-24 Spring': { tga: 3.120, cga: 3.503, majorCga: 3.630 },
+            '2023-24 Summer': { tga: 4.300, cga: 3.528, majorCga: null },
+            // 2024-25
+            '2024-25 Fall': { tga: 3.667, cga: 3.538, majorCga: 3.656 },
+            '2024-25 Winter': { tga: 4.300, cga: 3.554, majorCga: 3.678 },
+            '2024-25 Spring': { tga: 3.833, cga: 3.587, majorCga: 3.724 }
+        };
+
+        // Prepare arrays for Chart.js
+        const semesters = Object.keys(gradeData);
+        const tgaValues = semesters.map(s => gradeData[s].tga);
+        const cgaValues = semesters.map(s => gradeData[s].cga);
+        const majorCgaValues = semesters.map(s => gradeData[s].majorCga || null);
+
+        // Create chart
+        const ctx = document.getElementById('gradeChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: semesters,
+                datasets: [
+                    {
+                        label: 'TGA',
+                        data: tgaValues,
+                        borderColor: '#e67e22',
+                        backgroundColor: 'rgba(230, 126, 34, 0.1)',
+                        tension: 0.2,
+                        pointBackgroundColor: '#e67e22',
+                        borderWidth: 2,
+                        spanGaps: true // connects across missing points
+                    },
+                    {
+                        label: 'CGA',
+                        data: cgaValues,
+                        borderColor: '#2980b9',
+                        backgroundColor: 'rgba(41, 128, 185, 0.1)',
+                        tension: 0.2,
+                        pointBackgroundColor: '#2980b9',
+                        borderWidth: 2,
+                        spanGaps: true
+                    },
+                    {
+                        label: 'Major CGA',
+                        data: majorCgaValues,
+                        borderColor: '#27ae60',
+                        backgroundColor: 'rgba(39, 174, 96, 0.1)',
+                        tension: 0.2,
+                        pointBackgroundColor: '#27ae60',
+                        borderWidth: 2,
+                        borderDash: [5, 3], // dashed line for distinction
+                        spanGaps: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        callbacks: {
+                            label: function (context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += context.parsed.y.toFixed(3);
+                                } else {
+                                    label += 'No data';
+                                }
+                                return label;
+                            }
+                        }
+                    },
+                    legend: { position: 'top' }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 2.5,
+                        max: 4.3,
+                        title: { display: true, text: 'Grade Point Average' }
+                    },
+                    x: {
+                        ticks: { maxRotation: 45, minRotation: 45 }
+                    }
+                }
+            }
         });
     </script>
 </body>
