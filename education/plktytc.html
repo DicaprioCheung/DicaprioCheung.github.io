@@ -201,11 +201,15 @@
         }
 
         .award-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             list-style: none;
-            margin: 20px 0;
+            padding: 0;
+            margin: 0;
         }
 
         .award-list li {
+            font-size: 1rem;
             background: #f9f9f9;
             margin: 10px 0;
             padding: 10px 15px;
@@ -328,6 +332,82 @@
                 text-align: center;
             }
         }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .card-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f4f8;
+        }
+
+        .card-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            font-size: 0.85rem;
+            color: #95a5a6;
+            margin-bottom: 15px;
+        }
+
+        .award-badge {
+            display: inline-block;
+            background: #f0f4f8;
+            color: #2c3e50;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 5px 5px 0 0;
+        }
+
+        .btn-link {
+            margin-top: 15px;
+        }
+
+        .btn-link a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .btn-link a:hover {
+            color: #2980b9;
+        }
     </style>
 </head>
 
@@ -383,19 +463,36 @@
                 </div>
                 <h1 class="detail-title">PLK Tang Yuk Tien College</h1>
             </div>
-            <p class="date-badge">Sep 2015 - July 2021</p>
+            <h2>The Hong Kong Diploma of Secondary Education (HKDSE)</h2>
+            <p class="date-badge">Sep 2015 - July 2021</p><br>
             <h2>HKDSE Results (2021)</h2>
             <ul class="award-list">
+                <li>⭐ 4 in Chinese Lanuguage</li>
                 <li>⭐ 5** in Physics</li>
+                <li>⭐ 5 in English Language</li>
+                <li>⭐ 4 in Chemistry</li>
                 <li>⭐ 5** in Mathematics (Compulsory part)</li>
                 <li>⭐ 5 in Information and Communication Technology</li>
+                <li>⭐ 3 in Liberal Studies</li>
                 <li>⭐ 5 in Mathematics Extended Part Module 2 (Algebra and Calculus)</li>
-                <li>⭐ 5 in English Language</li>
+
             </ul>
             <h2>Robotics Activities</h2>
-            <p>Member of TYT Robotics Team (2015-2021), Chairman (2019-2020). Participated in WRO, Asia Pacific Robot
-                Alliance, and other competitions. See <a href="../robotics/tyt-robotics.html">TYT Robotics Team</a> for
-                details.</p>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-logo">
+                        <img src="../images/plktytc.jpg" alt="TYT Robotics logo">
+                    </div>
+                    <h3><a href="../robotics/tyt-robotics.html">TYT Robotics Team</a></h3>
+                </div>
+                <div class="subtitle">Chairman (2019-2020) · Member (2015-2021)</div>
+                <div class="date">Sep 2015 - July 2021</div>
+                <p>Led team in international competitions. Mentored juniors in robot debugging.</p>
+                <div class="award-badge">🌍 WRO International 10th place</div>
+                <div class="award-badge">🥇 WRO HK Champion 2019</div>
+                <div class="award-badge">🥈 Asia Pacific Robot Alliance Runner-up</div>
+                <div class="btn-link"><a href="../robotics/tyt-robotics.html">Learn more →</a></div>
+            </div>
         </div>
     </div>
     <footer>
