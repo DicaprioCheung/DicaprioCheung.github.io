@@ -154,7 +154,7 @@
 
         h3 {
             font-size: 1.5rem;
-            margin: 20px 0 10px;
+            margin: 10px 0 10px;
             color: #34495e;
         }
 
@@ -203,19 +203,6 @@
             border-radius: 30px;
             display: inline-block;
             margin: 10px 0;
-        }
-
-        .award-list {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .award-list li {
-            background: #f9f9f9;
-            margin: 10px 0;
-            padding: 10px 15px;
-            border-left: 5px solid #f1c40f;
-            border-radius: 5px;
         }
 
         .back-home {
@@ -306,7 +293,7 @@
             color: #3498db;
         }
 
-        /* Video container */
+        /* === Video container with fallback === */
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -317,9 +304,12 @@
             margin: 20px 0;
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #000;
+            /* fallback color */
         }
 
-        .video-container iframe {
+        .video-container iframe,
+        .video-container .fallback-image {
             position: absolute;
             top: 0;
             left: 0;
@@ -328,34 +318,167 @@
             border: 0;
         }
 
-        /* Tech detail boxes */
-        .tech-grid {
+        .video-container .fallback-image {
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        /* === Card grids (2x2) === */
+        .award-grid,
+        .tech-summary-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             margin: 20px 0;
         }
 
-        .tech-card {
+        /* Award cards */
+        .award-card {
+            background: #f0f4f8;
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-left: 5px solid #f1c40f;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .award-card .conference-logo {
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        .award-card .conference-logo img {
+            max-width: 100%;
+            max-height: 80px;
+            object-fit: contain;
+        }
+
+        .award-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #2980b9;
+        }
+
+        .award-card .conference-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .award-card .date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .award-card .description {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .award-card .award-badge {
+            display: inline-block;
+            background: #f1c40f;
+            color: #2c3e50;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            align-self: flex-start;
+        }
+
+        .award-card .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .award-card .links a {
+            background: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #2980b9;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            border: 1px solid #b0c4de;
+            transition: background 0.2s;
+        }
+
+        .award-card .links a:hover {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        /* Tech summary cards (old tech cards) */
+        .tech-summary-card {
             background: #f0f4f8;
             padding: 20px;
             border-radius: 12px;
             border-left: 5px solid #3498db;
         }
 
-        .tech-card h4 {
+        .tech-summary-card h4 {
             font-size: 1.3rem;
             margin-bottom: 10px;
             color: #2c3e50;
         }
 
-        .tech-card p,
-        .tech-card ul {
+        .tech-summary-card ul {
+            padding-left: 20px;
             color: #555;
         }
 
-        .tech-card ul {
-            padding-left: 20px;
+        .tech-summary-card li {
+            margin-bottom: 5px;
+        }
+
+        /* Detailed technical sections */
+        .tech-figure {
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .tech-figure img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-figure .caption {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 8px;
+        }
+
+        .tech-highlight {
+            background: #e9f0f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid #3498db;
+        }
+
+        .tech-highlight code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 4px;
         }
 
         .github-link {
@@ -373,7 +496,14 @@
             background: #1a252f;
         }
 
+        /* Responsive: 1 column on mobile */
         @media (max-width: 768px) {
+
+            .award-grid,
+            .tech-summary-grid {
+                grid-template-columns: 1fr;
+            }
+
             .header-container {
                 flex-direction: column;
                 align-items: center;
@@ -451,157 +581,295 @@
 
         <div class="detail-card">
             <div class="detail-header">
-                <!-- Optional logo -->
-                <!-- <div class="logo-large"><img src="../images/calligraphy-logo.png" alt="Calligraphy robot"></div> -->
                 <h1 class="detail-title">Final Year Project: Chinese Calligraphy Robot</h1>
             </div>
-            <p class="date-badge">Sept 2024 - Nov 2025</p>
-            <p><strong>Technologies:</strong> Python, Tkinter, Threading, Hermite Curves, YOLOv8, ChatGPT API</p>
+            <p class="date-badge">May 2024 - Nov 2025</p>
+            <p><strong>Technologies:</strong> Python, Tkinter, Threading, Hermite Curves, YOLOv8, ChatGPT API, OpenCV
+            </p>
 
-            <!-- Embedded YouTube Video -->
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/PfwRGyaZ8r0" title="Chinese Calligraphy Robot Demo"
+            <!-- YouTube Video with fallback image -->
+            <div class="video-container" id="videoContainer">
+                <iframe id="youtubeIframe"
+                    src="https://www.youtube.com/embed/PfwRGyaZ8r0?rel=0&modestbranding=1&enablejsapi=1"
+                    title="Chinese Calligraphy Robot Demo"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
+                    allowfullscreen>
+                </iframe>
+                <img src="https://img.youtube.com/vi/PfwRGyaZ8r0/0.jpg"
+                    alt="Video thumbnail - click to watch on YouTube" class="fallback-image"
+                    style="display: none; cursor: pointer;"
+                    onclick="window.open('https://youtu.be/PfwRGyaZ8r0', '_blank');">
             </div>
 
-            <!-- Overview (enhanced) -->
+            <!-- Overview -->
             <h2>Overview</h2>
-            <p>This project combines robotics, computer vision, and AI to create a system that can write authentic
-                Chinese calligraphy using a robotic arm. The key innovation is a <strong>3D Hermite curve-based path
-                    planning algorithm</strong> that controls the brush height to modulate stroke thickness - a crucial
-                aspect of traditional calligraphy. The system accepts user prompts in natural language, uses ChatGPT to
-                suggest appropriate four-character idioms, and then generates the corresponding brush trajectories.</p>
+            <p>This project combines robotics, computer vision, and AI to create a system that writes authentic Chinese
+                calligraphy using a 5-DoF robotic arm. The key innovation is a <strong>3D Hermite curve-based path
+                    planning algorithm</strong> that modulates brush height to vary stroke thickness – a hallmark of
+                traditional calligraphy. The system accepts natural language prompts, uses ChatGPT (via HKUST Azure API)
+                to suggest four-character idioms, and generates corresponding brush trajectories. A computer vision
+                module (YOLOv8) calibrates the optimal writing height and provides emergency stop functionality.</p>
 
-            <!-- Awards & Publications -->
+            <!-- Awards & Publications (2x2 cards with full links) -->
             <h2>Awards & Publications</h2>
-            <ul class="award-list">
-                <li>
-                    <strong>🏆 ISAM 2025 Best Student Poster Award</strong> - <em>International Symposium on Academic
-                        Makerspaces 2025, UC Berkeley, California, USA</em><br>
-                    6 ~ 8 August 2025<br>
-                    Poster #165: "3D Hermite Curve-based Path Planning on Robot Manipulator for Chinese Calligraphy"<br>
-                    <a href="https://isam2025.hemi-makers.org/" target="_blank">Symposium Website</a> •
-                    <a href="https://ijamm.pubpub.org/pub/vlacp9x6/release/1" target="_blank">Published Poster</a> •
-                    <a href="https://ijamm.pubpub.org/isam2025#isam-2025-poster-awards" target="_blank">Awards
-                        Announcement</a> •
-                    <a href="./calligraphy-robot/ISAM2025_Poster.pdf" target="_blank">Poster (PDF)</a> •
-                    <a href="https://joedomke.com/isam-2025-awards/" target="_blank">ISAM 2025 Awards Manufacturing</a>
-                </li>
-                <li>
-                    <strong>📄 IEEE TENCON 2025</strong> - <em>IEEE Region 10 Conference 2025 (TENCON 2025), Kota
-                        Kinabalu, Sabah, Malaysia</em><br>
-                    26 ~ 30 November 2025<br>
-                    Track A1F2 Control Systems & Robotics (CSR) 1: "Advanced 3D Path Planning for Robotic Calligraphy
-                    Based on LLM-Driven Text
-                    Prompts"<br>
-                    <a href="https://ieeemy.org/tencon2025/" target="_blank">Conference Website</a> •
-                    <a href="https://ieeexplore.ieee.org/document/11374953" target="_blank">Published Paper on IEEE
-                        Xplore</a> •
-                    <a href="./calligraphy-robot/TENCON2025 Certificate.pdf" target="_blank">Certificate of
-                        Presentation</a> •
-                    <a href="./calligraphy-robot/TENCON2025 Full Paper.pdf" target="_blank">Full Paper (PDF)</a> •
-                    <a href="./calligraphy-robot/TENCON2025 Final Presentation.pptx" target="_blank">Presentation Slides
-                        (PPTX)</a>
-                </li>
-                <li>
-                    <strong>📄 IET YPEC 2025</strong> - <em>IET Young Professionals Exhibition & Competition 2025,
-                        CityU,
-                        Hong Kong, China</em><br>
-                    2 November 2025<br>
-                    UG17: "Empowering Robotic Calligraphy Through AI-Driven 3D Path Planning"<br>
-                    <a href="https://www.ietypec.org/" target="_blank">Competition Website</a> •
-                    <a href="https://booth.ietypec.org/project/2025/ug/ug17-empowering-robotic-calligraphy-through-ai-driven-3d-path-planning/#:~:text=This%20project%20introduces%20an%20innovative,capabilities%20in%20performing%20traditional%20calligraphy."
-                        target="_blank">Project Webpage</a> •
-                    <a href="./calligraphy-robot/YPEC2025 Attendance.pdf" target="_blank">Certificate of Attendance</a>
-                    •
-                    <a href="./calligraphy-robot/YPEC2025_UG17_Poster.pdf" target="_blank">Poster</a> •
-                    <a href="./calligraphy-robot/YPEC2025 Presentation.pptx" target="_blank">Presentation Slides
-                        (PPTX)</a>
-                </li>
-                <li>
-                    <strong>🎓 HKUST ECE Final Year Project 2024-25</strong> - <em>Department of Electronic and Computer
-                        Engineering - Final Year Project 2024~25</em><br>
-                    May 2024 ~ May 2025<br>
-                    WKT06a-24: "Computer Vision-based Path Planning for Robot Manipulator Using Bézier Curves"<br>
-                    <a href="https://course.ece.ust.hk/fyp24/?page_id=2908" target="_blank">Mid-term Poster Gallery</a>
-                    •
-                    <a href="./calligraphy-robot/FYP_Final_Poster_WKT06.pdf" target="_blank">Final Poster</a> •
-                    <a href="./calligraphy-robot/FYP_Final_Presentation_Slides.pptx" target="_blank">Final Presentation
-                        PPT</a> •
-                    <a href="./calligraphy-robot/FYP_Final_Report.docx" target="_blank">Final Report</a>
-                </li>
-            </ul>
+            <div class="award-grid">
+                <!-- ISAM 2025 -->
+                <div class="award-card">
+                    <div class="conference-logo"><img src="./calligraphy-robot/images/ISAM2025 logo.webp"></div>
+                    <h3>ISAM 2025</h3>
+                    <div class="conference-name">International Symposium on Academic Makerspaces</div>
+                    <div class="date">6–8 August 2025, UC Berkeley, California, USA</div>
+                    <span class="award-badge">🏆 Best Student Poster Award</span>
+                    <div class="description">Poster #165: "3D Hermite Curve-based Path Planning on Robot Manipulator for
+                        Chinese Calligraphy"</div>
+                    <div class="links">
+                        <a href="https://isam2025.hemi-makers.org/" target="_blank"><i class="fas fa-globe"></i>
+                            Symposium</a>
+                        <a href="https://ijamm.pubpub.org/pub/vlacp9x6/release/1" target="_blank"><i
+                                class="fas fa-file-alt"></i> Published Poster</a>
+                        <a href="https://ijamm.pubpub.org/isam2025#isam-2025-poster-awards" target="_blank"><i
+                                class="fas fa-award"></i> Awards</a>
+                        <a href="./calligraphy-robot/ISAM2025_Poster.pdf" target="_blank"><i
+                                class="fas fa-file-pdf"></i> Poster</a>
+                        <a href="https://joedomke.com/isam-2025-awards/" target="_blank"><i class="fas fa-hammer"></i>
+                            Awards Manufacturing</a>
+                    </div>
+                </div>
+                <!-- IEEE TENCON 2025 -->
+                <div class="award-card">
+                    <div class="conference-logo"><img src="./calligraphy-robot/images/TENCON2025 logo.png"></div>
+                    <h3>IEEE TENCON 2025</h3>
+                    <div class="conference-name">IEEE Region 10 Conference</div>
+                    <div class="date">26–30 November 2025, Kota Kinabalu, Malaysia</div>
+                    <div class="description">Track A1F2 CSR 1: "Advanced 3D Path Planning for Robotic Calligraphy Based
+                        on LLM-Driven Text Prompts"</div>
+                    <div class="links">
+                        <a href="https://ieeemy.org/tencon2025/" target="_blank"><i class="fas fa-globe"></i>
+                            Conference</a>
+                        <a href="https://ieeexplore.ieee.org/document/11374953" target="_blank"><i
+                                class="fas fa-file-powerpoint"></i> IEEE Xplore</a>
+                        <a href="./calligraphy-robot/TENCON2025 Certificate.pdf" target="_blank"><i
+                                class="fas fa-certificate"></i> Certificate</a>
+                        <a href="./calligraphy-robot/TENCON2025 Full Paper.pdf" target="_blank"><i
+                                class="fas fa-file-pdf"></i> Full Paper</a>
+                        <a href="./calligraphy-robot/TENCON2025 Final Presentation.pptx" target="_blank"><i
+                                class="fas fa-file-powerpoint"></i> Slides</a>
+                    </div>
+                </div>
+                <!-- IET YPEC 2025 -->
+                <div class="award-card">
+                    <div class="conference-logo"><img src="./calligraphy-robot/images/YPEC logo.webp"></div>
+                    <h3>IET YPEC 2025</h3>
+                    <div class="conference-name">IET Young Professionals Exhibition & Competition</div>
+                    <div class="date">2 November 2025, CityU, Hong Kong</div>
+                    <div class="description">UG17: "Empowering Robotic Calligraphy Through AI-Driven 3D Path Planning"
+                    </div>
+                    <div class="links">
+                        <a href="https://www.ietypec.org/" target="_blank"><i class="fas fa-globe"></i> Competition</a>
+                        <a href="https://booth.ietypec.org/project/2025/ug/ug17-empowering-robotic-calligraphy-through-ai-driven-3d-path-planning/"
+                            target="_blank"><i class="fas fa-info-circle"></i> Project Page</a>
+                        <a href="./calligraphy-robot/YPEC2025 Attendance.pdf" target="_blank"><i
+                                class="fas fa-certificate"></i> Certificate</a>
+                        <a href="./calligraphy-robot/YPEC2025_UG17_Poster.pdf" target="_blank"><i
+                                class="fas fa-file-pdf"></i> Poster</a>
+                        <a href="./calligraphy-robot/YPEC2025 Presentation.pptx" target="_blank"><i
+                                class="fas fa-file-powerpoint"></i> Slides</a>
+                    </div>
+                </div>
+                <!-- HKUST ECE FYP -->
+                <div class="award-card">
+                    <div class="conference-logo"><img src="./calligraphy-robot/images/HKUST ECE logo.jpg"></div>
+                    <h3>HKUST ECE FYP 2024-25</h3>
+                    <div class="conference-name">Dept. of Electronic and Computer Engineering, Final Year Project
+                    </div>
+                    <div class="date">May 2024 – May 2025</div>
+                    <div class="description">WKT06a-24: "Computer Vision-based Path Planning for Robot Manipulator Using
+                        Bézier
+                        Curves"</div>
+                    <div class="links">
+                        <a href="https://course.ece.ust.hk/fyp24/?page_id=2908" target="_blank"><i
+                                class="fas fa-images"></i> Mid-term Posters</a>
+                        <a href="./calligraphy-robot/FYP_Final_Poster_WKT06.pdf" target="_blank"><i
+                                class="fas fa-file-pdf"></i> Final Poster</a>
+                        <a href="./calligraphy-robot/FYP_Final_Presentation_Slides.pptx" target="_blank"><i
+                                class="fas fa-file-powerpoint"></i> Presentation</a>
+                        <a href="./calligraphy-robot/FYP_Final_Report.docx" target="_blank"><i
+                                class="fas fa-file-word"></i> Report</a>
+                    </div>
+                </div>
+            </div>
 
-
-            <!-- Technical Details (from GitHub & PowerPoint) -->
-            <h2>Technical Details</h2>
+            <!-- Tech Summary Cards (2x2) -->
+            <h2>Technical Highlights</h2>
             <!-- GitHub Repository -->
             <a href="https://github.com/DicaprioCheung/chinese_caligraphy_robot" target="_blank" class="github-link"><i
                     class="fab fa-github"></i> View Source on GitHub</a><br>
-            <div class="tech-grid">
-                <div class="tech-card">
+            <div class="tech-summary-grid">
+                <div class="tech-summary-card">
                     <h4>🤖 3D Path Planning</h4>
                     <ul>
-                        <li>Uses <strong>Hermite curves</strong> with Catmull-Rom spline interpolation for smooth
-                            trajectories.</li>
-                        <li>Brush height is modulated via <strong>largest fitting circles</strong> algorithm - lower
-                            brush = thicker strokes.</li>
+                        <li>Uses <strong>Hermite curves</strong> with modified Catmull-Rom spline interpolation for
+                            smooth trajectories.</li>
+                        <li>Brush height modulated via <strong>largest fitting circles</strong> algorithm – lower brush
+                            = thicker strokes.</li>
                         <li>Supports 2D (fixed height) and 3D (variable height) modes for comparison.</li>
                     </ul>
                 </div>
-
-                <div class="tech-card">
+                <div class="tech-summary-card">
                     <h4>🧠 AI Integration</h4>
                     <ul>
                         <li><strong>ChatGPT (HKUST Azure API)</strong> generates four-character idioms (e.g., 大吉大利) from
                             user prompts.</li>
                         <li><strong>YOLOv8</strong> object detection model trained to detect brush bending, used for
                             calibration and emergency stop.</li>
-                        <li>Dataset: 100+ annotated images of brush on paper, augmented with Roboflow.</li>
+                        <li>Dataset: 100+ annotated images of brush on paper, augmented with Roboflow to 2386 images.
+                        </li>
                     </ul>
                 </div>
-
-                <div class="tech-card">
+                <div class="tech-summary-card">
                     <h4>⚙️ Software Architecture</h4>
                     <ul>
-                        <li><strong>Multithreaded</strong> Python application with five concurrent threads:</li>
-                        <li>Main (Tkinter UI), control logic (finite state machine), JSON output to arm, keyboard input,
-                            camera feed.</li>
+                        <li><strong>Multithreaded</strong> Python application with five concurrent threads: UI, control
+                            (FSM), JSON output, keyboard, camera.</li>
                         <li>Non-blocking FSM handles modes: manual, single curve, single character, four-character
                             phrase.</li>
+                        <li>Serial JSON commands to arm at 50 Hz with emergency stop.</li>
                     </ul>
                 </div>
-
-                <div class="tech-card">
+                <div class="tech-summary-card">
                     <h4>📊 Dataset & Graphics</h4>
                     <ul>
                         <li>Stroke data from <a href="https://github.com/skishore/makemeahanzi" target="_blank">Make Me
-                                a Hanzi</a> - 1024×1024 SVG paths with medians.</li>
-                        <li>Conversion scripts extract control points and compute 3D height based on stroke width.</li>
+                                a Hanzi</a> – 1024×1024 SVG paths with medians.</li>
+                        <li>Conversion scripts extract control points and compute 3D height based on largest fitting
+                            circles.</li>
                         <li>Test scripts generate visualisations (GIFs, 3D plots) for presentations.</li>
                     </ul>
                 </div>
             </div>
 
-            <h3>How It Works (Step by Step)</h3>
-            <ol style="margin-left: 20px;">
-                <li><strong>User Input:</strong> User types a theme (e.g., "mother's day") into the Tkinter UI.</li>
-                <li><strong>LLM Suggestion:</strong> ChatGPT returns a four-character idiom (e.g., 恩重如山).</li>
-                <li><strong>Fetch Strokes:</strong> System retrieves 2D control points for each character from the Make
-                    Me a Hanzi dataset.</li>
-                <li><strong>3D Control Points:</strong> For each stroke, calculate brush height using largest fitting
-                    circles - thicker parts press down.</li>
-                <li><strong>Trajectory Generation:</strong> Connect points with Hermite curves (using Catmull-Rom to
-                    compute tangents).</li>
-                <li><strong>Robot Control:</strong> Send JSON commands to the 5-DoF robotic arm (via serial) with x, y,
-                    z, angle, and claw state.</li>
-                <li><strong>Real-time Monitoring:</strong> Camera runs YOLOv8 to detect brush bending; if detected,
-                    emergency stop engages.</li>
-            </ol>
+            <!-- Detailed Technical Sections (from previous version) -->
+            <h2>Detailed Technical Explanation</h2>
 
-            <p>The complete source code, including all test scripts and dataset processing, is available on <a
+            <h3>1. System Architecture</h3>
+            <p>The system comprises a 5-DoF Waveshare RoArm-M1 robotic arm, a 480p USB camera, a water-writing cloth,
+                and a laptop running Python. The software is multithreaded: a Tkinter UI thread, a control thread
+                (finite state machine), a JSON command thread to the arm, a keyboard input thread, and a camera thread.
+                The arm is controlled via serial JSON commands (115200 baud) at 50 Hz.</p>
+            <div class="tech-figure">
+                <div class="caption">System Architecture</div>
+                <img src="./calligraphy-robot/images/system_diagram.png" width="70%" alt="System Block Diagram">
+                <div class="caption">User Interface</div>
+                <img src="./calligraphy-robot/images/user_interface.png" width="70%" alt="System Block Diagram">
+            </div>
+
+            <h3>2. Leveraging LLM for Inputting Chinese Characters in Robotic Calligraphy</h3>
+            <div class="tech-figure">
+                <img src="./calligraphy-robot/images/input.png" width="50%" alt="System Block Diagram">
+            </div>
+            <p>The system leverages the HKUST GenAI Platform API (ChatGPT-4o) to generate creative four-character idioms
+                based on user-provided themes (e.g., "Mother's Day"). Examples include:</p>
+            <div class="tech-highlight">
+                <strong>Input:</strong> 幫我寫一個關於<u><em> 春節 </em></u>的四字詞語 → <strong>Output:</strong> 大吉大利<br>
+                <strong>Input:</strong> 幫我寫一個關於<u><em> 母親節 </em></u>的四字詞語 → <strong>Output:</strong> 恩重如山
+            </div>
+            <br>
+            <p>
+                Alternatively, users can select from pre-defined four-character idioms by clicking the red banners
+                above<br>
+                or input their own custom idiom in either traditional or simplified Chinese.
+            </p>
+
+            <h3>3. Fetch 2D Control Points</h3>
+            <p>The open-source <a href="https://github.com/skishore/makemeahanzi" target="_blank">Make Me a Hanzi</a>
+                dataset
+                provides stroke-ordered vector graphics, including medians(Red Control Points) and boundaries(Black
+                lines) for each Chinese character.
+                These 2D control points are extracted to represent the structure of the character strokes.</p>
+            <div class="tech-figure">
+                <div class="caption">2D control points extracted from the "Make Me a Hanzi" dataset.</div>
+                <img src="./calligraphy-robot/images/2D Control Points.png" width="30%" alt="2D Control Points">
+            </div>
+
+            <h3>4. Convert 2D Points to 3D</h3>
+            <p>Using the extracted 2D control points, the system computes the largest fitting circle for each median
+                point that does
+                not intersect the stroke boundary. The radius of the circle indicates the local stroke thickness, which
+                is then used
+                to calculate the Z-coordinate (depth). A larger radius corresponds to a thicker stroke, meaning the
+                brush is pressed
+                down further. The Z-coordinate is calculated using the following equation:</p>
+            <div class="tech-highlight">
+                Z = Z₀ + (r_avg − r_c) / 4
+            </div>
+            <p>Here, <code>r_avg</code> is the dataset average radius (≈ 20), <code>r_c</code> is the current circle
+                radius, and
+                <code>Z₀</code> is the calibrated base height (FYP report Section 2.2.2, TENCON paper Eq. 1).
+            </p>
+            <div class="tech-figure">
+                <div class="caption">Visualization of converting 2D control points to 3D strokes.</div>
+                <img src="./calligraphy-robot/images/largest_circles_animation.gif" width="30%"
+                    alt="3D Stroke Conversion">
+            </div>
+
+            <h3>5. 3D Path Planning with Hermite Curves</h3>
+            <p>The core of the algorithm uses <strong>Hermite curves</strong> defined by start/end positions and
+                velocities:</p>
+            <div class="tech-highlight">
+                H(t) = [t³ t² t 1] * M * [P0; P1; V0; V1] (t∈[0,1])
+            </div>
+            <p>To connect multiple points in a stroke, a <strong>modified Catmull-Rom spline</strong> calculates
+                velocities using the minimum of adjacent distances to prevent overshoot (FYP report Section 2.2.1,
+                TENCON paper Eq. 4):</p>
+            <div class="tech-highlight">
+                Vᵢ = k · min(|Pᵢ₊₁−Pᵢ|, |Pᵢ−Pᵢ₋₁|) · (Pᵢ₊₁−Pᵢ₋₁)/|Pᵢ₊₁−Pᵢ₋₁|
+            </div>
+            <p>This ensures C¹ continuity and smooth trajectories even with unevenly spaced control points. The figure
+                below shows a Hermite spline for the character "利" (from TENCON paper).</p>
+            <div class="tech-figure">
+                <img src="./calligraphy-robot/images/3D Path.png" width="40%" alt="Hermite spline">
+            </div>
+
+            <h3>6. Connecting Strokes and Characters</h3>
+            <p>Between strokes, a connecting Hermite curve lifts the brush with G¹ continuity: the starting velocity
+                matches the previous stroke's end direction, and the ending velocity is straight down. This creates a
+                natural lifting motion. Between characters, a similar curve translates the arm vertically and
+                horizontally.</p>
+            <div class="tech-figure">
+                <video src="./calligraphy-robot/images/Connecting Strokes.mp4" controls width="40%"
+                    alt="Connecting curves">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <h3>7. Computer Vision Calibration</h3>
+            <p>A YOLOv8-based CNN classifies the brush state into three classes: <code>maobi_on_paper</code>,
+                <code>maobi_off_paper</code>, and <code>no_maobi</code>. The model was trained on 994 annotated images
+                (augmented to 2386) and achieves 94.5% validation accuracy using <a
+                    href="https://universe.roboflow.com/test-8uxnf/maobi-on-paper">Roboflow</a>. The calibration routine
+                moves the arm down until the brush touches the paper, then up slightly to find the optimal Z₀.
+            </p>
+            <div class="tech-figure">
+                <div class="caption">The 3 Classes of the Object Classification Model</div>
+                <img src="./calligraphy-robot/images/YOLO Classes.png" alt="CV dataset">
+            </div>
+
+            <h3>8. Results & Performance</h3>
+            <p>We then control the robotic arm to move in the simulated 3D path to write the Chinese Calligraphy.</p>
+            <div class="tech-figure">
+                <img src="./calligraphy-robot/images/result.png" alt="Results">
+            </div>
+
+            <p>The complete source code is available on <a
                     href="https://github.com/DicaprioCheung/chinese_caligraphy_robot" target="_blank">GitHub</a>.</p>
+
+            <!-- Additional Resources -->
+            <h3>Additional Media</h3>
+            <ul>
+                <li><a href="https://youtu.be/PfwRGyaZ8r0" target="_blank">Demo Video on YouTube</a></li>
+                <li><a href="https://github.com/DicaprioCheung/chinese_caligraphy_robot" target="_blank">GitHub
+                        Repository</a></li>
+            </ul>
         </div>
     </div>
 
@@ -622,6 +890,22 @@
     </footer>
 
     <script>
+        // YouTube fallback: if iframe fails to load, show thumbnail
+        const iframe = document.getElementById('youtubeIframe');
+        const fallbackImg = document.querySelector('.fallback-image');
+
+        // Check if iframe loaded successfully
+        iframe.addEventListener('error', function () {
+            iframe.style.display = 'none';
+            fallbackImg.style.display = 'block';
+        });
+
+        // Also check after a timeout (some errors don't trigger 'error' event)
+        setTimeout(function () {
+            // If iframe is still visible but maybe blank, we can't detect easily.
+            // We'll keep it simple: if the iframe fails to load, the error event will handle.
+        }, 3000);
+
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(link => {
             link.addEventListener('click', function (e) {
