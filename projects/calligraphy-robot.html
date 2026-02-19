@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dicaprio Cheung - HKUST</title>
+    <title>Dicaprio Cheung - Chinese Calligraphy Robot</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Copy all styles from index.html */
         * {
             margin: 0;
             padding: 0;
@@ -151,6 +150,12 @@
             border-bottom: 3px solid #3498db;
             padding-bottom: 8px;
             display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 20px 0 10px;
+            color: #34495e;
         }
 
         .detail-card {
@@ -301,6 +306,73 @@
             color: #3498db;
         }
 
+        /* Video container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Tech detail boxes */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .tech-card {
+            background: #f0f4f8;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #3498db;
+        }
+
+        .tech-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .tech-card p,
+        .tech-card ul {
+            color: #555;
+        }
+
+        .tech-card ul {
+            padding-left: 20px;
+        }
+
+        .github-link {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+
+        .github-link:hover {
+            background: #1a252f;
+        }
+
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -373,37 +445,166 @@
     </header>
 
     <a href="#" class="back-to-top">↑</a>
+
     <div class="main-content">
         <a href="../index.html" class="back-home">← Back to Home</a>
+
         <div class="detail-card">
             <div class="detail-header">
-                <!-- <div class="logo-large">
-                    <img src="https://via.placeholder.com/80?text=Robot" alt="Calligraphy robot">
-                </div> -->
-                <h1 class="detail-title">Chinese Calligraphy Robot</h1>
+                <!-- Optional logo -->
+                <!-- <div class="logo-large"><img src="../images/calligraphy-logo.png" alt="Calligraphy robot"></div> -->
+                <h1 class="detail-title">Final Year Project: Chinese Calligraphy Robot</h1>
             </div>
-            <p class="date-badge">Sep 2024 - Present</p>
-            <p><strong>Technologies:</strong> Python, Tkinter, Threading, Bézier curves</p>
+            <p class="date-badge">Sept 2024 - Nov 2025</p>
+            <p><strong>Technologies:</strong> Python, Tkinter, Threading, Hermite Curves, YOLOv8, ChatGPT API</p>
+
+            <!-- Embedded YouTube Video -->
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/PfwRGyaZ8r0" title="Chinese Calligraphy Robot Demo"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+
+            <!-- Overview (enhanced) -->
             <h2>Overview</h2>
-            <p>Developed a 3D Bézier curve path planning algorithm to control a robotic arm for writing Chinese
-                calligraphy. The system ensures smooth, accurate strokes by generating trajectories that mimic human
-                handwriting.</p>
+            <p>This project combines robotics, computer vision, and AI to create a system that can write authentic
+                Chinese calligraphy using a robotic arm. The key innovation is a <strong>3D Hermite curve-based path
+                    planning algorithm</strong> that controls the brush height to modulate stroke thickness - a crucial
+                aspect of traditional calligraphy. The system accepts user prompts in natural language, uses ChatGPT to
+                suggest appropriate four-character idioms, and then generates the corresponding brush trajectories.</p>
+
+            <!-- Awards & Publications -->
             <h2>Awards & Publications</h2>
             <ul class="award-list">
-                <li>🏆 International Symposium on Academic Makerspaces (ISAM) 2025 – Best Student Poster Award (UC
-                    Berkeley)</li>
-                <li>📄 Submitted papers to TENCON 2025, ISAM Makerspace 2025, and IET YPEC 2025.</li>
+                <li>
+                    <strong>🏆 ISAM 2025 Best Student Poster Award</strong> - <em>International Symposium on Academic
+                        Makerspaces 2025, UC Berkeley, California, USA</em><br>
+                    6 ~ 8 August 2025<br>
+                    Poster #165: "3D Hermite Curve-based Path Planning on Robot Manipulator for Chinese Calligraphy"<br>
+                    <a href="https://isam2025.hemi-makers.org/" target="_blank">Symposium Website</a> •
+                    <a href="https://ijamm.pubpub.org/pub/vlacp9x6/release/1" target="_blank">Published Poster</a> •
+                    <a href="https://ijamm.pubpub.org/isam2025#isam-2025-poster-awards" target="_blank">Awards
+                        Announcement</a> •
+                    <a href="./calligraphy-robot/ISAM2025_Poster.pdf" target="_blank">Poster (PDF)</a> •
+                    <a href="https://joedomke.com/isam-2025-awards/" target="_blank">ISAM 2025 Awards Manufacturing</a>
+                </li>
+                <li>
+                    <strong>📄 IEEE TENCON 2025</strong> - <em>IEEE Region 10 Conference 2025 (TENCON 2025), Kota
+                        Kinabalu, Sabah, Malaysia</em><br>
+                    26 ~ 30 November 2025<br>
+                    Track A1F2 Control Systems & Robotics (CSR) 1: "Advanced 3D Path Planning for Robotic Calligraphy
+                    Based on LLM-Driven Text
+                    Prompts"<br>
+                    <a href="https://ieeemy.org/tencon2025/" target="_blank">Conference Website</a> •
+                    <a href="https://ieeexplore.ieee.org/document/11374953" target="_blank">Published Paper on IEEE
+                        Xplore</a> •
+                    <a href="./calligraphy-robot/TENCON2025 Certificate.pdf" target="_blank">Certificate of
+                        Presentation</a> •
+                    <a href="./calligraphy-robot/TENCON2025 Full Paper.pdf" target="_blank">Full Paper (PDF)</a> •
+                    <a href="./calligraphy-robot/TENCON2025 Final Presentation.pptx" target="_blank">Presentation Slides
+                        (PPTX)</a>
+                </li>
+                <li>
+                    <strong>📄 IET YPEC 2025</strong> - <em>IET Young Professionals Exhibition & Competition 2025,
+                        CityU,
+                        Hong Kong, China</em><br>
+                    2 November 2025<br>
+                    UG17: "Empowering Robotic Calligraphy Through AI-Driven 3D Path Planning"<br>
+                    <a href="https://www.ietypec.org/" target="_blank">Competition Website</a> •
+                    <a href="https://booth.ietypec.org/project/2025/ug/ug17-empowering-robotic-calligraphy-through-ai-driven-3d-path-planning/#:~:text=This%20project%20introduces%20an%20innovative,capabilities%20in%20performing%20traditional%20calligraphy."
+                        target="_blank">Project Webpage</a> •
+                    <a href="./calligraphy-robot/YPEC2025 Attendance.pdf" target="_blank">Certificate of Attendance</a>
+                    •
+                    <a href="./calligraphy-robot/YPEC2025_UG17_Poster.pdf" target="_blank">Poster</a> •
+                    <a href="./calligraphy-robot/YPEC2025 Presentation.pptx" target="_blank">Presentation Slides
+                        (PPTX)</a>
+                </li>
+                <li>
+                    <strong>🎓 HKUST ECE Final Year Project 2024-25</strong> - <em>Department of Electronic and Computer
+                        Engineering - Final Year Project 2024~25</em><br>
+                    May 2024 ~ May 2025<br>
+                    WKT06a-24: "Computer Vision-based Path Planning for Robot Manipulator Using Bézier Curves"<br>
+                    <a href="https://course.ece.ust.hk/fyp24/?page_id=2908" target="_blank">Mid-term Poster Gallery</a>
+                    •
+                    <a href="./calligraphy-robot/FYP_Final_Poster_WKT06.pdf" target="_blank">Final Poster</a> •
+                    <a href="./calligraphy-robot/FYP_Final_Presentation_Slides.pptx" target="_blank">Final Presentation
+                        PPT</a> •
+                    <a href="./calligraphy-robot/FYP_Final_Report.docx" target="_blank">Final Report</a>
+                </li>
             </ul>
+
+
+            <!-- Technical Details (from GitHub & PowerPoint) -->
             <h2>Technical Details</h2>
-            <ul>
-                <li>Implemented Bézier curve path planning for precise control of the robotic arm.</li>
-                <li>Used Python threading to manage multiple tasks simultaneously (arm control, user interface, sensor
-                    feedback).</li>
-                <li>Created a Tkinter-based UI for users to input Chinese characters and adjust parameters.</li>
-                <li>Integrated with a physical robotic arm via serial communication.</li>
-            </ul>
+            <!-- GitHub Repository -->
+            <a href="https://github.com/DicaprioCheung/chinese_caligraphy_robot" target="_blank" class="github-link"><i
+                    class="fab fa-github"></i> View Source on GitHub</a><br>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>🤖 3D Path Planning</h4>
+                    <ul>
+                        <li>Uses <strong>Hermite curves</strong> with Catmull-Rom spline interpolation for smooth
+                            trajectories.</li>
+                        <li>Brush height is modulated via <strong>largest fitting circles</strong> algorithm - lower
+                            brush = thicker strokes.</li>
+                        <li>Supports 2D (fixed height) and 3D (variable height) modes for comparison.</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h4>🧠 AI Integration</h4>
+                    <ul>
+                        <li><strong>ChatGPT (HKUST Azure API)</strong> generates four-character idioms (e.g., 大吉大利) from
+                            user prompts.</li>
+                        <li><strong>YOLOv8</strong> object detection model trained to detect brush bending, used for
+                            calibration and emergency stop.</li>
+                        <li>Dataset: 100+ annotated images of brush on paper, augmented with Roboflow.</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h4>⚙️ Software Architecture</h4>
+                    <ul>
+                        <li><strong>Multithreaded</strong> Python application with five concurrent threads:</li>
+                        <li>Main (Tkinter UI), control logic (finite state machine), JSON output to arm, keyboard input,
+                            camera feed.</li>
+                        <li>Non-blocking FSM handles modes: manual, single curve, single character, four-character
+                            phrase.</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h4>📊 Dataset & Graphics</h4>
+                    <ul>
+                        <li>Stroke data from <a href="https://github.com/skishore/makemeahanzi" target="_blank">Make Me
+                                a Hanzi</a> - 1024×1024 SVG paths with medians.</li>
+                        <li>Conversion scripts extract control points and compute 3D height based on stroke width.</li>
+                        <li>Test scripts generate visualisations (GIFs, 3D plots) for presentations.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>How It Works (Step by Step)</h3>
+            <ol style="margin-left: 20px;">
+                <li><strong>User Input:</strong> User types a theme (e.g., "mother's day") into the Tkinter UI.</li>
+                <li><strong>LLM Suggestion:</strong> ChatGPT returns a four-character idiom (e.g., 恩重如山).</li>
+                <li><strong>Fetch Strokes:</strong> System retrieves 2D control points for each character from the Make
+                    Me a Hanzi dataset.</li>
+                <li><strong>3D Control Points:</strong> For each stroke, calculate brush height using largest fitting
+                    circles - thicker parts press down.</li>
+                <li><strong>Trajectory Generation:</strong> Connect points with Hermite curves (using Catmull-Rom to
+                    compute tangents).</li>
+                <li><strong>Robot Control:</strong> Send JSON commands to the 5-DoF robotic arm (via serial) with x, y,
+                    z, angle, and claw state.</li>
+                <li><strong>Real-time Monitoring:</strong> Camera runs YOLOv8 to detect brush bending; if detected,
+                    emergency stop engages.</li>
+            </ol>
+
+            <p>The complete source code, including all test scripts and dataset processing, is available on <a
+                    href="https://github.com/DicaprioCheung/chinese_caligraphy_robot" target="_blank">GitHub</a>.</p>
         </div>
     </div>
+
     <footer>
         <div class="footer-content">
             <div class="footer-contact">
