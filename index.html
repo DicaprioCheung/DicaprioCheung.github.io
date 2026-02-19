@@ -168,8 +168,8 @@
 
         .about-image .circular-image {
             width: 100%;
-            max-width: 250px;
-            height: 250px;
+            max-width: 300px;
+            height: 300px;
             border-radius: 50%;
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
@@ -606,6 +606,9 @@
                 <div class="nav-item">
                     <a href="#skills" class="nav-button">Skills</a>
                 </div>
+                <div class="nav-item">
+                    <a href="#footer" class="nav-button">Contact Me</a>
+                </div>
             </div>
         </div>
     </header>
@@ -630,11 +633,20 @@
         <section id="about" class="about">
             <div class="about-text">
                 <h1>Dicaprio Cheung</h1>
-                <h2 style="border:none; margin:0 0 10px 0; padding:0; font-size:1.8rem;">About Me</h2>
-                <p>Hi, I am Cheung Dick Ho, Dicaprio. I am a HKUST BEng in Computer Engineering + AI fresh graduate,
-                    currently seeking full-time internship/employment.</p>
+                <h4 style="border:none; margin:0 0 10px 0; padding:0; font-size:1.5rem;">HKUST Computer
+                    Engineering + AI | Robocon | STEAM</h4>
+                <p>Hello, I am Cheung Dick Ho(張迪皓), Dicaprio.<br>
+                    I am a HKUST BEng in Computer Engineering + AI, <strong>First Class
+                        Honors</strong> fresh graduate.<br>
+                    I was a software engineer in HKUST Robocon 2023 & 24. <br>
+                    Currently, I work as a Part-time STEM Course Instructor at 10Botics Limited.<br>
+                    I am actively <strong>seeking full-time employment or internship</strong> opportunities to pursue a
+                    more stable
+                    career path.
+                </p>
                 <p>Here is my electronic name card: <a href="https://dicapriocheung.github.io/Name-Card/"
                         target="_blank">https://dicapriocheung.github.io/Name-Card/</a></p>
+                <br>
                 <p><em>This page is still under development... but you can still read some parts of it.</em></p>
             </div>
             <div class="about-image">
@@ -798,6 +810,11 @@
 
         <!-- Technical Skills (refactored) -->
         <h2 id="skills">Technical Skills</h2>
+        <div class="skills-key">
+            <span class="skill-tag skill-proficient">Proficient</span>
+            <span class="skill-tag skill-intermediate">Intermediate</span>
+            <span class="skill-tag skill-beginner">Beginner</span>
+        </div>
         <div class="skills-container">
             <div class="skills-group">
                 <h4>Languages</h4>
@@ -823,19 +840,25 @@
                         data-desc="Version control, collaboration, and CI/CD basics.">Git/GitHub</span>
                     <span class="skill-tag skill-beginner" data-skill="Solidworks" data-level="beginner"
                         data-desc="Basic CAD modeling for simple parts.">Solidworks</span>
-                    <span class="skill-tag skill-beginner" data-skill="CubeIDE/Arduino" data-level="beginner"
-                        data-desc="Can write and upload basic firmware.">CubeIDE/Arduino</span>
-                    <span class="skill-tag skill-proficient" data-skill="LEGO Mindstorm EV3/NXT" data-level="proficient"
-                        data-desc="Extensive robotics experience with LEGO platforms.">LEGO Mindstorm EV3/NXT</span>
+                    <span class="skill-tag skill-beginner" data-skill="CubeIDE" data-level="beginner"
+                        data-desc="Can write and upload basic firmware.">CubeIDE</span>
+                    <span class="skill-tag skill-intermediate" data-skill="Micro:bit" data-level="intermediate"
+                        data-desc="Can teach different levels of students flexibly with different extensions.">Micro:bit</span>
+                    <span class="skill-tag skill-beginner" data-skill="Arduino" data-level="beginner"
+                        data-desc="Can write basic code and do basic wiring">Arduino</span>
+                    <span class="skill-tag skill-proficient" data-skill="LEGO Mindstorm EV3/NXT/Spike"
+                        data-level="proficient" data-desc="Extensive robotics experience with LEGO platforms.">LEGO
+                        Mindstorm
+                        EV3/NXT/Spike</span>
                 </div>
             </div>
             <div class="skills-group">
                 <h4>Frameworks & Technologies</h4>
                 <div class="skills-tags">
-                    <span class="skill-tag skill-beginner" data-skill="STM32" data-level="beginner"
-                        data-desc="Can configure and program basic peripherals.">STM32</span>
-                    <span class="skill-tag skill-beginner" data-skill="RTOS" data-level="beginner"
-                        data-desc="Familiar with concepts, used in some projects.">RTOS</span>
+                    <span class="skill-tag skill-intermediate" data-skill="STM32" data-level="intermediate"
+                        data-desc="Familiar with concepts, used in Robocon.">STM32</span>
+                    <span class="skill-tag skill-intermediate" data-skill="RTOS" data-level="intermediate"
+                        data-desc="Familiar with concepts, used in Robocon.">RTOS</span>
                     <span class="skill-tag skill-beginner" data-skill="ROS2" data-level="beginner"
                         data-desc="Basic understanding of nodes and topics.">ROS2</span>
                     <span class="skill-tag skill-beginner" data-skill="YOLO" data-level="beginner"
@@ -849,8 +872,9 @@
             <div class="skills-group">
                 <h4>Algorithms</h4>
                 <div class="skills-tags">
-                    <span class="skill-tag skill-intermediate" data-skill="PID Control" data-level="intermediate"
-                        data-desc="Implemented in robotics for precise control.">PID Control</span>
+                    <span class="skill-tag skill-proficient" data-skill="PID Control" data-level="proficient"
+                        data-desc="10+ years of tuning PID. Implemented in robotics for precise control.">PID
+                        Control</span>
                     <span class="skill-tag skill-intermediate" data-skill="Finite State Machine"
                         data-level="intermediate" data-desc="Used in game and robot logic.">Finite State Machine</span>
                     <span class="skill-tag skill-intermediate" data-skill="Trapezoidal Acceleration"
@@ -865,13 +889,14 @@
     </div>
 
     <!-- Footer with icons -->
-    <footer>
+    <footer id="footer">
         <div class="footer-content">
             <div class="footer-contact">
                 <a href="https://wa.me/85262188414" target="_blank"><i class="fab fa-whatsapp"></i> +852 6218 8414</a>
                 <a href="mailto:dicapriocheung@gmail.com"><i class="far fa-envelope"></i> Gmail</a>
                 <a href="https://github.com/DicaprioCheung" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://linkedin.com/in/dicaprio-cheung" target="_blank"><i class="fab fa-linkedin"></i>
+                <a href="https://www.linkedin.com/in/cheung-dick-ho-25b9b4284/" target="_blank"><i
+                        class="fab fa-linkedin"></i>
                     LinkedIn</a>
             </div>
             <div class="footer-links">
