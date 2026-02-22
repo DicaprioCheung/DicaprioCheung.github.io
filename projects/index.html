@@ -315,6 +315,18 @@
             align-self: flex-start;
         }
 
+        .card .award-badge {
+            background: #f1c40f;
+            color: #2c3e50;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            align-self: flex-start;
+        }
+
         .card p {
             color: #555;
             margin-bottom: 15px;
@@ -554,7 +566,8 @@
                 <div class="filter-group">
                     <span class="filter-label">Category:</span>
                     <button class="filter-btn" data-filter="programming">Programming</button>
-                    <button class="filter-btn" data-filter="robotics">Robotics</button>
+                    <button class="filter-btn" data-filter="ust robotics">HKUST Robotics Team</button>
+                    <button class="filter-btn" data-filter="tyt robotics">TYT Robotics Team</button>
                     <button class="filter-btn" data-filter="award">Award</button>
                 </div>
                 <div class="filter-group">
@@ -562,6 +575,7 @@
                     <button class="filter-btn" data-filter="2025">2025</button>
                     <button class="filter-btn" data-filter="2024">2024</button>
                     <button class="filter-btn" data-filter="2023">2023</button>
+                    <button class="filter-btn" data-filter="2022">2022</button>
                     <button class="filter-btn" data-filter="2021">2021</button>
                     <button class="filter-btn" data-filter="2019">2019</button>
                 </div>
@@ -605,8 +619,8 @@
                 category: "programming",
                 description: "3D Bézier curve path planning for robotic arm calligraphy. Submitted papers to TENCON 2025, ISAM 2025, IET YPEC 2025.",
                 link: "calligraphy-robot.html",
-                // logo: "https://via.placeholder.com/50?text=Robot",
-                tags: ["award"]  // This project also won an award
+                tags: ["award"],
+                awards: ["ISAM 2025 Best Student Poster Award", "TENCON 2025 Paper Presentation"]
             },
             {
                 title: "2v2 Robot Basketball Game",
@@ -615,7 +629,7 @@
                 year: "2025",
                 category: "programming",
                 description: "A real-time multiplayer basketball game where two teams of robots compete in a 2v2 format. Players control robots using keyboard inputs (WASD and Arrow keys) to perform actions like shooting, passing, dribbling, and stealing. The game features dynamic nerfs, cheat modes, and a game-over screen with detailed statistics.",
-                link: "../projects/2v2-basketball.html",
+                link: "2v2-basketball.html",
             },
             {
                 title: "Glyphmaster",
@@ -627,65 +641,84 @@
                 link: "glyphmaster.html",
                 // logo: "https://via.placeholder.com/50?text=Glyph"
             },
+
+            {
+                title: "ABU Robocon 2024 - R1 (Robot 1)",
+                subtitle: "STM32, RTOS, Embedded C, Path Planning, Desmos",
+                date: "Aug 2023 - June 2024",
+                year: "2024",
+                category: "ust robotics",
+                description: "Led a team of 4 Junior Software Engineer to automated robot movements between all key positions.",
+                link: "Robocon2024_R1.html",
+                // logo: "https://via.placeholder.com/50?text=Robocon",
+                tags: ["award"],
+                awards: ["Robocon HK 2nd Runner Up", "Robocon HK Best Team Spirit Award"]
+            },
+            {
+                title: "ABU Robocon 2024 - R2 (Robot 2)",
+                subtitle: "STM32, RTOS, Embedded C, ROS2, YOLO",
+                date: "Aug 2023 - June 2024",
+                year: "2024",
+                category: "ust robotics",
+                description: "Led team of 20. Used STM32, RTOS, ROS2, YOLO. Automated robot movements between key positions.",
+                link: "Robocon2024_R2.html",
+                // logo: "https://via.placeholder.com/50?text=Robocon",
+                tags: ["award"],
+                awards: ["Robocon HK 2nd Runner Up", "Robocon HK Best Team Spirit Award"]
+            },
             {
                 title: "Trajectory Planner Software",
                 subtitle: "Python, Embedded C, PyQT",
                 date: "Sep 2023 - Jan 2024",
-                year: "2024",
-                category: "programming",
+                year: "2023",
+                category: "ust robotics",
                 description: "Modified Bézier curve trajectory planner for HKUST Robotics Team. Reduced embedded program size by 5%.",
-                link: "trajectory-planner.html",
+                link: "Robocon2023_trajplanner.html",
                 // logo: "https://via.placeholder.com/50?text=Path"
             },
-
-            // Awards & Robotics Projects (from Awards section)
-            // {
-            //     title: "ISAM 2025 - Best Student Poster",
-            //     subtitle: "Chinese Calligraphy Robot",
-            //     date: "August 2025",
-            //     year: "2025",
-            //     category: "award",
-            //     description: "Presented at UC Berkeley. Developed 3D Bézier path planning with Python threading for robotic arm calligraphy.",
-            //     link: "../projects/calligraphy-robot.html",  // Links to the same project page
-            //     // logo: "https://via.placeholder.com/50?text=ISAM",
-            //     tags: ["robotics"]
-            // },
             {
-                title: "ABU Robocon 2024 - 2nd Runner-Up",
-                subtitle: "War Dragon",
-                date: "June 2024",
-                year: "2024",
-                category: "robotics",
-                description: "Led team of 20. Used STM32, RTOS, ROS2, YOLO. Automated robot movements between key positions.",
-                link: "../robotics/robocon.html",
-                // logo: "https://via.placeholder.com/50?text=Robocon"
-            },
-            {
-                title: "ABU Robocon 2024 - Best Team Spirit",
-                subtitle: "War Dragon",
-                date: "June 2024",
-                year: "2024",
-                category: "robotics",
-                description: "Awarded for exceptional teamwork and collaboration during the competition.",
-                link: "../robotics/robocon.html",
-                // logo: "https://via.placeholder.com/50?text=Spirit"
-            },
-            {
-                title: "ABU Robocon 2023 - Top 8",
-                subtitle: "Fiery Dragon",
-                date: "June 2023",
+                title: "ABU Robocon 2023 - RR (Rabbit Robot)",
+                subtitle: "STM32, RTOS, Embedded C, Path Planning",
+                date: "Jan - June 2023",
                 year: "2023",
-                category: "robotics",
-                description: "Reached Top 8 in Hong Kong regional contest.",
-                link: "../robotics/robocon.html",
+                category: "ust robotics",
+                description: "Developed a path finding algorithm to automate robot movements between key positions.",
+                link: "Robocon2023_RR.html",
                 // logo: "https://via.placeholder.com/50?text=Robocon"
+                tags: ["award"],
+                awards: ["Robocon HK Top-8"]
+            },
+
+            {
+                title: "HKUST RDC 2022 - TR (Task Robot)",
+                subtitle: "STM32, Embedded C, MIT App Inventor",
+                date: "Oct - Dec 2022",
+                year: "2022",
+                category: "ust robotics",
+                description: "Developed a .",
+                link: "RDC2022_TR.html",
+                // logo: "https://via.placeholder.com/50?text=Robocon"
+                tags: ["award"],
+                awards: ["RDC 2022 2nd Runner Up", "RDC 2022 Best Engineering Award"]
+            },
+            {
+                title: "HKUST RDC 2022 - ARC (Auto Robot)",
+                subtitle: "STM32, Embedded C, Image Processing",
+                date: "Oct - Dec 2022",
+                year: "2022",
+                category: "ust robotics",
+                description: "Developed a .",
+                link: "RDC2022_ARC.html",
+                // logo: "https://via.placeholder.com/50?text=Robocon"
+                tags: ["award"],
+                awards: ["RDC 2022 2nd Runner Up", "RDC 2022 Best Engineering Award"]
             },
             {
                 title: "WRO Hong Kong Challenge 2021",
                 subtitle: "Best Performance Award",
                 date: "July 2021",
                 year: "2021",
-                category: "robotics",
+                category: "tyt robotics",
                 description: "Won Best Performance in Space, Speed, and New Sports challenges.",
                 link: "../robotics/tyt-robotics.html",
                 // logo: "https://via.placeholder.com/50?text=WRO"
@@ -695,7 +728,7 @@
                 subtitle: "Champion",
                 date: "July 2021",
                 year: "2021",
-                category: "robotics",
+                category: "tyt robotics",
                 description: "First place in DIY robotics competition.",
                 link: "../robotics/tyt-robotics.html",
                 // logo: "https://via.placeholder.com/50?text=DIY"
@@ -705,7 +738,7 @@
                 subtitle: "10th out of 83 teams",
                 date: "Nov 2019",
                 year: "2019",
-                category: "robotics",
+                category: "tyt robotics",
                 description: "Built LEGO Mindstorm EV3 with PID and FSM. Completed hidden tasks without instructor assistance.",
                 link: "../robotics/tyt-robotics.html",
                 // logo: "https://via.placeholder.com/50?text=WRO"
@@ -715,7 +748,7 @@
                 subtitle: "Champion",
                 date: "Sep 2019",
                 year: "2019",
-                category: "robotics",
+                category: "tyt robotics",
                 description: "First place in Regular Senior Category.",
                 link: "../robotics/tyt-robotics.html",
                 // logo: "https://via.placeholder.com/50?text=WRO"
@@ -725,7 +758,7 @@
                 subtitle: "亞軍 (Runner-up)",
                 date: "July 2019",
                 year: "2019",
-                category: "robotics",
+                category: "tyt robotics",
                 description: "Hong Kong Selection - 銀河守護任務 中學組 亞軍",
                 link: "../robotics/tyt-robotics.html",
                 // logo: "https://via.placeholder.com/50?text=APRA"
@@ -735,7 +768,7 @@
                 subtitle: "佳作 (Merit)",
                 date: "Dec 2019",
                 year: "2019",
-                category: "robotics",
+                category: "tyt robotics",
                 description: "Taiwan - 銀河守護任務 中學組 佳作",
                 link: "../robotics/tyt-robotics.html",
                 // logo: "https://via.placeholder.com/50?text=APRA"
@@ -780,38 +813,28 @@
 
             // Build HTML
             grid.innerHTML = filtered.map(project => {
-                if (project.logo)
-                    return `
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-logo">
-                                    <img src="${project.logo}" alt="${project.title}">
-                                </div>
-                                <h3><a href="${project.link}">${project.title}</a></h3>
-                            </div>
-                            <div class="subtitle">${project.subtitle}</div>
-                            <div class="date">${project.date}</div>
-                            <span class="category-tag">${project.category === 'programming' ? '💻 Programming' : project.category === 'robotics' ? '🤖 Robotics' : '🏆 Award'}</span>
-                            <p>${project.description}</p>
-                            <div class="btn-link">
-                                <a href="${project.link}">Learn more →</a>
-                            </div>
+                return `
+                    <div class="card">
+                        <div class="card-header">
+                            ${project.logo ? `<div class="card-logo"><img src="${project.logo}" alt="${project.title}"></div>` : ''}
+                            <h3><a href="${project.link}">${project.title}</a></h3>
                         </div>
-                    `;
-                else return `
-                        <div class="card">
-                            <div class="card-header">
-                                <h3><a href="${project.link}">${project.title}</a></h3>
+                        <div class="subtitle">${project.subtitle}</div>
+                        <div class="date">${project.date}</div>
+                        <span class="category-tag">
+                            ${project.category === 'programming' ? '💻 Programming' : project.category === 'ust robotics' ? '🤖 HKUST Robotics Team' : project.category === 'tyt robotics' ? '🤖 TYT Robotics Team' : '🏆 Award'}
+                        </span>
+                        <p>${project.description}</p>
+                        ${project.awards && project.awards.length > 0 ? `
+                            <div class="awards">
+                                ${project.awards.map(award => `<span class="award-badge">${award}</span>`).join('')}
                             </div>
-                            <div class="subtitle">${project.subtitle}</div>
-                            <div class="date">${project.date}</div>
-                            <span class="category-tag">${project.category === 'programming' ? '💻 Programming' : project.category === 'robotics' ? '🤖 Robotics' : '🏆 Award'}</span>
-                            <p>${project.description}</p>
-                            <div class="btn-link">
-                                <a href="${project.link}">Learn more →</a>
-                            </div>
+                        ` : ''}
+                        <div class="btn-link">
+                            <a href="${project.link}">Learn more →</a>
                         </div>
-                    `;
+                    </div>
+                `;
             }).join('');
         }
 
