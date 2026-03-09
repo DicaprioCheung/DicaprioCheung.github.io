@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dicaprio Cheung - RDC2022 TR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Copy all styles from index.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2c3e50;
+            white-space: nowrap;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: flex-end;
+        }
+
+        .nav-item {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-button {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: #f0f4f8;
+            transition: background 0.2s, color 0.2s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .nav-button:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 8px 0;
+            z-index: 1001;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: transparent;
+        }
+
+        .nav-item:hover::after {
+            height: 10px;
+        }
+
+        .nav-item:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #2c3e50;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background: #f0f4f8;
+            color: #3498db;
+        }
+
+        .main-content {
+            flex: 1;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px 20px 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 30px 0 15px;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+
+        .detail-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+        }
+
+        .detail-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .logo-large {
+            width: 80px;
+            height: 80px;
+            background: #e0e7ff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .detail-title {
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+
+        .date-badge {
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .award-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .award-list li {
+            background: #f9f9f9;
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-left: 5px solid #f1c40f;
+            border-radius: 5px;
+        }
+
+        .back-home {
+            margin-top: 30px;
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-home:hover {
+            background: #2980b9;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #3498db;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.2s, transform 0.2s;
+            z-index: 999;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-to-top:hover {
+            background: #2980b9;
+            transform: scale(1.1);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .footer-contact a {
+            color: #ecf0f1;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+        }
+
+        .footer-contact a:hover {
+            color: #3498db;
+        }
+
+        .footer-links a {
+            color: #ecf0f1;
+            margin-left: 20px;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .nav-wrapper {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .footer-contact {
+                justify-content: center;
+            }
+
+            .footer-links a {
+                margin: 0 10px;
+            }
+
+            .detail-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+    
+<style>
+    /* Copy all styles from index.html */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background-color: #f9f9f9;
+        color: #333;
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .sticky-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+    }
+
+    .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .header-name {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #2c3e50;
+        white-space: nowrap;
+    }
+
+    .nav-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: flex-end;
+    }
+
+    .nav-item {
+        position: relative;
+        display: inline-block;
+    }
+
+    .nav-button {
+        text-decoration: none;
+        color: #2c3e50;
+        font-weight: 600;
+        padding: 8px 16px;
+        border-radius: 30px;
+        background: #f0f4f8;
+        transition: background 0.2s, color 0.2s;
+        display: inline-block;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    .nav-button:hover {
+        background: #3498db;
+        color: white;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        min-width: 200px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 8px 0;
+        z-index: 1001;
+    }
+
+    .nav-item::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: transparent;
+    }
+
+    .nav-item:hover::after {
+        height: 10px;
+    }
+
+    .nav-item:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        color: #2c3e50;
+        padding: 8px 16px;
+        text-decoration: none;
+        display: block;
+        font-size: 0.95rem;
+        transition: background 0.2s;
+    }
+
+    .dropdown-content a:hover {
+        background: #f0f4f8;
+        color: #3498db;
+    }
+
+    .main-content {
+        flex: 1;
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px 20px 0;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: #2c3e50;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin: 30px 0 15px;
+        color: #2c3e50;
+        border-bottom: 3px solid #3498db;
+        padding-bottom: 8px;
+        display: inline-block;
+    }
+
+    h3 {
+        display: block;
+        font-size: 1.5rem;
+        color: #2c3e50;
+        margin-bottom: 0px;
+    }
+
+    ul {
+        margin: 15px 0;
+        padding-left: 20px;
+    }
+
+    .detail-card {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        margin-top: 20px;
+    }
+
+    .detail-header {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+    }
+
+    .logo-large {
+        width: 80px;
+        height: 80px;
+        background: #e0e7ff;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .logo-large img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .detail-title {
+        font-size: 2rem;
+        color: #2c3e50;
+    }
+
+    .date-badge {
+        background: #3498db;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 30px;
+        display: inline-block;
+        margin: 10px 0;
+    }
+
+    .award-list {
+        list-style: none;
+        margin: 20px 0;
+    }
+
+    .award-list li {
+        background: #f9f9f9;
+        margin: 10px 0;
+        padding: 10px 15px;
+        border-left: 5px solid #f1c40f;
+        border-radius: 5px;
+    }
+
+    .back-home {
+        margin-top: 30px;
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .back-home:hover {
+        background: #2980b9;
+    }
+
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #3498db;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 1.8rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: background 0.2s, transform 0.2s;
+        z-index: 999;
+        border: none;
+        cursor: pointer;
+    }
+
+    .back-to-top:hover {
+        background: #2980b9;
+        transform: scale(1.1);
+    }
+
+    footer {
+        background: #2c3e50;
+        color: white;
+        padding: 30px 0;
+        margin-top: 40px;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer-contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .footer-contact a {
+        color: #ecf0f1;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: color 0.2s;
+    }
+
+    .footer-contact a:hover {
+        color: #3498db;
+    }
+
+    .footer-links a {
+        color: #ecf0f1;
+        margin-left: 20px;
+        text-decoration: none;
+    }
+
+    .footer-links a:hover {
+        color: #3498db;
+    }
+
+    /* Image styling */
+    .project-image {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        margin: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: block;
+        margin: 0 auto;
+    }
+
+    .image-row {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .image-caption {
+        font-size: 0.9rem;
+        color: #7f8c8d;
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .video-row {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 20px 0;
+    }
+
+    .video-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    iframe {
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-caption {
+        font-size: 0.9rem;
+        color: #7f8c8d;
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .game-task-overview {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    .game-task-text {
+        flex: 1;
+    }
+
+    .game-task-text ul {
+        padding-left: 20px;
+        margin: 10px 0;
+    }
+
+    .styled-link {
+        background: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        text-decoration: none;
+        color: #2980b9;
+        font-size: 0.85rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        border: 1px solid #b0c4de;
+        transition: background 0.2s;
+    }
+
+    .styled-link:hover {
+        background: #3498db;
+        color: white;
+        border-color: #3498db;
+    }
+
+    @media (max-width: 768px) {
+        .header-container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .nav-wrapper {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .footer-content {
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+        }
+
+        .footer-contact {
+            justify-content: center;
+        }
+
+        .detail-header {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .game-task-overview {
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .game-task-overview img {
+            width: 100%;
+        }
+    }
+</style>
+
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CMTMP9E4P3"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-CMTMP9E4P3');
+</script>
+
+<body>
+    <header class="sticky-header">
+    <div class="header-container">
+        <span class="header-name">Dicaprio Cheung</span>
+        <div class="nav-wrapper">
+            <div class="nav-item"><a href="/index.html#about" class="nav-button">About</a></div>
+            <div class="nav-item">
+                <a href="/index.html#education" class="nav-button">Education</a>
+                <div class="dropdown-content">
+                    <a href="/education/hkust.html">HKUST</a>
+                    <a href="/education/plktytc.html">PLK Tang Yuk Tien College</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="/index.html#work" class="nav-button">Work</a>
+                <div class="dropdown-content">
+                    <a href="/experience/10botics.html">10Botics</a>
+                    <a href="/experience/hkust-ta.html">HKUST Teaching Assistant</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="/index.html#robotics" class="nav-button">Robotics</a>
+                <div class="dropdown-content">
+                    <a href="/robotics/robocon.html">UST Robotics Team · Robocon</a>
+                    <a href="/robotics/tyt-robotics.html">TYT Robotics Team</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="/index.html#projects" class="nav-button">Projects</a>
+                <div class="dropdown-content">
+                    <a href="/projects/calligraphy-robot.html">Chinese Calligraphy Robot</a>
+                    <a href="/projects/glyphmaster.html">Glyphmaster</a>
+                    <a href="/projects/2v2-basketball.html">2v2 Basketball Game</a>
+                    <a href="/projects/index.html">More Projects...</a>
+                </div>
+            </div>
+            <div class="nav-item"><a href="/index.html#skills" class="nav-button">Skills</a></div>
+            <div class="nav-item"><a href="#footer" class="nav-button">Contact Me</a></div>
+        </div>
+    </div>
+</header>
+    <a href="#" class="back-to-top">↑</a>
+    
+<div class="main-content">
+    <a href="../index.html" class="back-home">← Back to Home</a>
+    <a href="./index.html" class="back-home">← Back to Projects</a>
+    <div class="detail-card">
+        <div class="detail-header">
+            <h3>HKUST Robotics Team - The 14th Robot Design Contest 2022</h3><br>
+            <h1 class="detail-title"> Group 5 Fibotics - TR (Task Robot)</h1>
+        </div>
+        <p class="date-badge">Oct - Dec 2022</p>
+        <p><strong>Technologies:</strong> STM32, Pneumatic Control, CAN Bus, TOF Sensors, Bluetooth (HC-05), MIT App
+            Inventor, Embedded C, Omniwheel Kinematics, RoboMaster M3508 Motors, C620 ESCs</p>
+
+        <!-- Game Task Overview -->
+        <h2>🎯 Game Task Overview</h2>
+        <div class="game-task-overview">
+            <img src="../../assets/images/RDC2022_TR/rdc2022_gamefield.png" width="50%" alt="RDC 2022 Game Field"
+                class="project-image">
+            <div class="game-task-text">
+                <p>The Task Robot (TR)</p>
+                <ul>
+                    <li>is a manual/semi-automatic robot.</li>
+                    <li>starts from the red/blue Starting Zone.</li>
+                    <li>load 1 Piece from the Loading Zone.</li>
+                    <li>shoot Pieces from the Shooting Area into the Tic-Tac-Toe boxes to form a line of three.</li>
+                    <li>Optionally perform the Lagori task (lifting Lagori (a cylindrical sponge) onto a base) to
+                        “unlock” the ability to place Pieces directly into the Tic-Tac-Toe boxes without shooting.
+                    </li>
+                    <li>Automatically travels along the Auto-ShortCut (the L-shape path) to load up to 3 Pieces from
+                        the Loading Zone at the same time. </li>
+                </ul>
+                <p>
+                    <a href="../../assets/docs/rdc2022/RDC 2022 Game Rule(updated on 17-12-2022).pdf" target="_blank"
+                        class="styled-link">📄 Download Full Game Rule (PDF)</a>
+                    <a href="https://www.youtube.com/watch?v=kzLKtrWYbqs" target="_blank" class="styled-link">📄
+                        Game Introduction Video</a>
+                </p>
+            </div>
+        </div>
+        <div class="image-row">
+            <img src="../../assets/images/RDC2022_TR/rdc2022_pieces.png" width="50%" alt="TR Pieces"
+                class="project-image">
+            <img src="../../assets/images/RDC2022_TR/rdc2022_lagori.png" width="30%" alt="Lagori block"
+                class="project-image">
+        </div>
+        <div class="image-caption">TR Pieces & Lagori</div>
+
+        <h2>Overview</h2>
+        <p>The Task Robot (TR) was responsible for interacting with the Tic-Tac-Toe boxes and handling the Lagori
+            task. I contributed to the software development, including the Bluetooth command system, the move
+            coordinate system, and low-level motor control.</p>
+        <div class="image-row">
+            <img src="../../assets/images/RDC2022_TR/rdc2022_tr_robot_side_view.png" height="400px"
+                alt="Fibotics TR robot" class="project-image">
+            <img src="../../assets/images/RDC2022_TR/rdc2022_tr_robot_front_view.png" height="400px"
+                alt="Fibotics TR robot" class="project-image">
+        </div>
+        <div class="image-caption">Fibotics TR (side view & front view)</div>
+
+        <h2>Mechanisms</h2>
+
+        <h3>Dropping Mechanism</h3>
+        <p>The TR featured three separate rails of different lengths to hold and drop pieces into the tic-tac-toe
+            boxes. The rails were connected by hinges and initially slanted backward to prevent pieces from rolling
+            out. Three pneumatic cylinders pushed the rails upward, slanting them forward so that pieces rolled down
+            along the rail into the correct box.</p>
+        <img src="../../assets/images/RDC2022_TR/rdc2022_tr_drop_mechanism.png" alt="Dropping mechanism"
+            class="project-image">
+        <div class="image-caption">Dropping mechanism with pneumatic cylinders</div>
+
+        <h3>Loading Mechanism</h3>
+        <p>A passive loading system was installed at the loading zone. When the TR arrived, it hit the handle of the
+            loading racks, releasing pieces onto the TR's built-in rack per rail. The rails were set at -45° to hold
+            the pieces firmly.</p>
+        <img src="../../assets/images/RDC2022_TR/rdc2022_tr_loading.png" alt="Loading mechanism" class="project-image">
+        <div class="image-caption">Passive loading mechanism</div>
+
+        <h3>Lagori Task Solution</h3>
+        <p>A sweeper-lifter was attached to the back of the TR, with an initially extended pneumatic cylinder. The
+            sweeper swept the Lagori into the lifter. When the cylinder retracted, the lifter rose above the Lagori
+            base, and the TR moved forward to drop the Lagori onto the base. A horizontal cylinder at the back
+            provided an extra push to ensure firm placement.</p>
+        <div class="image-row">
+            <img src="../../assets/images/RDC2022_TR/rdc2022_tr_lagori0.png" width="30%" alt="Lagori mechanism"
+                class="project-image">
+            <img src="../../assets/images/RDC2022_TR/rdc2022_tr_lagori1.png" width="30%" alt="Lagori mechanism"
+                class="project-image">
+            <img src="../../assets/images/RDC2022_TR/rdc2022_tr_lagori2.png" width="30%" alt="Lagori mechanism"
+                class="project-image">
+        </div>
+        <div class="image-caption">Sweeper-lifter mechanism for Lagori task</div>
+
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://youtube.com/embed/pIq-8Qq3ors" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="video-caption">Demonstration of TR Lifting the Lagori block up to the stage</div>
+
+        <h2>Software & Control</h2>
+        <!-- <a href="https://github.com/t-imm/fibotics" target="_blank" class="github-link"><i
+                    class="fab fa-github"></i> View Source on GitHub</a><br> -->
+
+        <h3>Basic Motor & Omniwheel Wheelbase Control</h3>
+        <p>The TR was powered by <strong>RoboMaster M3508 motors</strong> driven by <strong>C620 ESCs</strong> over
+            a CAN bus. I implemented a PID controller for precise velocity control. The
+            M3508's built-in hall-effect sensors provided feedback for close-loop speed regulation, while the C620
+            handled the high-current commutation.</p>
+        <p>The robot used an <strong>omniwheel</strong> configuration, allowing it to move in any direction without
+            changing its orientation. I developed the wheelbase kinematics library that translates desired chassis
+            velocities (vx, vy, ω) into individual wheel speeds. This enabled complex manoeuvres like rotating while
+            translating - essential for precise alignment on the track.</p>
+
+        <img src="../../assets/images/RDC2022_TR/rdc2022_tr_omniwheelbase_test.gif" alt="Omniwheel kinematics diagram"
+            class="project-image">
+        <div class="video-caption">Demo: omniwheel wheelbase rotating and moving straight simultaneously</div>
+
+        <h3>Basic Bluetooth Command System (MIT App Inventor)</h3>
+        <p>I developed a custom Android application using <strong>MIT App Inventor</strong> to remotely control the
+            TR via an HC-05 Bluetooth module connected to the STM32 mainboard through UART.</p>
+        <img src="../../assets/images/RDC2022_TR/rdc2022_tr_basic_app_control.webp"
+            alt="Bluetooth control app interface" class="project-image">
+
+        <p>The app features</p>
+        <ul>
+            <li>a 2D joystick on the left for lateral movement</li>
+            <li>a 1D joystick on the right for rotational movement</li>
+            <li>a Faster and Slower button to change the wheelbase's max speed</li>
+            <li>a "Move Absolute" checkbox to determine whether the movement is referenced to the wheelbase frame or
+                the gamefield frame</li>
+            <li>some buttons on the right to control different mechanisms on the robot</li>
+            <li>some buttons on the right to activate auto paths</li>
+            <li>real-time display of the robot's velocities and sensors feedback
+        </ul>
+
+        The MIT App Inventor sends a string in the format of "(x,y)[rotation_angle]{command}", <br>
+        where
+        <ul>
+            <li><em>x, y</em> is the lateral wheelbase movement in x, y diretcion,</li>
+            <li><em>rotation_angle</em> is the angle of the rotation joystick,</li>
+            <li><em>command</em> is the instruction for the robot to execute (e.g., shoot left, move to loading
+                zone, etc.)</li>
+        </ul>
+        <p>The STM32 firmware parses incoming commands and executes them. The Bluetooth system proved reliable
+            during competition and greatly simplified driver operations.</p>
+
+        <h3>Advanced Move Coordinate System</h3>
+        <p> Using motor speed feedback from the CAN bus, the TR's position (x, y, angle) was calculated using some
+            self derived inverse kinematics equations. This enabled precise automatic movement by simply controlling
+            the robot to move to (x: 1000mm, y: 0mm, angle: 90 degree).
+            <br>
+            As the (x, y, angle) is calculated using the motor speed feedback from the omniwheels, it is just
+            relative localization. So, we have to align to the walls of some key points and measures the horizontal
+            distance using a TOF sensor, to calibrate our robot's position relative to the gamefield. This allows
+            the robot to move to different key points on the gamefield with high precision. The coordinates of the
+            gamefield is defined like this:
+        </p>
+        <img src="../../assets/images/RDC2022_TR/rdc2022_tr_coordinate_system.png" alt="Coordinate system diagram"
+            class="project-image">
+        <div class="image-caption">Coordinate system based on motor feedback and TOF wall alignment</div>
+        <p>
+            The (x, y, angle) coordinates is transmitted back from STM32 to the MIT App. This allows the app to show
+            the robot's position of the gamefield in real time (the arrow).
+            I have created this Advanced Move Coordinate System for the driver to move the robot
+            to any desired location by simply clicking the same spot on a map (the blue dot).
+        </p>
+        <img src="../../assets/images/RDC2022_TR/rdc2022_tr_advanced_movement_control.png"
+            alt="Coordinate system diagram" class="project-image">
+        <div class="image-caption">Coordinate system based on motor feedback and TOF wall alignment</div>
+
+        <h2>Awards & Recognition</h2>
+        <img src="../../assets/images/RDC2022_TR/rdc2022_awards.webp" alt="Coordinate system diagram"
+            class="project-image">
+        <ul class="award-list">
+            <li>🏆 HKUST Robotics Team - The 14th Robot Design Contest 2022 - 2nd Runner Up</li>
+            <li>🏅 HKUST Robotics Team - The 14th Robot Design Contest 2022 - Best Engineering Award</li>
+        </ul>
+
+        <h2>Resources</h2>
+        <div class="resources-links">
+            <a href="../../assets/docs/rdc2022/Fibotics_Poster_real_A1_size_1.pdf" target="_blank" class="styled-link">
+                📄 Download Poster (PDF)
+            </a>
+            <a href="../../assets/docs/rdc2022/Fibotics Final Presentation.pptx" target="_blank" class="styled-link">
+                📊 Download Final Presentation (PPT)
+            </a>
+            <a href="https://hkust-robotics-team.github.io/RDC2022/" target="_blank" class="styled-link">
+                Scoreboard
+            </a>
+            <a href="https://drive.google.com/drive/folders/1ge84ZP48IxDyuLXQ3FZRRmEqx519iTC5?usp=sharing"
+                target="_blank" class="styled-link">
+                RDC2022 Google Drive Folder
+            </a>
+        </div>
+    </div>
+</div>
+
+    <footer id="footer">
+    <div class="footer-content">
+        <div class="footer-contact">
+            <a href="https://wa.me/85262188414" target="_blank"><i class="fab fa-whatsapp"></i> +852 6218 8414</a>
+            <a href="mailto:dicapriocheung@gmail.com"><i class="far fa-envelope"></i> Gmail</a>
+            <a href="https://github.com/DicaprioCheung" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/cheung-dick-ho-25b9b4284/" target="_blank"><i
+                    class="fab fa-linkedin"></i>
+                LinkedIn</a>
+        </div>
+        <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="#top">Back to top</a>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const header = document.querySelector('.sticky-header');
+                    const offset = header ? header.offsetHeight + 10 : 80;
+                    const targetPos = target.getBoundingClientRect().top + window.pageYOffset;
+                    window.scrollTo({ top: targetPos - offset, behavior: 'smooth' });
+                }
+            });
+        });
+        // Back to top
+        document.querySelector('.back-to-top').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+    
+</body>
+
+</html>

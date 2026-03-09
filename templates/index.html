@@ -1,0 +1,659 @@
+<!-- templates/index.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block style %}
+<style>
+    /* About section */
+    .about {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        align-items: center;
+        margin-bottom: 30px;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .about-text {
+        flex: 2;
+        min-width: 280px;
+    }
+
+    .about-image {
+        flex: 1;
+        min-width: 200px;
+        text-align: center;
+    }
+
+    .about-image .circular-image {
+        width: 100%;
+        max-width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* card grid */
+    .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 10px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s, box-shadow 0.2s;
+        border: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 12px;
+    }
+
+    .card-logo {
+        height: 70px;
+        background: #e0e7ff;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #2c3e50;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+        overflow: hidden;
+    }
+
+    .card-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card-header h3 {
+        font-size: 1.3rem;
+        margin: 0;
+        color: #2980b9;
+    }
+
+    .card-header h3 a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .card-header h3 a:hover {
+        text-decoration: underline;
+    }
+
+    .card .subtitle {
+        font-weight: 600;
+        color: #555;
+        margin-bottom: 5px;
+        font-size: 1rem;
+    }
+
+    .card .date {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+
+    .card p {
+        color: #555;
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+    }
+
+    .card .award-badge {
+        background: #f1c40f;
+        color: #2c3e50;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        display: inline-block;
+        margin-top: 10px;
+        align-self: flex-start;
+    }
+
+    .card .btn-link {
+        margin-top: auto;
+        padding-top: 15px;
+    }
+
+    .card a {
+        text-decoration: none;
+        color: #3498db;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .card a:hover {
+        color: #1f6a9a;
+        text-decoration: underline;
+    }
+
+    .more-projects {
+        margin-top: 25px;
+        text-align: center;
+    }
+
+    .more-projects .btn {
+        background: #3498db;
+        color: white;
+        padding: 12px 30px;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+        transition: background 0.2s;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+    }
+
+    .more-projects .btn:hover {
+        background: #2980b9;
+    }
+
+    /* skills container */
+    .skills-container {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        margin: 30px 0;
+    }
+
+    .skills-group {
+        margin-bottom: 20px;
+    }
+
+    .skills-group h4 {
+        font-size: 1.2rem;
+        color: #2c3e50;
+        margin-bottom: 10px;
+        border-left: 5px solid #3498db;
+        padding-left: 10px;
+    }
+
+    .skills-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .skill-tag {
+        padding: 6px 14px;
+        border-radius: 30px;
+        font-size: 0.9rem;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.2s;
+    }
+
+    .skill-tag:hover {
+        opacity: 0.8;
+    }
+
+    .skill-proficient {
+        background: #27ae60;
+        /* green */
+    }
+
+    .skill-intermediate {
+        background: #f39c12;
+        /* orange */
+    }
+
+    .skill-beginner {
+        background: #3498db;
+        /* blue */
+    }
+
+    /* Modal overlay */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-content {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        max-width: 400px;
+        width: 90%;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        position: relative;
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #aaa;
+    }
+
+    .close-modal:hover {
+        color: #333;
+    }
+
+    .modal-skill-name {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+
+    .modal-level {
+        display: inline-block;
+        padding: 5px 20px;
+        border-radius: 30px;
+        color: white;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .modal-description {
+        color: #555;
+        font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+        .about {
+            flex-direction: column-reverse;
+            text-align: center;
+        }
+
+        .card-header {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Modal for skill details -->
+<div id="skillModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-skill-name" id="modalSkillName">C</div>
+        <div class="modal-level" id="modalLevel">Proficient</div>
+        <div class="modal-description" id="modalDescription">
+            Extensive experience with system programming, embedded systems, and algorithms.
+        </div>
+    </div>
+</div>
+
+<div class="main-content">
+    <!-- About Me Section -->
+    <section id="about" class="about">
+        <div class="about-text">
+            <h1>Dicaprio Cheung</h1>
+            <h4 style="border:none; margin:0 0 10px 0; padding:0; font-size:1.5rem;">HKUST Computer
+                Engineering + AI | Robocon | STEAM</h4>
+            <p>Hello, I am Cheung Dick Ho(張迪皓), Dicaprio.<br>
+                I am a HKUST BEng in Computer Engineering + AI, <strong>First Class
+                    Honors</strong> fresh graduate.<br>
+                I was a software engineer in HKUST Robocon 2023 & 24. <br>
+                Currently, I work as a Part-time STEM Course Instructor at 10Botics Limited.<br>
+                I am actively <strong>seeking full-time employment or internship</strong> opportunities to pursue a
+                more stable
+                career path.
+            </p>
+            <p>Here is my electronic name card: <a href="https://dicapriocheung.github.io/Name-Card/"
+                    target="_blank">https://dicapriocheung.github.io/Name-Card/</a></p>
+            <br>
+            <p><em>This page is still under development... but you can still read some parts of it.</em></p>
+        </div>
+        <div class="about-image">
+            <!-- <div class="placeholder">📸 Dicaprio's Photo</div> -->
+
+            <img src="../assets/images/common/ISAM2025_UC_Berkeley_Sunset.jpeg" class="circular-image">
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <h2 id="education">Education</h2>
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-logo">
+                    <img src="../assets/images/common/hkust.svg" alt="HKUST logo">
+                </div>
+                <h3><a href="education/hkust.html">HKUST</a></h3>
+            </div>
+            <div class="subtitle">BEng in Computer Engineering with Extended Major in AI, Minor in Robotics</div>
+            <div class="date">Sep 2021 - May 2025</div>
+            <!-- <p>First Class Honors · Dean's List (Fall 2022, Spring 2025) · CGA 3.587/4.3 · Major CGA 3.724/4.3</p> -->
+            <div class="award-badge">🏅 First Class Honors</div>
+            <div class="award-badge" style="background:#e74c3c; color:white;">📚 Dean's List (Spring 2025)</div>
+            <div class="award-badge" style="background:#e74c3c; color:white;">📚 Dean's List (Fall 2022)</div>
+            <div class="btn-link"><a href="education/hkust.html">Learn more →</a></div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-logo">
+                    <img src="../assets/images/common/plktytc.jpg" alt="PLK TYT logo">
+                </div>
+                <h3><a href="education/plktytc.html">PLK Tang Yuk Tien College</a></h3>
+            </div>
+            <div class="subtitle">HKDSE 2021</div>
+            <div class="date">Sep 2015 - July 2021</div>
+            <!-- <p>5** in Physics, Mathematics · 5 in ICT, M2, English</p> -->
+            <div class="award-badge" style="background:#e74c3c; color:white;">⭐ 5** Physics</div>
+            <div class="award-badge" style="background:#e74c3c; color:white;">⭐ 5** Mathematics (Compulsory)</div>
+            <div class="award-badge">⭐ 5 Mathematics (Module 2)</div>
+            <div class="award-badge">⭐ 5 English</div>
+            <div class="award-badge">⭐ 5 Information and Communication
+                Technology</div>
+            <div class="btn-link"><a href="education/plktytc.html">Learn more →</a></div>
+        </div>
+    </div>
+
+    <!-- Work Experience -->
+    <h2 id="work">Work Experience</h2>
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-logo">
+                    <img src="../assets/images/common/10botics.png" alt="10Botics logo">
+                </div>
+                <h3><a href="experience/10botics.html">10Botics</a></h3>
+            </div>
+            <div class="subtitle">Part-time STEM Course Instructor</div>
+            <div class="date">Sep 2025 - Present</div>
+            <p>Instruct groups of 10-20 primary students in STEM topics: SpaceFlight Simulator, Swift Playground,
+                CoDrone. Also tutored SEN students in saltwater aquariums.</p>
+            <div class="btn-link"><a href="experience/10botics.html">Learn more →</a></div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-logo">
+                    <img src="../assets/images/common/hkust.svg" alt="HKUST logo">
+                </div>
+                <h3><a href="experience/hkust-ta.html">HKUST Teaching Assistant</a></h3>
+            </div>
+            <div class="subtitle">UGTA & Student Tutor - COMP 2011 (C++)</div>
+            <div class="date">Sep - Nov 2024 & Sep - Nov 2022</div>
+            <p>Assisted in labs, tutorials, and provided peer-to-peer support for over 60 students.</p>
+            <div class="btn-link"><a href="experience/hkust-ta.html">Learn more →</a></div>
+        </div>
+    </div>
+
+    <!-- Robotics Experience -->
+    <h2 id="robotics">Robotics Experience</h2>
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-logo">
+                    <img src="../assets/images/common/hkust_robotics_team.jpg" alt="Robocon logo">
+                </div>
+                <h3><a href="robotics/robocon.html">UST Robotics Team · Robocon</a></h3>
+            </div>
+            <div class="subtitle">Senior Software Engineer Lead</div>
+            <div class="date">Jan 2023 - Dec 2024</div>
+            <p>Led 30+ members, oversaw 10+ robots/year for ABU Robocon HK. Organized tutorials for 100+ recruits,
+                hosted internal contest for 120+.</p>
+            <div class="award-badge">🏆 Robocon 2024 2nd Runner-Up</div>
+            <div class="award-badge">🏅 Robocon 2024 Best Team Spirit</div>
+            <div class="award-badge">🎯 Robocon 2023 Top 8</div>
+            <div class="btn-link"><a href="robotics/robocon.html">Learn more →</a></div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-logo">
+                    <img src="../assets/images/common/plktytc.jpg" alt="TYT Robotics logo">
+                </div>
+                <h3><a href="robotics/tyt-robotics.html">TYT Robotics Team</a></h3>
+            </div>
+            <div class="subtitle">Chairman (2019-2020) · Member (2015-2021)</div>
+            <div class="date">Sep 2015 - July 2021</div>
+            <p>Led team in international competitions. Mentored juniors in robot debugging.</p>
+            <div class="award-badge">🌍 WRO International 10th place</div>
+            <div class="award-badge">🥇 WRO HK Champion 2019</div>
+            <div class="award-badge">🥈 Asia Pacific Robot Alliance Runner-up</div>
+            <div class="btn-link"><a href="robotics/tyt-robotics.html">Learn more →</a></div>
+        </div>
+    </div>
+
+    <!-- Notable Projects -->
+    <h2 id="projects">Notable Projects</h2>
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-header">
+                <!-- <div class="card-logo">
+                        <img src="https://via.placeholder.com/50?text=Robot" alt="Calligraphy robot">
+                    </div> -->
+                <h3><a href="projects/calligraphy-robot.html">Chinese Calligraphy Robot</a></h3>
+            </div>
+            <div class="subtitle">Python, Tkinter, Threading, Bézier curves</div>
+            <div class="date">May 2024 - Nov 2025</div>
+            <p>Applied 3D Bézier curve path planning onto a robotic arm to write chinese calligraphy. Presented
+                papers in ISAM 2025, IEEE TENCON 2025 and IET YPEC 2025.</p>
+            <div class="award-badge">⚙️ Final Year Project</div>
+            <div class="award-badge">🏆 ISAM 2025 Best Student Poster</div>
+            <div class="btn-link"><a href="projects/calligraphy-robot.html">Learn more →</a></div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <!-- <div class="card-logo">
+                        <img src="https://via.placeholder.com/50?text=Glyph" alt="Glyphmaster">
+                    </div> -->
+                <h3><a href="projects/glyphmaster.html">Glyphmaster</a></h3>
+            </div>
+            <div class="subtitle">WebGL, Three.js, Socket.io</div>
+            <div class="date">Sep - Dec 2024</div>
+            <p>3D RPG where players draw glyphs to cast spells. Real-time multiplayer with synchronized game states.
+            </p>
+            <div class="btn-link"><a href="projects/glyphmaster.html">Learn more →</a></div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <!-- <div class="card-logo">
+                        <img src="https://via.placeholder.com/50?text=Bball" alt="Basketball game">
+                    </div> -->
+                <h3><a href="projects/2v2-basketball.html">2v2 Basketball Game</a></h3>
+            </div>
+            <div class="subtitle">Node.js, Socket.io, jQuery</div>
+            <div class="date">Apr - May 2025</div>
+            <p>A real-time multiplayer basketball game where two teams of robots compete in a 2v2 format.</p>
+            <div class="btn-link"><a href="projects/2v2-basketball.html">Learn more →</a></div>
+        </div>
+    </div>
+    <div class="more-projects">
+        <a href="projects/index.html" class="btn">View All Projects →</a>
+    </div>
+
+    <!-- Technical Skills (refactored) -->
+    <h2 id="skills">Technical Skills</h2>
+    <div class="skills-key">
+        <span class="skill-tag skill-proficient" data-skill="Proficient" data-level="proficient"
+            data-desc="I am very familiar with this skill. I can immediately use this in my next job.">Proficient</span>
+        <span class="skill-tag skill-intermediate" data-skill="Intermediate" data-level="intermediate"
+            data-desc="I have quite a lot of experience on this skill, but I am not familiar with some feature/function of this.">Intermediate</span>
+        <span class="skill-tag skill-beginner" data-skill="Beginner" data-level="beginner"
+            data-desc="I have some experience in this, but I am not confident to implement this skill immediately without proper guidance.">Beginner</span>
+    </div>
+    <div class="skills-container">
+        <div class="skills-group">
+            <h4>Languages</h4>
+            <div class="skills-tags">
+                <span class="skill-tag skill-proficient" data-skill="C" data-level="proficient"
+                    data-desc="Extensive experience with system programming, embedded systems, and algorithms.">C</span>
+                <span class="skill-tag skill-intermediate" data-skill="C++" data-level="intermediate"
+                    data-desc="Comfortable with OOP, STL, and building applications.">C++</span>
+                <span class="skill-tag skill-intermediate" data-skill="Python" data-level="intermediate"
+                    data-desc="Used for scripting, data analysis, and backend development.">Python</span>
+                <span class="skill-tag skill-intermediate" data-skill="Java" data-level="intermediate"
+                    data-desc="Familiar with Android development and general programming.">Java</span>
+                <span class="skill-tag skill-beginner" data-skill="HTML/CSS/JS" data-level="beginner"
+                    data-desc="Can build basic websites and understand frontend concepts.">HTML/CSS/JS</span>
+            </div>
+        </div>
+        <div class="skills-group">
+            <h4>Tools & Platforms</h4>
+            <div class="skills-tags">
+                <span class="skill-tag skill-proficient" data-skill="VSCode" data-level="proficient"
+                    data-desc="Daily driver, comfortable with extensions and debugging.">VSCode</span>
+                <span class="skill-tag skill-proficient" data-skill="Git/GitHub" data-level="proficient"
+                    data-desc="Version control, collaboration, and CI/CD basics.">Git/GitHub</span>
+                <span class="skill-tag skill-beginner" data-skill="Solidworks" data-level="beginner"
+                    data-desc="Basic CAD modeling for simple parts.">Solidworks</span>
+                <span class="skill-tag skill-beginner" data-skill="CubeIDE" data-level="beginner"
+                    data-desc="Can write and upload basic firmware.">CubeIDE</span>
+                <span class="skill-tag skill-intermediate" data-skill="Micro:bit" data-level="intermediate"
+                    data-desc="Can teach different levels of students flexibly with different extensions.">Micro:bit</span>
+                <span class="skill-tag skill-beginner" data-skill="Arduino" data-level="beginner"
+                    data-desc="Can write basic code and do basic wiring">Arduino</span>
+                <span class="skill-tag skill-proficient" data-skill="LEGO Mindstorm EV3/NXT/Spike"
+                    data-level="proficient" data-desc="Extensive robotics experience with LEGO platforms.">LEGO
+                    Mindstorm
+                    EV3/NXT/Spike</span>
+            </div>
+        </div>
+        <div class="skills-group">
+            <h4>Frameworks & Technologies</h4>
+            <div class="skills-tags">
+                <span class="skill-tag skill-intermediate" data-skill="STM32" data-level="intermediate"
+                    data-desc="Familiar with concepts, used in Robocon.">STM32</span>
+                <span class="skill-tag skill-intermediate" data-skill="RTOS" data-level="intermediate"
+                    data-desc="Familiar with concepts, used in Robocon.">RTOS</span>
+                <span class="skill-tag skill-beginner" data-skill="ROS2" data-level="beginner"
+                    data-desc="Basic understanding of nodes and topics.">ROS2</span>
+                <span class="skill-tag skill-beginner" data-skill="YOLO" data-level="beginner"
+                    data-desc="Used for object detection in robotics projects.">YOLO</span>
+                <span class="skill-tag skill-beginner" data-skill="Three.js" data-level="beginner"
+                    data-desc="Built Glyphmaster with it, learning more.">Three.js</span>
+                <span class="skill-tag skill-beginner" data-skill="Node.js" data-level="beginner"
+                    data-desc="Can create simple servers and APIs.">Node.js</span>
+            </div>
+        </div>
+        <div class="skills-group">
+            <h4>Algorithms</h4>
+            <div class="skills-tags">
+                <span class="skill-tag skill-proficient" data-skill="PID Control" data-level="proficient"
+                    data-desc="10+ years of tuning PID. Implemented in robotics for precise control.">PID
+                    Control</span>
+                <span class="skill-tag skill-intermediate" data-skill="Finite State Machine" data-level="intermediate"
+                    data-desc="Used in game and robot logic.">Finite State Machine</span>
+                <span class="skill-tag skill-intermediate" data-skill="Trapezoidal Acceleration"
+                    data-level="intermediate" data-desc="Applied in motion planning.">Trapezoidal
+                    Acceleration</span>
+                <span class="skill-tag skill-intermediate" data-skill="Bézier Curves/Splines" data-level="intermediate"
+                    data-desc="Used for path planning in calligraphy robot.">Bézier
+                    Curves/Splines</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    (function () {
+        // Smooth scroll with offset for sticky header
+        const header = document.querySelector('.sticky-header');
+        const headerHeight = header ? header.offsetHeight : 70;
+        const offset = headerHeight + 10;
+
+        const links = document.querySelectorAll('a[href^="#"]:not([href="#"])');
+        links.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    window.scrollTo({
+                        top: elementPosition - offset,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Skill modal
+        const modal = document.getElementById('skillModal');
+        const closeBtn = document.querySelector('.close-modal');
+        const modalSkillName = document.getElementById('modalSkillName');
+        const modalLevel = document.getElementById('modalLevel');
+        const modalDesc = document.getElementById('modalDescription');
+
+        const skillTags = document.querySelectorAll('.skill-tag');
+        skillTags.forEach(tag => {
+            tag.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const skill = this.dataset.skill || this.innerText;
+                const level = this.dataset.level || 'beginner';
+                const desc = this.dataset.desc || 'Experience level: ' + level;
+
+                modalSkillName.innerText = skill;
+                modalLevel.innerText = level.charAt(0).toUpperCase() + level.slice(1);
+                modalDesc.innerText = desc;
+
+                // Set modal level color
+                modalLevel.className = 'modal-level';
+                if (level === 'proficient') {
+                    modalLevel.style.backgroundColor = '#27ae60';
+                } else if (level === 'intermediate') {
+                    modalLevel.style.backgroundColor = '#f39c12';
+                } else {
+                    modalLevel.style.backgroundColor = '#3498db';
+                }
+
+                modal.style.display = 'flex';
+            });
+        });
+
+        closeBtn.addEventListener('click', function () {
+            modal.style.display = 'none';
+        });
+        window.addEventListener('click', function (e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    })();
+</script>
+{% endblock %}
