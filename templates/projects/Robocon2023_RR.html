@@ -2,75 +2,7 @@
 
 {% block title %}Robocon 2023 RR{% endblock %}
 
-{% block style %}
-<style>
-    /* Video container */
-    .video-container {
-        position: relative;
-        padding-bottom: 56.25%;
-        /* 16:9 aspect ratio */
-        height: 0;
-        overflow: hidden;
-        max-width: 100%;
-        margin: 20px 0;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
-
-    .video-caption {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        text-align: center;
-        margin-top: 5px;
-    }
-
-    /* Image styling */
-    .project-image {
-        max-width: 100%;
-        border-radius: 8px;
-        margin: 20px 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        display: block;
-        margin: 0 auto;
-    }
-
-    .image-caption {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        text-align: center;
-        margin-top: 5px;
-    }
-
-    .styled-link {
-        background: white;
-        padding: 5px 10px;
-        border-radius: 20px;
-        text-decoration: none;
-        color: #2980b9;
-        font-size: 0.85rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        border: 1px solid #b0c4de;
-        transition: background 0.2s;
-    }
-
-    .styled-link:hover {
-        background: #3498db;
-        color: white;
-        border-color: #3498db;
-    }
-</style>
-{% endblock %}
+{% block style %}{% endblock %}
 
 {% block content %}
 <a href="../index.html" class="back-home">← Back to Home</a>
@@ -95,13 +27,13 @@
         The RR can move autonomously or be manually controlled, and its throws are crucial for winning the game.
     </p>
     <p>Below is the official theme video explaining the rules in detail:</p>
-    <div class="video-container">
+    <div class="video-wrapper">
         <iframe src="https://www.youtube.com/embed/mOXJfGUyQSk" title="ABU Robocon 2023 theme video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
         </iframe>
     </div>
-    <div class="video-caption">ABU Robocon 2023 Official Theme Video: "Casting Flowers over Angkor Wat"
+    <div class="caption">ABU Robocon 2023 Official Theme Video: "Casting Flowers over Angkor Wat"
     </div>
 
     <h2>Overview</h2>
@@ -112,7 +44,7 @@
 
     <img src="../assets/images/Robocon2023_RR/robocon2023_rr_robot.png" width="50%" alt="Fiery Dragon RR Robot"
         class="project-image">
-    <div class="image-caption">Fiery Dragon RR during testing</div>
+    <div class="caption">Fiery Dragon RR during testing</div>
 
     <h2>RM Wheelbase Positioning</h2>
     <p>Since the RR was too small to accommodate a traditional XY-encoder, I implemented a positioning system
@@ -128,13 +60,13 @@
         than being limited to fixed shooting zones.</p>
     <img src="../assets/images/Robocon2023_RR/robocon2023_field_areas.png" alt="Field areas with turning points"
         class="project-image">
-    <div class="image-caption">Game field divided into 12 areas with turning points (blue circles)</div>
+    <div class="caption">Game field divided into 12 areas with turning points (blue circles)</div>
     <img src="../assets/images/Robocon2023_RR/robocon2023_trapezoidal_profile.png" alt="Trapezoidal velocity profile"
         class="project-image">
-    <div class="image-caption">Trapezoidal motion profile used for acceleration/deceleration</div>
+    <div class="caption">Trapezoidal motion profile used for acceleration/deceleration</div>
     <img src="../assets/images/Robocon2023_RR/robocon2023_shoot_paths.png" alt="Possible shooting paths"
         class="project-image">
-    <div class="image-caption">Example shortest paths to shoot pole 1 from various positions</div>
+    <div class="caption">Example shortest paths to shoot pole 1 from various positions</div>
 
     <h2>ToF Pathing</h2>
     <p>To overcome the instability of RM positioning due to wheel slip, I developed a ToF-based pathing system
@@ -144,7 +76,7 @@
         around the corner, after which the robot resumed wall-following.</p>
     <img src="../assets/images/Robocon2023_RR/robocon2023_tof_correction.png" alt="ToF PID correction"
         class="project-image">
-    <div class="image-caption">a path going from left to right using ToF sensors</div>
+    <div class="caption">a path going from left to right using ToF sensors</div>
 
     <h2>Test Results</h2>
     <ul>
@@ -159,7 +91,7 @@
     </ul>
     <img src="../assets/images/Robocon2023_RR/robocon2023_shootable_area.png" alt="Shootable area"
         class="project-image">
-    <div class="image-caption">Shootable area (red) - our robot could shoot from any of these positions</div>
+    <div class="caption">Shootable area (red) - our robot could shoot from any of these positions</div>
 
     <h2>Summary & Future Improvements</h2>
     <p>We compensated for a weak shooter with agility, achieving similar speeds to top teams despite using

@@ -306,6 +306,163 @@
             color: #3498db;
         }
 
+        .project-image {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: block;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .caption {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .styled-link {
+            background: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #2980b9;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            border: 1px solid #b0c4de;
+            transition: background 0.2s;
+        }
+
+        .styled-link:hover {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        .image-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .card-logo {
+            width: 50px;
+            height: 50px;
+            background: #e0e7ff;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .card-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card .subtitle {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .card .date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .card .award-badge {
+            background: #f1c40f;
+            color: #2c3e50;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            align-self: flex-start;
+        }
+
+        .card .btn-link {
+            margin-top: auto;
+            padding-top: 15px;
+        }
+
+        .card .btn-link a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card .btn-link a:hover {
+            color: #1f6a9a;
+            text-decoration: underline;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
+            height: 0;
+            max-width: 100%;
+            margin: 20px auto;
+            background: #000;
+            /* fallback background color */
+            border-radius: 8px;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -339,87 +496,6 @@
         }
     </style>
     
-<style>
-    h3 {
-        display: block;
-    }
-
-    .detail-header {
-        display: block;
-    }
-
-    /* Image styling */
-    .project-image {
-        max-width: 100%;
-        border-radius: 8px;
-        margin: 20px 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        display: block;
-        margin: 0 auto;
-    }
-
-    .image-row {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .image-caption {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        text-align: center;
-        margin-top: 5px;
-    }
-
-    .video-row {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-        margin: 20px 0;
-    }
-
-    .video-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    iframe {
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .video-caption {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        text-align: center;
-        margin-top: 5px;
-    }
-
-    .styled-link {
-        background: white;
-        padding: 5px 10px;
-        border-radius: 20px;
-        text-decoration: none;
-        color: #2980b9;
-        font-size: 0.85rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        border: 1px solid #b0c4de;
-        transition: background 0.2s;
-    }
-
-    .styled-link:hover {
-        background: #3498db;
-        color: white;
-        border-color: #3498db;
-    }
-</style>
-
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -491,7 +567,7 @@
     <h2>🎯 Game Task Overview</h2>
     <img src="../assets/images/RDC2022_ARC/rdc2022_arc_track.png" alt="RDC2022 ARC Track" width="600"
         class="project-image">
-    <div class="image-caption">RDC2022 ARC Track</div>
+    <div class="caption">RDC2022 ARC Track</div>
     <p>The Automatic Racing Car (ARC) must autonomously race on a designated track for four laps within 3
         minutes. The faster team earns a Replacement Opportunity (a golden piece) for their TR. The ARC must
         follow the track without exiting; any lap where the robot leaves the track is not counted. The track may
@@ -514,7 +590,7 @@
 
     <img src="../assets/images/RDC2022_ARC/rdc2022_arc_robot.png" alt="Fibotics ARC robot" width="600"
         class="project-image">
-    <div class="image-caption">Fibotics ARC during testing</div>
+    <div class="caption">Fibotics ARC during testing</div>
 
     <h2>Image Processing</h2>
     <p>We used a Sobel filter to detect edges and filter out unwanted data for track sensing. Initially,
@@ -528,7 +604,7 @@
         <img src="../assets/images/RDC2022_ARC/rdc2022_arc_sobel_test2.webp" alt="Sobel filter test image" width="400"
             class="project-image">
     </div>
-    <div class="image-caption">Sobel filter test (only for illustration; full-image filtering was avoided
+    <div class="caption">Sobel filter test (only for illustration; full-image filtering was avoided
         during movement)</div>
 
     <h2>Track Sensing & Control</h2>
@@ -543,26 +619,26 @@
         determine whether it should follow the left or right border.</p>
     <img src="../assets/images/RDC2022_ARC/rdc2022_track_sensing.png" alt="Track sensing diagram" width="400"
         class="project-image">
-    <div class="image-caption">Track sensing concept: distance to borders and front edge (only for
+    <div class="caption">Track sensing concept: distance to borders and front edge (only for
         illustration; full-image filtering was avoided during movement)</div>
 
     <h2>Video Demonstrations</h2><br>
-    <div class="video-container">
+    <div class="video-wrapper">
         <iframe width="560" height="315" src="https://youtube.com/embed/kuSaZcD7UbQ" title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
         </iframe>
     </div>
-    <div class="video-caption">Demonstration of ARC navigation (Stable version)</div>
-    <div class="video-container">
+    <div class="caption">Demonstration of ARC navigation (Stable version)</div>
+    <div class="video-wrapper">
         <iframe width="560" height="315" src="https://youtube.com/embed/LavNZzWTc4k" title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
         </iframe>
     </div>
-    <div class="video-caption">Demonstration of ARC navigation (Fast version)</div>
+    <div class="caption">Demonstration of ARC navigation (Fast version)</div>
 
     <h2>Awards & Recognition</h2>
     <img src="../assets/images/RDC2022_TR/rdc2022_awards.webp" alt="Coordinate system diagram" class="project-image">

@@ -4,36 +4,6 @@
 
 {% block style %}
 <style>
-    /* === Video container with fallback === */
-    .video-container {
-        position: relative;
-        padding-bottom: 56.25%;
-        /* 16:9 */
-        height: 0;
-        overflow: hidden;
-        max-width: 100%;
-        margin: 20px 0;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background: #000;
-        /* fallback color */
-    }
-
-    .video-container iframe,
-    .video-container .fallback-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
-
-    .video-container .fallback-image {
-        object-fit: cover;
-        cursor: pointer;
-    }
-
     /* === Card grids (2x2) === */
     .award-grid,
     .tech-summary-grid {
@@ -192,18 +162,12 @@
         border-radius: 4px;
     }
 
-    .github-link {
-        display: inline-block;
+    .styled-link {
         background: #2c3e50;
         color: white;
-        padding: 10px 20px;
-        border-radius: 40px;
-        text-decoration: none;
-        font-weight: 600;
-        margin: 10px 0;
     }
 
-    .github-link:hover {
+    .styled-link:hover {
         background: #1a252f;
     }
 
@@ -230,16 +194,12 @@
     <p><strong>Technologies:</strong> Python, Tkinter, Threading, Hermite Curves, YOLOv8, ChatGPT API, OpenCV
     </p>
 
-    <!-- YouTube Video with fallback image -->
-    <div class="video-container" id="videoContainer">
-        <iframe id="youtubeIframe" src="https://www.youtube.com/embed/PfwRGyaZ8r0?rel=0&modestbranding=1&enablejsapi=1"
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/PfwRGyaZ8r0?rel=0&modestbranding=1&enablejsapi=1"
             title="Chinese Calligraphy Robot Demo"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
         </iframe>
-        <img src="https://img.youtube.com/vi/PfwRGyaZ8r0/0.jpg" alt="Video thumbnail - click to watch on YouTube"
-            class="fallback-image" style="display: none; cursor: pointer;"
-            onclick="window.open('https://youtu.be/PfwRGyaZ8r0', '_blank');">
     </div>
 
     <!-- Overview -->
@@ -346,7 +306,7 @@
     <!-- Tech Summary Cards (2x2) -->
     <h2>Technical Highlights</h2>
     <!-- GitHub Repository -->
-    <a href="https://github.com/DicaprioCheung/chinese_caligraphy_robot" target="_blank" class="github-link"><i
+    <a href="https://github.com/DicaprioCheung/chinese_caligraphy_robot" target="_blank" class="styled-link"><i
             class="fab fa-github"></i> View Source on GitHub</a><br>
     <div class="tech-summary-grid">
         <div class="tech-summary-card">
@@ -518,22 +478,4 @@
 </div>
 {% endblock %}
 
-{% block script %}
-<script>
-    // YouTube fallback: if iframe fails to load, show thumbnail
-    const iframe = document.getElementById('youtubeIframe');
-    const fallbackImg = document.querySelector('.fallback-image');
-
-    // Check if iframe loaded successfully
-    iframe.addEventListener('error', function () {
-        iframe.style.display = 'none';
-        fallbackImg.style.display = 'block';
-    });
-
-    // Also check after a timeout (some errors don't trigger 'error' event)
-    setTimeout(function () {
-        // If iframe is still visible but maybe blank, we can't detect easily.
-        // We'll keep it simple: if the iframe fails to load, the error event will handle.
-    }, 3000);
-</script>
-{% endblock %}
+{% block script %}{% endblock %}

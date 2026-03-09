@@ -192,24 +192,10 @@
     }
 
     /* Embedded video - now smaller and centered */
-    .video-embed {
-        position: relative;
+    .video-wrapper {
         padding-bottom: 28.125%;
         /* half of 56.25% to maintain aspect ratio at 50% width */
-        height: 0;
-        overflow: hidden;
         width: 50%;
-        margin: 15px auto;
-        border-radius: 8px;
-    }
-
-    .video-embed iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
     }
 
     /* Robot cards – now using row layout */
@@ -305,26 +291,6 @@
         text-decoration: underline;
     }
 
-    .styled-link {
-        background: white;
-        padding: 5px 10px;
-        border-radius: 20px;
-        text-decoration: none;
-        color: #2980b9;
-        font-size: 0.85rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        border: 1px solid #b0c4de;
-        transition: background 0.2s;
-    }
-
-    .styled-link:hover {
-        background: #3498db;
-        color: white;
-        border-color: #3498db;
-    }
-
     @media (max-width: 768px) {
         .robot-card {
             flex-direction: column;
@@ -338,7 +304,7 @@
             max-width: 200px;
         }
 
-        .video-embed {
+        .video-wrapper {
             width: 100%;
         }
     }
@@ -499,7 +465,7 @@
                 <div class="content-item">
                     <div class="date">Oct - Dec 2022</div>
                     <h3>The 14th Robot Design Contest - Contestant</h3>
-                    <div class="video-embed">
+                    <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/kzLKtrWYbqs" allowfullscreen></iframe>
                     </div>
                     <p><strong>What is the Robot Design Contest (RDC)?</strong> RDC is an internal competition
@@ -549,7 +515,7 @@
                 <div class="content-item">
                     <div class="date">Jan - June 2023</div>
                     <h3>ABU Robocon 2023 - Junior Software Engineer</h3>
-                    <div class="video-embed">
+                    <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/mOXJfGUyQSk" allowfullscreen></iframe>
                     </div>
                     <p><strong>What is ABU Robocon?</strong> The Asia-Pacific Robot Contest (ABU Robocon) is an
@@ -605,6 +571,9 @@
                 <div class="content-item">
                     <div class="date">Oct - Nov 2023</div>
                     <h3>The 15th Robot Design Contest - Mentor</h3>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/AsOORZbLwYk" allowfullscreen></iframe>
+                    </div>
                     <p><strong>What is the Robot Design Contest (RDC)?</strong> RDC is an internal competition
                         organised by the HKUST Robotics Team for new members. Participants form groups of 12~15
                         new recruits, coming from software, hardware(electrical), and mechanical tutorials that
@@ -614,9 +583,6 @@
                         full engineering cycle and is a key training ground before joining the Robocon team.</p>
                     <p><strong>My role:</strong> I served as a software mentor for Group 6, guiding them through
                         the design and implementation of their robots.</p>
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/AsOORZbLwYk" allowfullscreen></iframe>
-                    </div>
                     <div class="timeline-links">
                         <a href="https://drive.google.com/file/d/1pa9PpaHoJemBGr1yzxGVeELRQJ0zowPg/view"
                             target="_blank"><i class="fas fa-file-pdf"></i> Game Rule</a>
@@ -626,7 +592,7 @@
                 <div class="content-item">
                     <div class="date">Jan - June 2024</div>
                     <h3>ABU Robocon 2024 - Senior Software Engineer Lead</h3>
-                    <div class="video-embed">
+                    <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/x36ZeLv1z2I" allowfullscreen></iframe>
                     </div>
                     <p><strong>What is ABU Robocon?</strong> The Asia-Pacific Robot Contest (ABU Robocon) is an
@@ -719,7 +685,7 @@
                 <div class="content-item">
                     <div class="date">Oct - Nov 2024</div>
                     <h3>The 16th Robot Design Contest - PIC</h3>
-                    <div class="video-embed">
+                    <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/3w6z6mvihTY" allowfullscreen></iframe>
                     </div>
                     <p><strong>What is the Robot Design Contest (RDC)?</strong> RDC is an internal competition

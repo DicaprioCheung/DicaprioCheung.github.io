@@ -2,76 +2,7 @@
 
 {% block title %}Robocon 2024 R1{% endblock %}
 
-{% block style %}
-<style>
-    /* Image styling */
-    .project-image {
-        max-width: 100%;
-        border-radius: 8px;
-        margin: 20px 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .image-caption {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        text-align: center;
-        margin-top: 5px;
-    }
-
-    /* Video container */
-    .video-container {
-        position: relative;
-        padding-bottom: 56.25%;
-        /* 16:9 aspect ratio */
-        height: 0;
-        overflow: hidden;
-        max-width: 100%;
-        margin: 20px 0;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
-
-    .video-caption {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        text-align: center;
-        margin-top: 5px;
-    }
-
-    .styled-link {
-        background: white;
-        padding: 5px 10px;
-        border-radius: 20px;
-        text-decoration: none;
-        color: #2980b9;
-        font-size: 0.85rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        border: 1px solid #b0c4de;
-        transition: background 0.2s;
-    }
-
-    .styled-link:hover {
-        background: #3498db;
-        color: white;
-        border-color: #3498db;
-    }
-</style>
-{% endblock %}
+{% block style %}{% endblock %}
 
 {% block content %}
 <a href="../index.html" class="back-home">← Back to Home</a>
@@ -100,13 +31,13 @@
     </p>
 
     <p>Below is the official theme video explaining the rules in detail:</p>
-    <div class="video-container">
+    <div class="video-wrapper">
         <iframe src="https://www.youtube.com/embed/x36ZeLv1z2I" title="ABU Robocon 2024 theme video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
         </iframe>
     </div>
-    <div class="video-caption">ABU Robocon 2024 Official Theme Video: "Harvest Day"</div>
+    <div class="caption">ABU Robocon 2024 Official Theme Video: "Harvest Day"</div>
 
     <h2>Overview</h2>
     <p>As the Senior Software Engineer Lead for War Dragon R1, I was responsible for both technical
@@ -118,7 +49,7 @@
         precise
         navigation. I developed a novel <strong>Track Following Pathing</strong> system to enable this.</p>
     <img src="../assets/images/Robocon2024_R1/wd_r1_robot.png" alt="War Dragon R1" class="project-image">
-    <div class="image-caption">War Dragon R1 during testing</div>
+    <div class="caption">War Dragon R1 during testing</div>
 
     <!-- Mentoring (without commit stats) -->
     <h2>Mentoring Junior Software Engineers</h2>
@@ -155,7 +86,7 @@
         to
         Start Zone.</p>
     <img src="../assets/images/Robocon2024_R1/area1_paths.jpg" alt="Area 1 paths" class="project-image">
-    <div class="image-caption">Area 1 seedling planting paths (not final version - placeholder)</div>
+    <div class="caption">Area 1 seedling planting paths (not final version - placeholder)</div>
 
     <h3>2. Area 2 Track Following Pathing (Innovation)</h3>
     <p>R1 had a tunnel in the middle of the robot so that it could move past balls without touching them.
@@ -183,7 +114,7 @@
             inflexible but provided a theoretical optimum.</li>
     </ul>
     <img src="../assets/images/Robocon2024_R1/track_following.png" alt="Track following concept" class="project-image">
-    <div class="image-caption">Track following: perpendicular PID + parallel trapezoidal</div>
+    <div class="caption">Track following: perpendicular PID + parallel trapezoidal</div>
 
     <h3>3. Shooter Regression</h3>
     <p>To accurately shoot balls from any position in Area 2 to any target in Area 3, we developed a
@@ -195,7 +126,7 @@
     </p>
     <img src="../assets/images/Robocon2024_R1/shooter_regression.png" alt="Shooter regression graph"
         class="project-image">
-    <div class="image-caption">Linear (blue) and quadratic (red) regression</div>
+    <div class="caption">Linear (blue) and quadratic (red) regression</div>
 
     <h3>4. Laser / Line Sensor Positioning</h3>
     <p>To compensate for inaccurate XY-encoders caused by slopes and obstacles, we used six DT-50 lasers and
@@ -206,7 +137,7 @@
         sensor, and IMU data to recalibrate position even when some sensors were blocked.</p>
     <img src="../assets/images/Robocon2024_R1/line_sensor_patterns.png" alt="Line sensor patterns"
         class="project-image">
-    <div class="image-caption">Line sensor patterns for sub-12 mm accuracy</div>
+    <div class="caption">Line sensor patterns for sub-12 mm accuracy</div>
 
     <h3>5. Red-Blue Field Flipping</h3>
     <p>Due to left-right symmetry, we attempted to flip all sensor inputs and actuator outputs to write code

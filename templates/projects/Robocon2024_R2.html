@@ -2,76 +2,7 @@
 
 {% block title %}Robocon 2024 R2{% endblock %}
 
-{% block style %}
-<style>
-    /* Image styling */
-    .project-image {
-        max-width: 100%;
-        border-radius: 8px;
-        margin: 20px 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .image-caption {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        text-align: center;
-        margin-top: 5px;
-    }
-
-    /* Video container */
-    .video-container {
-        position: relative;
-        padding-bottom: 56.25%;
-        /* 16:9 aspect ratio */
-        height: 0;
-        overflow: hidden;
-        max-width: 100%;
-        margin: 20px 0;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
-
-    .video-caption {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        text-align: center;
-        margin-top: 5px;
-    }
-
-    .styled-link {
-        background: white;
-        padding: 5px 10px;
-        border-radius: 20px;
-        text-decoration: none;
-        color: #2980b9;
-        font-size: 0.85rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        border: 1px solid #b0c4de;
-        transition: background 0.2s;
-    }
-
-    .styled-link:hover {
-        background: #3498db;
-        color: white;
-        border-color: #3498db;
-    }
-</style>
-{% endblock %}
+{% block style %}{% endblock %}
 
 {% block content %}
 <a href="../index.html" class="back-home">← Back to Home</a>
@@ -103,19 +34,19 @@
     </p>
 
     <p>Below is the official theme video explaining the rules in detail:</p>
-    <div class="video-container">
+    <div class="video-wrapper">
         <iframe src="https://www.youtube.com/embed/x36ZeLv1z2I" title="ABU Robocon 2024 theme video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
         </iframe>
     </div>
-    <div class="video-caption">ABU Robocon 2024 Official Theme Video: "Harvest Day"</div>
+    <div class="caption">ABU Robocon 2024 Official Theme Video: "Harvest Day"</div>
 
     <h2>Overview</h2>
     <p>For War Dragon R2, I contributed embedded software development, focusing on robust pathing and
         integration of new features. I also worked on the robotic arm library R&D during the early season.</p>
     <img src="../assets/images/Robocon2024_R2/wd_r2_robot.png" alt="War Dragon R2" class="project-image">
-    <div class="image-caption">War Dragon R2 during testing</div>
+    <div class="caption">War Dragon R2 during testing</div>
 
     <h2>Robotic Arm Library - Prototype & R&D</h2>
     <p>From September to November 2023, we explored using a robotic arm for R2. I developed a reusable library
@@ -139,7 +70,7 @@
     </ul>
     <img src="../assets/images/Robocon2024_R2/trajplanner_arm.png" alt="Trajplanner for robotic arm"
         class="project-image">
-    <div class="image-caption">Modified Trajplanner for robotic arm simulation</div>
+    <div class="caption">Modified Trajplanner for robotic arm simulation</div>
 
     <h3>Challenges</h3>
     <ul>

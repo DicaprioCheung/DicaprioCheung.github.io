@@ -4,68 +4,6 @@
 
 {% block style %}
 <style>
-    h3 {
-        display: block;
-    }
-
-    ul {
-        margin: 15px 0;
-        padding-left: 20px;
-    }
-
-    /* Image styling */
-    .project-image {
-        max-width: 100%;
-        height: auto;
-        object-fit: contain;
-        border-radius: 8px;
-        margin: 20px 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        display: block;
-        margin: 0 auto;
-    }
-
-    .image-row {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .image-caption {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        text-align: center;
-        margin-top: 5px;
-    }
-
-    .video-row {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-        margin: 20px 0;
-    }
-
-    .video-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-    iframe {
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .video-caption {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        text-align: center;
-        margin-top: 5px;
-    }
-
     .game-task-overview {
         display: flex;
         align-items: flex-start;
@@ -80,26 +18,6 @@
     .game-task-text ul {
         padding-left: 20px;
         margin: 10px 0;
-    }
-
-    .styled-link {
-        background: white;
-        padding: 5px 10px;
-        border-radius: 20px;
-        text-decoration: none;
-        color: #2980b9;
-        font-size: 0.85rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        border: 1px solid #b0c4de;
-        transition: background 0.2s;
-    }
-
-    .styled-link:hover {
-        background: #3498db;
-        color: white;
-        border-color: #3498db;
     }
 
     @media (max-width: 768px) {
@@ -157,7 +75,7 @@
         <img src="../assets/images/RDC2022_TR/rdc2022_pieces.png" width="50%" alt="TR Pieces" class="project-image">
         <img src="../assets/images/RDC2022_TR/rdc2022_lagori.png" width="30%" alt="Lagori block" class="project-image">
     </div>
-    <div class="image-caption">TR Pieces & Lagori</div>
+    <div class="caption">TR Pieces & Lagori</div>
 
     <h2>Overview</h2>
     <p>The Task Robot (TR) was responsible for interacting with the Tic-Tac-Toe boxes and handling the Lagori
@@ -169,7 +87,7 @@
         <img src="../assets/images/RDC2022_TR/rdc2022_tr_robot_front_view.png" height="400px" alt="Fibotics TR robot"
             class="project-image">
     </div>
-    <div class="image-caption">Fibotics TR (side view & front view)</div>
+    <div class="caption">Fibotics TR (side view & front view)</div>
 
     <h2>Mechanisms</h2>
 
@@ -179,14 +97,14 @@
         out. Three pneumatic cylinders pushed the rails upward, slanting them forward so that pieces rolled down
         along the rail into the correct box.</p>
     <img src="../assets/images/RDC2022_TR/rdc2022_tr_drop_mechanism.png" alt="Dropping mechanism" class="project-image">
-    <div class="image-caption">Dropping mechanism with pneumatic cylinders</div>
+    <div class="caption">Dropping mechanism with pneumatic cylinders</div>
 
     <h3>Loading Mechanism</h3>
     <p>A passive loading system was installed at the loading zone. When the TR arrived, it hit the handle of the
         loading racks, releasing pieces onto the TR's built-in rack per rail. The rails were set at -45° to hold
         the pieces firmly.</p>
     <img src="../assets/images/RDC2022_TR/rdc2022_tr_loading.png" alt="Loading mechanism" class="project-image">
-    <div class="image-caption">Passive loading mechanism</div>
+    <div class="caption">Passive loading mechanism</div>
 
     <h3>Lagori Task Solution</h3>
     <p>A sweeper-lifter was attached to the back of the TR, with an initially extended pneumatic cylinder. The
@@ -201,16 +119,16 @@
         <img src="../assets/images/RDC2022_TR/rdc2022_tr_lagori2.png" width="30%" alt="Lagori mechanism"
             class="project-image">
     </div>
-    <div class="image-caption">Sweeper-lifter mechanism for Lagori task</div>
+    <div class="caption">Sweeper-lifter mechanism for Lagori task</div>
 
-    <div class="video-container">
+    <div class="video-wrapper">
         <iframe width="560" height="315" src="https://youtube.com/embed/pIq-8Qq3ors" title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
         </iframe>
     </div>
-    <div class="video-caption">Demonstration of TR Lifting the Lagori block up to the stage</div>
+    <div class="caption">Demonstration of TR Lifting the Lagori block up to the stage</div>
 
     <h2>Software & Control</h2>
     <!-- <a href="https://github.com/t-imm/fibotics" target="_blank" class="github-link"><i
@@ -228,7 +146,7 @@
 
     <img src="../assets/images/RDC2022_TR/rdc2022_tr_omniwheelbase_test.gif" alt="Omniwheel kinematics diagram"
         class="project-image">
-    <div class="video-caption">Demo: omniwheel wheelbase rotating and moving straight simultaneously</div>
+    <div class="caption">Demo: omniwheel wheelbase rotating and moving straight simultaneously</div>
 
     <h3>Basic Bluetooth Command System (MIT App Inventor)</h3>
     <p>I developed a custom Android application using <strong>MIT App Inventor</strong> to remotely control the
@@ -272,7 +190,7 @@
     </p>
     <img src="../assets/images/RDC2022_TR/rdc2022_tr_coordinate_system.png" alt="Coordinate system diagram"
         class="project-image">
-    <div class="image-caption">Coordinate system based on motor feedback and TOF wall alignment</div>
+    <div class="caption">Coordinate system based on motor feedback and TOF wall alignment</div>
     <p>
         The (x, y, angle) coordinates is transmitted back from STM32 to the MIT App. This allows the app to show
         the robot's position of the gamefield in real time (the arrow).
@@ -281,7 +199,7 @@
     </p>
     <img src="../assets/images/RDC2022_TR/rdc2022_tr_advanced_movement_control.png" alt="Coordinate system diagram"
         class="project-image">
-    <div class="image-caption">Coordinate system based on motor feedback and TOF wall alignment</div>
+    <div class="caption">Coordinate system based on motor feedback and TOF wall alignment</div>
 
     <h2>Awards & Recognition</h2>
     <img src="../assets/images/RDC2022_TR/rdc2022_awards.webp" alt="Coordinate system diagram" class="project-image">

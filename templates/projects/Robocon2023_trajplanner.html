@@ -2,24 +2,7 @@
 
 {% block title %}Trajectory Planner (Robocon){% endblock %}
 
-{% block style %}
-<style>
-    /* Image styling */
-    .project-image {
-        max-width: 100%;
-        border-radius: 8px;
-        margin: 20px 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .image-caption {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        text-align: center;
-        margin-top: 5px;
-    }
-</style>
-{% endblock %}
+{% block style %}{% endblock %}
 
 {% block content %}
 <a href="../index.html" class="back-home">← Back to Home</a>
@@ -53,7 +36,7 @@
         rare functions more easily.</p>
     <img src="../assets/images/Robocon2023_trajplanner/trajplanner_help_window.png" alt="Trajplanner Help Window"
         class="project-image">
-    <div class="image-caption">Help Window providing on-screen guidance</div>
+    <div class="caption">Help Window providing on-screen guidance</div>
 
     <h3>Flipping Functions</h3>
     <p>Because the 2024 game field is left-right symmetrical, I added a one-click flip button to mirror paths
@@ -61,7 +44,7 @@
         directions were included for potential future symmetrical fields.</p>
     <img src="../assets/images/Robocon2023_trajplanner/trajplanner_flip_functions.png" alt="Flipping functions"
         class="project-image">
-    <div class="image-caption">Left-right flip and other orientation flips</div>
+    <div class="caption">Left-right flip and other orientation flips</div>
 
     <h3>Start / End Velocity Control</h3>
     <p>While exploring the code, I rediscovered hidden parameters for start and end velocity. I exposed them in
@@ -69,7 +52,7 @@
         enabling a much faster jump start during competition.</p>
     <img src="../assets/images/Robocon2023_trajplanner/trajplanner_start_end_vel.png" alt="Start/End velocity settings"
         class="project-image">
-    <div class="image-caption">Start and end velocity controls</div>
+    <div class="caption">Start and end velocity controls</div>
 
     <h3>Memory Optimization</h3>
     <p>Each Bézier path consumed about 0.5% of the mainboard's flash memory. With 10+ paths × 2 (red/blue),
@@ -78,7 +61,7 @@
         merge it due to lack of testing time.</p>
     <!-- <img src="../assets/images/Robocon2023_trajplanner/trajplanner_memory_usage.png" alt="Memory usage"
                 class="project-image">
-            <div class="image-caption">Flash memory usage for WD R1 paths (before optimisation)</div> -->
+            <div class="caption">Flash memory usage for WD R1 paths (before optimisation)</div> -->
 
     <h2>Test Results</h2>
     <ul>
