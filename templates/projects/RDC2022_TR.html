@@ -116,200 +116,195 @@
 {% endblock %}
 
 {% block content %}
-<div class="main-content">
-    <a href="../index.html" class="back-home">← Back to Home</a>
-    <a href="./index.html" class="back-home">← Back to Projects</a>
-    <div class="detail-card">
-        <div class="detail-header">
-            <h3>HKUST Robotics Team - The 14th Robot Design Contest 2022</h3><br>
-            <h1 class="detail-title"> Group 5 Fibotics - TR (Task Robot)</h1>
-        </div>
-        <p class="date-badge">Oct - Dec 2022</p>
-        <p><strong>Technologies:</strong> STM32, Pneumatic Control, CAN Bus, TOF Sensors, Bluetooth (HC-05), MIT App
-            Inventor, Embedded C, Omniwheel Kinematics, RoboMaster M3508 Motors, C620 ESCs</p>
+<a href="../index.html" class="back-home">← Back to Home</a>
+<a href="./index.html" class="back-home">← Back to Projects</a>
+<div class="detail-card">
+    <div class="detail-header">
+        <h3>HKUST Robotics Team - The 14th Robot Design Contest 2022</h3><br>
+        <h1 class="detail-title"> Group 5 Fibotics - TR (Task Robot)</h1>
+    </div>
+    <p class="date-badge">Oct - Dec 2022</p>
+    <p><strong>Technologies:</strong> STM32, Pneumatic Control, CAN Bus, TOF Sensors, Bluetooth (HC-05), MIT App
+        Inventor, Embedded C, Omniwheel Kinematics, RoboMaster M3508 Motors, C620 ESCs</p>
 
-        <!-- Game Task Overview -->
-        <h2>🎯 Game Task Overview</h2>
-        <div class="game-task-overview">
-            <img src="../assets/images/RDC2022_TR/rdc2022_gamefield.png" width="50%" alt="RDC 2022 Game Field"
-                class="project-image">
-            <div class="game-task-text">
-                <p>The Task Robot (TR)</p>
-                <ul>
-                    <li>is a manual/semi-automatic robot.</li>
-                    <li>starts from the red/blue Starting Zone.</li>
-                    <li>load 1 Piece from the Loading Zone.</li>
-                    <li>shoot Pieces from the Shooting Area into the Tic-Tac-Toe boxes to form a line of three.</li>
-                    <li>Optionally perform the Lagori task (lifting Lagori (a cylindrical sponge) onto a base) to
-                        “unlock” the ability to place Pieces directly into the Tic-Tac-Toe boxes without shooting.
-                    </li>
-                    <li>Automatically travels along the Auto-ShortCut (the L-shape path) to load up to 3 Pieces from
-                        the Loading Zone at the same time. </li>
-                </ul>
-                <p>
-                    <a href="../assets/docs/rdc2022/RDC 2022 Game Rule(updated on 17-12-2022).pdf" target="_blank"
-                        class="styled-link">📄 Download Full Game Rule (PDF)</a>
-                    <a href="https://www.youtube.com/watch?v=kzLKtrWYbqs" target="_blank" class="styled-link">📄
-                        Game Introduction Video</a>
-                </p>
-            </div>
-        </div>
-        <div class="image-row">
-            <img src="../assets/images/RDC2022_TR/rdc2022_pieces.png" width="50%" alt="TR Pieces" class="project-image">
-            <img src="../assets/images/RDC2022_TR/rdc2022_lagori.png" width="30%" alt="Lagori block"
-                class="project-image">
-        </div>
-        <div class="image-caption">TR Pieces & Lagori</div>
-
-        <h2>Overview</h2>
-        <p>The Task Robot (TR) was responsible for interacting with the Tic-Tac-Toe boxes and handling the Lagori
-            task. I contributed to the software development, including the Bluetooth command system, the move
-            coordinate system, and low-level motor control.</p>
-        <div class="image-row">
-            <img src="../assets/images/RDC2022_TR/rdc2022_tr_robot_side_view.png" height="400px" alt="Fibotics TR robot"
-                class="project-image">
-            <img src="../assets/images/RDC2022_TR/rdc2022_tr_robot_front_view.png" height="400px"
-                alt="Fibotics TR robot" class="project-image">
-        </div>
-        <div class="image-caption">Fibotics TR (side view & front view)</div>
-
-        <h2>Mechanisms</h2>
-
-        <h3>Dropping Mechanism</h3>
-        <p>The TR featured three separate rails of different lengths to hold and drop pieces into the tic-tac-toe
-            boxes. The rails were connected by hinges and initially slanted backward to prevent pieces from rolling
-            out. Three pneumatic cylinders pushed the rails upward, slanting them forward so that pieces rolled down
-            along the rail into the correct box.</p>
-        <img src="../assets/images/RDC2022_TR/rdc2022_tr_drop_mechanism.png" alt="Dropping mechanism"
+    <!-- Game Task Overview -->
+    <h2>🎯 Game Task Overview</h2>
+    <div class="game-task-overview">
+        <img src="../assets/images/RDC2022_TR/rdc2022_gamefield.png" width="50%" alt="RDC 2022 Game Field"
             class="project-image">
-        <div class="image-caption">Dropping mechanism with pneumatic cylinders</div>
-
-        <h3>Loading Mechanism</h3>
-        <p>A passive loading system was installed at the loading zone. When the TR arrived, it hit the handle of the
-            loading racks, releasing pieces onto the TR's built-in rack per rail. The rails were set at -45° to hold
-            the pieces firmly.</p>
-        <img src="../assets/images/RDC2022_TR/rdc2022_tr_loading.png" alt="Loading mechanism" class="project-image">
-        <div class="image-caption">Passive loading mechanism</div>
-
-        <h3>Lagori Task Solution</h3>
-        <p>A sweeper-lifter was attached to the back of the TR, with an initially extended pneumatic cylinder. The
-            sweeper swept the Lagori into the lifter. When the cylinder retracted, the lifter rose above the Lagori
-            base, and the TR moved forward to drop the Lagori onto the base. A horizontal cylinder at the back
-            provided an extra push to ensure firm placement.</p>
-        <div class="image-row">
-            <img src="../assets/images/RDC2022_TR/rdc2022_tr_lagori0.png" width="30%" alt="Lagori mechanism"
-                class="project-image">
-            <img src="../assets/images/RDC2022_TR/rdc2022_tr_lagori1.png" width="30%" alt="Lagori mechanism"
-                class="project-image">
-            <img src="../assets/images/RDC2022_TR/rdc2022_tr_lagori2.png" width="30%" alt="Lagori mechanism"
-                class="project-image">
+        <div class="game-task-text">
+            <p>The Task Robot (TR)</p>
+            <ul>
+                <li>is a manual/semi-automatic robot.</li>
+                <li>starts from the red/blue Starting Zone.</li>
+                <li>load 1 Piece from the Loading Zone.</li>
+                <li>shoot Pieces from the Shooting Area into the Tic-Tac-Toe boxes to form a line of three.</li>
+                <li>Optionally perform the Lagori task (lifting Lagori (a cylindrical sponge) onto a base) to
+                    “unlock” the ability to place Pieces directly into the Tic-Tac-Toe boxes without shooting.
+                </li>
+                <li>Automatically travels along the Auto-ShortCut (the L-shape path) to load up to 3 Pieces from
+                    the Loading Zone at the same time. </li>
+            </ul>
+            <p>
+                <a href="../assets/docs/rdc2022/RDC 2022 Game Rule(updated on 17-12-2022).pdf" target="_blank"
+                    class="styled-link">📄 Download Full Game Rule (PDF)</a>
+                <a href="https://www.youtube.com/watch?v=kzLKtrWYbqs" target="_blank" class="styled-link">📄
+                    Game Introduction Video</a>
+            </p>
         </div>
-        <div class="image-caption">Sweeper-lifter mechanism for Lagori task</div>
+    </div>
+    <div class="image-row">
+        <img src="../assets/images/RDC2022_TR/rdc2022_pieces.png" width="50%" alt="TR Pieces" class="project-image">
+        <img src="../assets/images/RDC2022_TR/rdc2022_lagori.png" width="30%" alt="Lagori block" class="project-image">
+    </div>
+    <div class="image-caption">TR Pieces & Lagori</div>
 
-        <div class="video-container">
-            <iframe width="560" height="315" src="https://youtube.com/embed/pIq-8Qq3ors" title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-        </div>
-        <div class="video-caption">Demonstration of TR Lifting the Lagori block up to the stage</div>
+    <h2>Overview</h2>
+    <p>The Task Robot (TR) was responsible for interacting with the Tic-Tac-Toe boxes and handling the Lagori
+        task. I contributed to the software development, including the Bluetooth command system, the move
+        coordinate system, and low-level motor control.</p>
+    <div class="image-row">
+        <img src="../assets/images/RDC2022_TR/rdc2022_tr_robot_side_view.png" height="400px" alt="Fibotics TR robot"
+            class="project-image">
+        <img src="../assets/images/RDC2022_TR/rdc2022_tr_robot_front_view.png" height="400px" alt="Fibotics TR robot"
+            class="project-image">
+    </div>
+    <div class="image-caption">Fibotics TR (side view & front view)</div>
 
-        <h2>Software & Control</h2>
-        <!-- <a href="https://github.com/t-imm/fibotics" target="_blank" class="github-link"><i
+    <h2>Mechanisms</h2>
+
+    <h3>Dropping Mechanism</h3>
+    <p>The TR featured three separate rails of different lengths to hold and drop pieces into the tic-tac-toe
+        boxes. The rails were connected by hinges and initially slanted backward to prevent pieces from rolling
+        out. Three pneumatic cylinders pushed the rails upward, slanting them forward so that pieces rolled down
+        along the rail into the correct box.</p>
+    <img src="../assets/images/RDC2022_TR/rdc2022_tr_drop_mechanism.png" alt="Dropping mechanism" class="project-image">
+    <div class="image-caption">Dropping mechanism with pneumatic cylinders</div>
+
+    <h3>Loading Mechanism</h3>
+    <p>A passive loading system was installed at the loading zone. When the TR arrived, it hit the handle of the
+        loading racks, releasing pieces onto the TR's built-in rack per rail. The rails were set at -45° to hold
+        the pieces firmly.</p>
+    <img src="../assets/images/RDC2022_TR/rdc2022_tr_loading.png" alt="Loading mechanism" class="project-image">
+    <div class="image-caption">Passive loading mechanism</div>
+
+    <h3>Lagori Task Solution</h3>
+    <p>A sweeper-lifter was attached to the back of the TR, with an initially extended pneumatic cylinder. The
+        sweeper swept the Lagori into the lifter. When the cylinder retracted, the lifter rose above the Lagori
+        base, and the TR moved forward to drop the Lagori onto the base. A horizontal cylinder at the back
+        provided an extra push to ensure firm placement.</p>
+    <div class="image-row">
+        <img src="../assets/images/RDC2022_TR/rdc2022_tr_lagori0.png" width="30%" alt="Lagori mechanism"
+            class="project-image">
+        <img src="../assets/images/RDC2022_TR/rdc2022_tr_lagori1.png" width="30%" alt="Lagori mechanism"
+            class="project-image">
+        <img src="../assets/images/RDC2022_TR/rdc2022_tr_lagori2.png" width="30%" alt="Lagori mechanism"
+            class="project-image">
+    </div>
+    <div class="image-caption">Sweeper-lifter mechanism for Lagori task</div>
+
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://youtube.com/embed/pIq-8Qq3ors" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+    <div class="video-caption">Demonstration of TR Lifting the Lagori block up to the stage</div>
+
+    <h2>Software & Control</h2>
+    <!-- <a href="https://github.com/t-imm/fibotics" target="_blank" class="github-link"><i
                     class="fab fa-github"></i> View Source on GitHub</a><br> -->
 
-        <h3>Basic Motor & Omniwheel Wheelbase Control</h3>
-        <p>The TR was powered by <strong>RoboMaster M3508 motors</strong> driven by <strong>C620 ESCs</strong> over
-            a CAN bus. I implemented a PID controller for precise velocity control. The
-            M3508's built-in hall-effect sensors provided feedback for close-loop speed regulation, while the C620
-            handled the high-current commutation.</p>
-        <p>The robot used an <strong>omniwheel</strong> configuration, allowing it to move in any direction without
-            changing its orientation. I developed the wheelbase kinematics library that translates desired chassis
-            velocities (vx, vy, ω) into individual wheel speeds. This enabled complex manoeuvres like rotating while
-            translating - essential for precise alignment on the track.</p>
+    <h3>Basic Motor & Omniwheel Wheelbase Control</h3>
+    <p>The TR was powered by <strong>RoboMaster M3508 motors</strong> driven by <strong>C620 ESCs</strong> over
+        a CAN bus. I implemented a PID controller for precise velocity control. The
+        M3508's built-in hall-effect sensors provided feedback for close-loop speed regulation, while the C620
+        handled the high-current commutation.</p>
+    <p>The robot used an <strong>omniwheel</strong> configuration, allowing it to move in any direction without
+        changing its orientation. I developed the wheelbase kinematics library that translates desired chassis
+        velocities (vx, vy, ω) into individual wheel speeds. This enabled complex manoeuvres like rotating while
+        translating - essential for precise alignment on the track.</p>
 
-        <img src="../assets/images/RDC2022_TR/rdc2022_tr_omniwheelbase_test.gif" alt="Omniwheel kinematics diagram"
-            class="project-image">
-        <div class="video-caption">Demo: omniwheel wheelbase rotating and moving straight simultaneously</div>
+    <img src="../assets/images/RDC2022_TR/rdc2022_tr_omniwheelbase_test.gif" alt="Omniwheel kinematics diagram"
+        class="project-image">
+    <div class="video-caption">Demo: omniwheel wheelbase rotating and moving straight simultaneously</div>
 
-        <h3>Basic Bluetooth Command System (MIT App Inventor)</h3>
-        <p>I developed a custom Android application using <strong>MIT App Inventor</strong> to remotely control the
-            TR via an HC-05 Bluetooth module connected to the STM32 mainboard through UART.</p>
-        <img src="../assets/images/RDC2022_TR/rdc2022_tr_basic_app_control.webp" alt="Bluetooth control app interface"
-            class="project-image">
+    <h3>Basic Bluetooth Command System (MIT App Inventor)</h3>
+    <p>I developed a custom Android application using <strong>MIT App Inventor</strong> to remotely control the
+        TR via an HC-05 Bluetooth module connected to the STM32 mainboard through UART.</p>
+    <img src="../assets/images/RDC2022_TR/rdc2022_tr_basic_app_control.webp" alt="Bluetooth control app interface"
+        class="project-image">
 
-        <p>The app features</p>
-        <ul>
-            <li>a 2D joystick on the left for lateral movement</li>
-            <li>a 1D joystick on the right for rotational movement</li>
-            <li>a Faster and Slower button to change the wheelbase's max speed</li>
-            <li>a "Move Absolute" checkbox to determine whether the movement is referenced to the wheelbase frame or
-                the gamefield frame</li>
-            <li>some buttons on the right to control different mechanisms on the robot</li>
-            <li>some buttons on the right to activate auto paths</li>
-            <li>real-time display of the robot's velocities and sensors feedback
-        </ul>
+    <p>The app features</p>
+    <ul>
+        <li>a 2D joystick on the left for lateral movement</li>
+        <li>a 1D joystick on the right for rotational movement</li>
+        <li>a Faster and Slower button to change the wheelbase's max speed</li>
+        <li>a "Move Absolute" checkbox to determine whether the movement is referenced to the wheelbase frame or
+            the gamefield frame</li>
+        <li>some buttons on the right to control different mechanisms on the robot</li>
+        <li>some buttons on the right to activate auto paths</li>
+        <li>real-time display of the robot's velocities and sensors feedback
+    </ul>
 
-        The MIT App Inventor sends a string in the format of "(x,y)[rotation_angle]{command}", <br>
-        where
-        <ul>
-            <li><em>x, y</em> is the lateral wheelbase movement in x, y diretcion,</li>
-            <li><em>rotation_angle</em> is the angle of the rotation joystick,</li>
-            <li><em>command</em> is the instruction for the robot to execute (e.g., shoot left, move to loading
-                zone, etc.)</li>
-        </ul>
-        <p>The STM32 firmware parses incoming commands and executes them. The Bluetooth system proved reliable
-            during competition and greatly simplified driver operations.</p>
+    The MIT App Inventor sends a string in the format of "(x,y)[rotation_angle]{command}", <br>
+    where
+    <ul>
+        <li><em>x, y</em> is the lateral wheelbase movement in x, y diretcion,</li>
+        <li><em>rotation_angle</em> is the angle of the rotation joystick,</li>
+        <li><em>command</em> is the instruction for the robot to execute (e.g., shoot left, move to loading
+            zone, etc.)</li>
+    </ul>
+    <p>The STM32 firmware parses incoming commands and executes them. The Bluetooth system proved reliable
+        during competition and greatly simplified driver operations.</p>
 
-        <h3>Advanced Move Coordinate System</h3>
-        <p> Using motor speed feedback from the CAN bus, the TR's position (x, y, angle) was calculated using some
-            self derived inverse kinematics equations. This enabled precise automatic movement by simply controlling
-            the robot to move to (x: 1000mm, y: 0mm, angle: 90 degree).
-            <br>
-            As the (x, y, angle) is calculated using the motor speed feedback from the omniwheels, it is just
-            relative localization. So, we have to align to the walls of some key points and measures the horizontal
-            distance using a TOF sensor, to calibrate our robot's position relative to the gamefield. This allows
-            the robot to move to different key points on the gamefield with high precision. The coordinates of the
-            gamefield is defined like this:
-        </p>
-        <img src="../assets/images/RDC2022_TR/rdc2022_tr_coordinate_system.png" alt="Coordinate system diagram"
-            class="project-image">
-        <div class="image-caption">Coordinate system based on motor feedback and TOF wall alignment</div>
-        <p>
-            The (x, y, angle) coordinates is transmitted back from STM32 to the MIT App. This allows the app to show
-            the robot's position of the gamefield in real time (the arrow).
-            I have created this Advanced Move Coordinate System for the driver to move the robot
-            to any desired location by simply clicking the same spot on a map (the blue dot).
-        </p>
-        <img src="../assets/images/RDC2022_TR/rdc2022_tr_advanced_movement_control.png" alt="Coordinate system diagram"
-            class="project-image">
-        <div class="image-caption">Coordinate system based on motor feedback and TOF wall alignment</div>
+    <h3>Advanced Move Coordinate System</h3>
+    <p> Using motor speed feedback from the CAN bus, the TR's position (x, y, angle) was calculated using some
+        self derived inverse kinematics equations. This enabled precise automatic movement by simply controlling
+        the robot to move to (x: 1000mm, y: 0mm, angle: 90 degree).
+        <br>
+        As the (x, y, angle) is calculated using the motor speed feedback from the omniwheels, it is just
+        relative localization. So, we have to align to the walls of some key points and measures the horizontal
+        distance using a TOF sensor, to calibrate our robot's position relative to the gamefield. This allows
+        the robot to move to different key points on the gamefield with high precision. The coordinates of the
+        gamefield is defined like this:
+    </p>
+    <img src="../assets/images/RDC2022_TR/rdc2022_tr_coordinate_system.png" alt="Coordinate system diagram"
+        class="project-image">
+    <div class="image-caption">Coordinate system based on motor feedback and TOF wall alignment</div>
+    <p>
+        The (x, y, angle) coordinates is transmitted back from STM32 to the MIT App. This allows the app to show
+        the robot's position of the gamefield in real time (the arrow).
+        I have created this Advanced Move Coordinate System for the driver to move the robot
+        to any desired location by simply clicking the same spot on a map (the blue dot).
+    </p>
+    <img src="../assets/images/RDC2022_TR/rdc2022_tr_advanced_movement_control.png" alt="Coordinate system diagram"
+        class="project-image">
+    <div class="image-caption">Coordinate system based on motor feedback and TOF wall alignment</div>
 
-        <h2>Awards & Recognition</h2>
-        <img src="../assets/images/RDC2022_TR/rdc2022_awards.webp" alt="Coordinate system diagram"
-            class="project-image">
-        <ul class="award-list">
-            <li>🏆 HKUST Robotics Team - The 14th Robot Design Contest 2022 - 2nd Runner Up</li>
-            <li>🏅 HKUST Robotics Team - The 14th Robot Design Contest 2022 - Best Engineering Award</li>
-        </ul>
+    <h2>Awards & Recognition</h2>
+    <img src="../assets/images/RDC2022_TR/rdc2022_awards.webp" alt="Coordinate system diagram" class="project-image">
+    <ul class="award-list">
+        <li>🏆 HKUST Robotics Team - The 14th Robot Design Contest 2022 - 2nd Runner Up</li>
+        <li>🏅 HKUST Robotics Team - The 14th Robot Design Contest 2022 - Best Engineering Award</li>
+    </ul>
 
-        <h2>Resources</h2>
-        <div class="resources-links">
-            <a href="../assets/docs/rdc2022/Fibotics_Poster_real_A1_size_1.pdf" target="_blank" class="styled-link">
-                📄 Download Poster (PDF)
-            </a>
-            <a href="../assets/docs/rdc2022/Fibotics Final Presentation.pptx" target="_blank" class="styled-link">
-                📊 Download Final Presentation (PPT)
-            </a>
-            <a href="https://hkust-robotics-team.github.io/RDC2022/" target="_blank" class="styled-link">
-                Scoreboard
-            </a>
-            <a href="https://drive.google.com/drive/folders/1ge84ZP48IxDyuLXQ3FZRRmEqx519iTC5?usp=sharing"
-                target="_blank" class="styled-link">
-                RDC2022 Google Drive Folder
-            </a>
-        </div>
+    <h2>Resources</h2>
+    <div class="resources-links">
+        <a href="../assets/docs/rdc2022/Fibotics_Poster_real_A1_size_1.pdf" target="_blank" class="styled-link">
+            📄 Download Poster (PDF)
+        </a>
+        <a href="../assets/docs/rdc2022/Fibotics Final Presentation.pptx" target="_blank" class="styled-link">
+            📊 Download Final Presentation (PPT)
+        </a>
+        <a href="https://hkust-robotics-team.github.io/RDC2022/" target="_blank" class="styled-link">
+            Scoreboard
+        </a>
+        <a href="https://drive.google.com/drive/folders/1ge84ZP48IxDyuLXQ3FZRRmEqx519iTC5?usp=sharing" target="_blank"
+            class="styled-link">
+            RDC2022 Google Drive Folder
+        </a>
     </div>
 </div>
 {% endblock %}

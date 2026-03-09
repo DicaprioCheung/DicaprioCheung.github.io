@@ -155,7 +155,7 @@
         h3 {
             font-size: 1.5rem;
             margin: 20px 0 10px;
-            color: #34495e;
+            color: #2c3e50;
         }
 
         .detail-card {
@@ -474,122 +474,122 @@
     </div>
 </header>
     <a href="#" class="back-to-top">↑</a>
-    
-<div class="main-content">
-    <a href="../index.html" class="back-home">← Back to Home</a>
-    <a href="./index.html" class="back-home">← Back to Projects</a>
-    <div class="detail-card">
-        <div class="detail-header">
-            <h3>HKUST Robotics Team - The 14th Robot Design Contest 2022</h3><br>
-            <h1 class="detail-title"> Group 5 Fibotics - ARC (Automatic Racing Car)</h1>
-        </div>
-        <p class="date-badge">Oct - Dec 2022</p>
-        <p><strong>Technologies:</strong> STM32, Image Processing (Sobel), PID Control, RoboMaster M3508 Motors,
-            C620 ESCs, Omniwheel Kinematics, CAN Bus, Embedded C</p>
+    <div class="main-content">
+        
+<a href="../index.html" class="back-home">← Back to Home</a>
+<a href="./index.html" class="back-home">← Back to Projects</a>
+<div class="detail-card">
+    <div class="detail-header">
+        <h3>HKUST Robotics Team - The 14th Robot Design Contest 2022</h3><br>
+        <h1 class="detail-title"> Group 5 Fibotics - ARC (Automatic Racing Car)</h1>
+    </div>
+    <p class="date-badge">Oct - Dec 2022</p>
+    <p><strong>Technologies:</strong> STM32, Image Processing (Sobel), PID Control, RoboMaster M3508 Motors,
+        C620 ESCs, Omniwheel Kinematics, CAN Bus, Embedded C</p>
 
-        <!-- Game Task Overview -->
-        <h2>🎯 Game Task Overview</h2>
-        <img src="../assets/images/RDC2022_ARC/rdc2022_arc_track.png" alt="RDC2022 ARC Track" width="600"
-            class="project-image">
-        <div class="image-caption">RDC2022 ARC Track</div>
-        <p>The Automatic Racing Car (ARC) must autonomously race on a designated track for four laps within 3
-            minutes. The faster team earns a Replacement Opportunity (a golden piece) for their TR. The ARC must
-            follow the track without exiting; any lap where the robot leaves the track is not counted. The track may
-            contain random obstacles (e.g., pieces dropped by TRs), and the ARC must avoid them.</p>
-        <p>
-            <a href="../assets/docs/rdc2022/RDC 2022 Game Rule(updated on 17-12-2022).pdf" target="_blank"
-                class="styled-link">📄
-                Download Full Game Rule (PDF)</a>
-            <a href="https://www.youtube.com/watch?v=kzLKtrWYbqs" target="_blank" class="styled-link">📄
-                Game Introduction Video</a>
-        </p>
+    <!-- Game Task Overview -->
+    <h2>🎯 Game Task Overview</h2>
+    <img src="../assets/images/RDC2022_ARC/rdc2022_arc_track.png" alt="RDC2022 ARC Track" width="600"
+        class="project-image">
+    <div class="image-caption">RDC2022 ARC Track</div>
+    <p>The Automatic Racing Car (ARC) must autonomously race on a designated track for four laps within 3
+        minutes. The faster team earns a Replacement Opportunity (a golden piece) for their TR. The ARC must
+        follow the track without exiting; any lap where the robot leaves the track is not counted. The track may
+        contain random obstacles (e.g., pieces dropped by TRs), and the ARC must avoid them.</p>
+    <p>
+        <a href="../assets/docs/rdc2022/RDC 2022 Game Rule(updated on 17-12-2022).pdf" target="_blank"
+            class="styled-link">📄
+            Download Full Game Rule (PDF)</a>
+        <a href="https://www.youtube.com/watch?v=kzLKtrWYbqs" target="_blank" class="styled-link">📄
+            Game Introduction Video</a>
+    </p>
 
 
-        <h2>Overview</h2>
-        <!-- <a href="https://github.com/t-imm/fibotics" target="_blank" class="github-link"><i
+    <h2>Overview</h2>
+    <!-- <a href="https://github.com/t-imm/fibotics" target="_blank" class="github-link"><i
                     class="fab fa-github"></i> View Source on GitHub</a><br> -->
-        <p>The Automatic Racing Car (ARC) was designed to autonomously navigate a track and complete the tic-tac-toe
-            challenge. As part of Team Fibotics (Group 5), I contributed to the software development, focusing on
-            image processing, track sensing algorithms, and low-level motor control.</p>
+    <p>The Automatic Racing Car (ARC) was designed to autonomously navigate a track and complete the tic-tac-toe
+        challenge. As part of Team Fibotics (Group 5), I contributed to the software development, focusing on
+        image processing, track sensing algorithms, and low-level motor control.</p>
 
-        <img src="../assets/images/RDC2022_ARC/rdc2022_arc_robot.png" alt="Fibotics ARC robot" width="600"
+    <img src="../assets/images/RDC2022_ARC/rdc2022_arc_robot.png" alt="Fibotics ARC robot" width="600"
+        class="project-image">
+    <div class="image-caption">Fibotics ARC during testing</div>
+
+    <h2>Image Processing</h2>
+    <p>We used a Sobel filter to detect edges and filter out unwanted data for track sensing. Initially,
+        filtering the entire image was too time-consuming and reduced the frame rate. To improve
+        performance, we modified the algorithm to filter only the pixels needed for navigation, significantly
+        increasing the
+        ARC's responsiveness.</p>
+    <div class="image-row">
+        <img src="../assets/images/RDC2022_ARC/rdc2022_arc_sobel_test1.webp" alt="Sobel filter test image" width="400"
             class="project-image">
-        <div class="image-caption">Fibotics ARC during testing</div>
-
-        <h2>Image Processing</h2>
-        <p>We used a Sobel filter to detect edges and filter out unwanted data for track sensing. Initially,
-            filtering the entire image was too time-consuming and reduced the frame rate. To improve
-            performance, we modified the algorithm to filter only the pixels needed for navigation, significantly
-            increasing the
-            ARC's responsiveness.</p>
-        <div class="image-row">
-            <img src="../assets/images/RDC2022_ARC/rdc2022_arc_sobel_test1.webp" alt="Sobel filter test image"
-                width="400" class="project-image">
-            <img src="../assets/images/RDC2022_ARC/rdc2022_arc_sobel_test2.webp" alt="Sobel filter test image"
-                width="400" class="project-image">
-        </div>
-        <div class="image-caption">Sobel filter test (only for illustration; full-image filtering was avoided
-            during movement)</div>
-
-        <h2>Track Sensing & Control</h2>
-        <p>The ARC continuously calculated two critical parameters:</p>
-        <ul>
-            <li>The distance between the track's centre and the left/right borders.</li>
-            <li>The distance to the edge in front of the robot.</li>
-        </ul>
-        <p>Using these measurements, a PID algorithm adjusted the steering angle to keep the robot centered. The
-            system also detected upcoming turns by analyzing changes in border distances, then decelerated and
-            executed a controlled drift through the turn. Additionally, the ARC counted the number of turns to
-            determine whether it should follow the left or right border.</p>
-        <img src="../assets/images/RDC2022_ARC/rdc2022_track_sensing.png" alt="Track sensing diagram" width="400"
+        <img src="../assets/images/RDC2022_ARC/rdc2022_arc_sobel_test2.webp" alt="Sobel filter test image" width="400"
             class="project-image">
-        <div class="image-caption">Track sensing concept: distance to borders and front edge (only for
-            illustration; full-image filtering was avoided during movement)</div>
+    </div>
+    <div class="image-caption">Sobel filter test (only for illustration; full-image filtering was avoided
+        during movement)</div>
 
-        <h2>Video Demonstrations</h2><br>
-        <div class="video-container">
-            <iframe width="560" height="315" src="https://youtube.com/embed/kuSaZcD7UbQ" title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-        </div>
-        <div class="video-caption">Demonstration of ARC navigation (Stable version)</div>
-        <div class="video-container">
-            <iframe width="560" height="315" src="https://youtube.com/embed/LavNZzWTc4k" title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-        </div>
-        <div class="video-caption">Demonstration of ARC navigation (Fast version)</div>
+    <h2>Track Sensing & Control</h2>
+    <p>The ARC continuously calculated two critical parameters:</p>
+    <ul>
+        <li>The distance between the track's centre and the left/right borders.</li>
+        <li>The distance to the edge in front of the robot.</li>
+    </ul>
+    <p>Using these measurements, a PID algorithm adjusted the steering angle to keep the robot centered. The
+        system also detected upcoming turns by analyzing changes in border distances, then decelerated and
+        executed a controlled drift through the turn. Additionally, the ARC counted the number of turns to
+        determine whether it should follow the left or right border.</p>
+    <img src="../assets/images/RDC2022_ARC/rdc2022_track_sensing.png" alt="Track sensing diagram" width="400"
+        class="project-image">
+    <div class="image-caption">Track sensing concept: distance to borders and front edge (only for
+        illustration; full-image filtering was avoided during movement)</div>
 
-        <h2>Awards & Recognition</h2>
-        <img src="../assets/images/RDC2022_TR/rdc2022_awards.webp" alt="Coordinate system diagram"
-            class="project-image">
-        <ul class="award-list">
-            <li>🏆 HKUST Robotics Team - The 14th Robot Design Contest 2022 - 2nd Runner Up</li>
-            <li>🏅 HKUST Robotics Team - The 14th Robot Design Contest 2022 - Best Engineering Award</li>
-        </ul>
+    <h2>Video Demonstrations</h2><br>
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://youtube.com/embed/kuSaZcD7UbQ" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+    <div class="video-caption">Demonstration of ARC navigation (Stable version)</div>
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://youtube.com/embed/LavNZzWTc4k" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+    <div class="video-caption">Demonstration of ARC navigation (Fast version)</div>
 
-        <h2>Resources</h2>
-        <div class="resources-links">
-            <a href="../assets/docs/rdc2022/Fibotics_Poster_real_A1_size_1.pdf" target="_blank" class="styled-link">
-                📄 Download Poster (PDF)
-            </a>
-            <a href="../assets/docs/rdc2022/Fibotics Final Presentation.pptx" target="_blank" class="styled-link">
-                📊 Download Final Presentation (PPT)
-            </a>
-            <a href="https://hkust-robotics-team.github.io/RDC2022/" target="_blank" class="styled-link">
-                Scoreboard
-            </a>
-            <a href="https://drive.google.com/drive/folders/1ge84ZP48IxDyuLXQ3FZRRmEqx519iTC5?usp=sharing"
-                target="_blank" class="styled-link">
-                RDC2022 Google Drive Folder
-            </a>
-        </div>
+    <h2>Awards & Recognition</h2>
+    <img src="../assets/images/RDC2022_TR/rdc2022_awards.webp" alt="Coordinate system diagram" class="project-image">
+    <ul class="award-list">
+        <li>🏆 HKUST Robotics Team - The 14th Robot Design Contest 2022 - 2nd Runner Up</li>
+        <li>🏅 HKUST Robotics Team - The 14th Robot Design Contest 2022 - Best Engineering Award</li>
+    </ul>
+
+    <h2>Resources</h2>
+    <div class="resources-links">
+        <a href="../assets/docs/rdc2022/Fibotics_Poster_real_A1_size_1.pdf" target="_blank" class="styled-link">
+            📄 Download Poster (PDF)
+        </a>
+        <a href="../assets/docs/rdc2022/Fibotics Final Presentation.pptx" target="_blank" class="styled-link">
+            📊 Download Final Presentation (PPT)
+        </a>
+        <a href="https://hkust-robotics-team.github.io/RDC2022/" target="_blank" class="styled-link">
+            Scoreboard
+        </a>
+        <a href="https://drive.google.com/drive/folders/1ge84ZP48IxDyuLXQ3FZRRmEqx519iTC5?usp=sharing" target="_blank"
+            class="styled-link">
+            RDC2022 Google Drive Folder
+        </a>
     </div>
 </div>
+
+    </div>
 
     <footer id="footer">
     <div class="footer-content">

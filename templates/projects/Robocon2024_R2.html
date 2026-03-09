@@ -74,151 +74,149 @@
 {% endblock %}
 
 {% block content %}
-<div class="main-content">
-    <a href="../index.html" class="back-home">← Back to Home</a>
-    <a href="./index.html" class="back-home">← Back to Projects</a>
+<a href="../index.html" class="back-home">← Back to Home</a>
+<a href="./index.html" class="back-home">← Back to Projects</a>
 
-    <div class="detail-card">
-        <div class="detail-header">
-            <h1 class="detail-title">Robocon 2024 - War Dragon R2</h1>
-        </div>
-        <p class="date-badge">Jan - June 2024</p>
-        <p><strong>Role:</strong> WD R2 Embedded SW</p>
-        <p><strong>Technologies:</strong> STM32, RTOS, Trajectory Planning, Inverse Kinematics, C, Embedded Systems
-        </p>
+<div class="detail-card">
+    <div class="detail-header">
+        <h1 class="detail-title">Robocon 2024 - War Dragon R2</h1>
+    </div>
+    <p class="date-badge">Jan - June 2024</p>
+    <p><strong>Role:</strong> WD R2 Embedded SW</p>
+    <p><strong>Technologies:</strong> STM32, RTOS, Trajectory Planning, Inverse Kinematics, C, Embedded Systems
+    </p>
 
-        <!-- Overview of ABU Robocon 2024 -->
-        <h2>🏆 About ABU Robocon 2024</h2><a href="https://www.roboconhk.com/2024/" target="_blank"
-            class="styled-link">📄 Official Theme
-            & Rules</a>
-        <p>The theme for ABU Robocon 2024 was <strong>"Harvest Day"</strong>. Two teams (red and blue) compete in a
-            3-minute match. Each team operates two robots: a manual/semi-automatic <strong>Robot 1 (R1)</strong> and
-            a fully-automatic <strong>Robot 2 (R2)</strong>.
-        </p>
-        <br>
-        <p>
-            The R2 robot (our focus) operates in Area 3 and the storage zone.
-            Its main tasks are to collect balls (paddy rice / empty grain) from the storage zone and deposit them
-            into silos to score points. The robot must navigate dynamic obstacles, detect ball colours, and decide
-            which silo to target.
-        </p>
+    <!-- Overview of ABU Robocon 2024 -->
+    <h2>🏆 About ABU Robocon 2024</h2><a href="https://www.roboconhk.com/2024/" target="_blank" class="styled-link">📄
+        Official Theme
+        & Rules</a>
+    <p>The theme for ABU Robocon 2024 was <strong>"Harvest Day"</strong>. Two teams (red and blue) compete in a
+        3-minute match. Each team operates two robots: a manual/semi-automatic <strong>Robot 1 (R1)</strong> and
+        a fully-automatic <strong>Robot 2 (R2)</strong>.
+    </p>
+    <br>
+    <p>
+        The R2 robot (our focus) operates in Area 3 and the storage zone.
+        Its main tasks are to collect balls (paddy rice / empty grain) from the storage zone and deposit them
+        into silos to score points. The robot must navigate dynamic obstacles, detect ball colours, and decide
+        which silo to target.
+    </p>
 
-        <p>Below is the official theme video explaining the rules in detail:</p>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/x36ZeLv1z2I" title="ABU Robocon 2024 theme video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-            </iframe>
-        </div>
-        <div class="video-caption">ABU Robocon 2024 Official Theme Video: "Harvest Day"</div>
+    <p>Below is the official theme video explaining the rules in detail:</p>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/x36ZeLv1z2I" title="ABU Robocon 2024 theme video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
+    <div class="video-caption">ABU Robocon 2024 Official Theme Video: "Harvest Day"</div>
 
-        <h2>Overview</h2>
-        <p>For War Dragon R2, I contributed embedded software development, focusing on robust pathing and
-            integration of new features. I also worked on the robotic arm library R&D during the early season.</p>
-        <img src="../assets/images/Robocon2024_R2/wd_r2_robot.png" alt="War Dragon R2" class="project-image">
-        <div class="image-caption">War Dragon R2 during testing</div>
+    <h2>Overview</h2>
+    <p>For War Dragon R2, I contributed embedded software development, focusing on robust pathing and
+        integration of new features. I also worked on the robotic arm library R&D during the early season.</p>
+    <img src="../assets/images/Robocon2024_R2/wd_r2_robot.png" alt="War Dragon R2" class="project-image">
+    <div class="image-caption">War Dragon R2 during testing</div>
 
-        <h2>Robotic Arm Library - Prototype & R&D</h2>
-        <p>From September to November 2023, we explored using a robotic arm for R2. I developed a reusable library
-            supporting various arm configurations:</p>
-        <ul>
-            <li>2-axis robotic arm</li>
-            <li>3-axis robotic arm</li>
-            <li>3-axis with yaw</li>
-            <li>3-axis with yaw and wheelbase</li>
-        </ul>
-        <p><strong>Library features:</strong></p>
-        <ul>
-            <li><em>Basic control:</em> Move each joint to a specific angle.</li>
-            <li><em>Local coordinates control:</em> Pass 2D/3D coordinates relative to the arm's base; inverse
-                kinematics calculates joint angles.</li>
-            <li><em>Global coordinates control:</em> Same but relative to the game field.</li>
-            <li><em>Percentage pathing:</em> All motors move in sync - the slowest motor determines overall speed,
-                others move proportionally to finish together.</li>
-            <li><em>Bézier pathing:</em> Adapted Trajplanner for robotic arms. The output XYTheta coordinates are
-                fed to the local coordinate controller.</li>
-        </ul>
-        <img src="../assets/images/Robocon2024_R2/trajplanner_arm.png" alt="Trajplanner for robotic arm"
-            class="project-image">
-        <div class="image-caption">Modified Trajplanner for robotic arm simulation</div>
+    <h2>Robotic Arm Library - Prototype & R&D</h2>
+    <p>From September to November 2023, we explored using a robotic arm for R2. I developed a reusable library
+        supporting various arm configurations:</p>
+    <ul>
+        <li>2-axis robotic arm</li>
+        <li>3-axis robotic arm</li>
+        <li>3-axis with yaw</li>
+        <li>3-axis with yaw and wheelbase</li>
+    </ul>
+    <p><strong>Library features:</strong></p>
+    <ul>
+        <li><em>Basic control:</em> Move each joint to a specific angle.</li>
+        <li><em>Local coordinates control:</em> Pass 2D/3D coordinates relative to the arm's base; inverse
+            kinematics calculates joint angles.</li>
+        <li><em>Global coordinates control:</em> Same but relative to the game field.</li>
+        <li><em>Percentage pathing:</em> All motors move in sync - the slowest motor determines overall speed,
+            others move proportionally to finish together.</li>
+        <li><em>Bézier pathing:</em> Adapted Trajplanner for robotic arms. The output XYTheta coordinates are
+            fed to the local coordinate controller.</li>
+    </ul>
+    <img src="../assets/images/Robocon2024_R2/trajplanner_arm.png" alt="Trajplanner for robotic arm"
+        class="project-image">
+    <div class="image-caption">Modified Trajplanner for robotic arm simulation</div>
 
-        <h3>Challenges</h3>
-        <ul>
-            <li><strong>Discontinuity in math:</strong> Multiple inverse kinematics solutions required careful
-                selection; if-case logic caused sudden jumps.</li>
-            <li><strong>Inaccurate angles:</strong> Backlash in motors, gears, and belts led to positioning errors.
-                Gravity caused the arm to droop, making it difficult to reach extreme positions accurately.</li>
-        </ul>
-        <p>While the robotic arm concept showed promise, it was ultimately not used in competition. However, the
-            library provided valuable experience and may be useful for future loading mechanisms.</p>
+    <h3>Challenges</h3>
+    <ul>
+        <li><strong>Discontinuity in math:</strong> Multiple inverse kinematics solutions required careful
+            selection; if-case logic caused sudden jumps.</li>
+        <li><strong>Inaccurate angles:</strong> Backlash in motors, gears, and belts led to positioning errors.
+            Gravity caused the arm to droop, making it difficult to reach extreme positions accurately.</li>
+    </ul>
+    <p>While the robotic arm concept showed promise, it was ultimately not used in competition. However, the
+        library provided valuable experience and may be useful for future loading mechanisms.</p>
 
-        <h2>R2 Pathing & Software</h2>
-        <p>For the competition robot, pathing was divided into two categories:</p>
+    <h2>R2 Pathing & Software</h2>
+    <p>For the competition robot, pathing was divided into two categories:</p>
 
-        <h3>Static Paths</h3>
-        <p>From Start Zone to Area 3, we used a fixed Bézier curve with trapezoidal velocity profile. The start
-            velocity was set to 4 m/s to jump-start and reach maximum speed quickly.</p>
+    <h3>Static Paths</h3>
+    <p>From Start Zone to Area 3, we used a fixed Bézier curve with trapezoidal velocity profile. The start
+        velocity was set to 4 m/s to jump-start and reach maximum speed quickly.</p>
 
-        <h3>Dynamic Paths for Area 3</h3>
-        <p>Paths from Area 3 to the storage zone and from the storage zone to optimal silos were computed
-            dynamically based on conditions and strategy. The area is full of obstacles (other robots, balls), so
-            paths are formed by combinations of straight lines with trapezoidal profiles, calculated in real time
-            using the robot's position, velocity, and camera feedback.</p>
+    <h3>Dynamic Paths for Area 3</h3>
+    <p>Paths from Area 3 to the storage zone and from the storage zone to optimal silos were computed
+        dynamically based on conditions and strategy. The area is full of obstacles (other robots, balls), so
+        paths are formed by combinations of straight lines with trapezoidal profiles, calculated in real time
+        using the robot's position, velocity, and camera feedback.</p>
 
-        <h3>Ball Color Detection (CV)</h3>
-        <p>Embedded cameras were used for ball sorting. The captured RGB565 image was converted to HSV colour space.
-            The mean values of hue, saturation, and value, along with variance, were analysed to determine if the
-            camera was obstructed by an empty grain or a paddy rice. This information guided the robot's intake and
-            sorting decisions.</p>
+    <h3>Ball Color Detection (CV)</h3>
+    <p>Embedded cameras were used for ball sorting. The captured RGB565 image was converted to HSV colour space.
+        The mean values of hue, saturation, and value, along with variance, were analysed to determine if the
+        camera was obstructed by an empty grain or a paddy rice. This information guided the robot's intake and
+        sorting decisions.</p>
 
-        <h3>Sensor Fusion & Localisation</h3>
-        <p>We used XY-encoders, IMU, lasers, line sensors, and limit switches to maintain accurate position. Lasers
-            provided 1-D distance measurements for recalibration against walls. Line sensors helped track white
-            lines on the field. Limit switches triggered when the robot hit a fence, providing a hard reference
-            point.</p>
+    <h3>Sensor Fusion & Localisation</h3>
+    <p>We used XY-encoders, IMU, lasers, line sensors, and limit switches to maintain accurate position. Lasers
+        provided 1-D distance measurements for recalibration against walls. Line sensors helped track white
+        lines on the field. Limit switches triggered when the robot hit a fence, providing a hard reference
+        point.</p>
 
-        <h2>Trajplanner Upgrades (Cross-cutting)</h2>
-        <p>As the maintainer of Trajplanner (the team's tool for drawing Bézier paths), I made several improvements
-            that benefited both R1 and R2:</p>
-        <ul>
-            <li><strong>Help Window:</strong> Added in-app guidance so new members could learn without searching for
-                documentation.</li>
-            <li><strong>Flipping Functions:</strong> One-click left-right flipping for symmetrical fields saved
-                hours of manual adjustment.</li>
-            <li><strong>Start/End Velocity Control:</strong> Rediscovered hidden parameters and exposed them in the
-                GUI. Applied to WD R2's starting path, enabling a jump-start during competition.</li>
-            <li><strong>Memory Optimization:</strong> Analysed flash usage and removed redundant data, but this was
-                not merged in time for competition due to lack of testing.</li>
-        </ul>
+    <h2>Trajplanner Upgrades (Cross-cutting)</h2>
+    <p>As the maintainer of Trajplanner (the team's tool for drawing Bézier paths), I made several improvements
+        that benefited both R1 and R2:</p>
+    <ul>
+        <li><strong>Help Window:</strong> Added in-app guidance so new members could learn without searching for
+            documentation.</li>
+        <li><strong>Flipping Functions:</strong> One-click left-right flipping for symmetrical fields saved
+            hours of manual adjustment.</li>
+        <li><strong>Start/End Velocity Control:</strong> Rediscovered hidden parameters and exposed them in the
+            GUI. Applied to WD R2's starting path, enabling a jump-start during competition.</li>
+        <li><strong>Memory Optimization:</strong> Analysed flash usage and removed redundant data, but this was
+            not merged in time for competition due to lack of testing.</li>
+    </ul>
 
-        <h2>Test Results & Lessons Learned</h2>
-        <ul>
-            <li>The robotic arm library highlighted the difficulty of precise control with backlash - a simpler
-                mechanism might be more reliable for future competitions.</li>
-            <li>Dynamic pathing in Area 3 worked well, but better sensor fusion (e.g., using LiDAR) could improve
-                robustness.</li>
-            <li>Trajplanner improvements were well received; the Help Window and flipping functions significantly
-                boosted team productivity.</li>
-        </ul>
+    <h2>Test Results & Lessons Learned</h2>
+    <ul>
+        <li>The robotic arm library highlighted the difficulty of precise control with backlash - a simpler
+            mechanism might be more reliable for future competitions.</li>
+        <li>Dynamic pathing in Area 3 worked well, but better sensor fusion (e.g., using LiDAR) could improve
+            robustness.</li>
+        <li>Trajplanner improvements were well received; the Help Window and flipping functions significantly
+            boosted team productivity.</li>
+    </ul>
 
-        <h2>Awards & Recognition</h2>
-        <ul class="award-list">
-            <li>🏆 ABU Robocon Hong Kong 2024 - 2nd Runner-Up (War Dragon)</li>
-            <li>🏅 ABU Robocon Hong Kong 2024 - Best Team Spirit Award</li>
-        </ul>
+    <h2>Awards & Recognition</h2>
+    <ul class="award-list">
+        <li>🏆 ABU Robocon Hong Kong 2024 - 2nd Runner-Up (War Dragon)</li>
+        <li>🏅 ABU Robocon Hong Kong 2024 - Best Team Spirit Award</li>
+    </ul>
 
-        <h2>Resources</h2>
-        <div class="resources-links">
-            <a href="../assets/docs/robocon2024/ENGG3961 Final Report.docx" target="_blank" class="styled-link">
-                📄 Download Final Report (DOCX)
-            </a>
-            <a href="../assets/docs/robocon2024/2024 Robocon Presentation.pdf" target="_blank" class="styled-link">
-                📊 Download Team Presentation (PDF)
-            </a>
-            <a href="https://www.roboconhk.com/2024/" target="_blank" class="styled-link">
-                Robocon HK 2024 Official Site
-            </a>
-        </div>
+    <h2>Resources</h2>
+    <div class="resources-links">
+        <a href="../assets/docs/robocon2024/ENGG3961 Final Report.docx" target="_blank" class="styled-link">
+            📄 Download Final Report (DOCX)
+        </a>
+        <a href="../assets/docs/robocon2024/2024 Robocon Presentation.pdf" target="_blank" class="styled-link">
+            📊 Download Team Presentation (PDF)
+        </a>
+        <a href="https://www.roboconhk.com/2024/" target="_blank" class="styled-link">
+            Robocon HK 2024 Official Site
+        </a>
     </div>
 </div>
 {% endblock %}

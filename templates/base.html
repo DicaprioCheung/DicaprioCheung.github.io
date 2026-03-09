@@ -354,7 +354,10 @@
 <body>
     {% include 'header.html' %}
     <a href="#" class="back-to-top">↑</a>
-    {% block content %}{% endblock %}
+    <div class="main-content">
+        {% block content %}{% endblock %}
+    </div>
+
     {% include 'footer.html' %}
 
     <script>

@@ -22,86 +22,84 @@
 {% endblock %}
 
 {% block content %}
-<div class="main-content">
-    <a href="../index.html" class="back-home">← Back to Home</a>
-    <a href="./index.html" class="back-home">← Back to Projects</a>
-    <div class="detail-card">
-        <div class="detail-header">
-            <h1 class="detail-title">Trajectory Planner (Trajplanner) Research & Upgrade</h1>
-        </div>
-        <p class="date-badge">Sept 2023 - Jan 2024</p>
-        <p><strong>Technologies:</strong> Python, PyQT, Embedded C, Bezier Curves, GUI Development</p>
+<a href="../index.html" class="back-home">← Back to Home</a>
+<a href="./index.html" class="back-home">← Back to Projects</a>
+<div class="detail-card">
+    <div class="detail-header">
+        <h1 class="detail-title">Trajectory Planner (Trajplanner) Research & Upgrade</h1>
+    </div>
+    <p class="date-badge">Sept 2023 - Jan 2024</p>
+    <p><strong>Technologies:</strong> Python, PyQT, Embedded C, Bezier Curves, GUI Development</p>
 
-        <h2>Background</h2>
-        <p>Trajplanner is the primary tool used by the HKUST Robotics Team software sub-team to draw Bézier paths
-            for robot navigation. It is one of our key technical advantages over other Robocon universities. My work
-            focused on maintaining, documenting, and extending this tool to improve usability and performance for
-            the 2024 season.</p>
+    <h2>Background</h2>
+    <p>Trajplanner is the primary tool used by the HKUST Robotics Team software sub-team to draw Bézier paths
+        for robot navigation. It is one of our key technical advantages over other Robocon universities. My work
+        focused on maintaining, documenting, and extending this tool to improve usability and performance for
+        the 2024 season.</p>
 
-        <h2>Objectives</h2>
-        <ul>
-            <li>Keep Trajplanner bug-free and compatible with current libraries.</li>
-            <li>Make it easier to learn for new recruits.</li>
-            <li>Understand and improve upon the code written by previous generations.</li>
-            <li>Rediscover hidden or forgotten features.</li>
-        </ul>
+    <h2>Objectives</h2>
+    <ul>
+        <li>Keep Trajplanner bug-free and compatible with current libraries.</li>
+        <li>Make it easier to learn for new recruits.</li>
+        <li>Understand and improve upon the code written by previous generations.</li>
+        <li>Rediscover hidden or forgotten features.</li>
+    </ul>
 
-        <h2>New Features</h2>
+    <h2>New Features</h2>
 
-        <h3>Help Window</h3>
-        <p>Previously, documentation was hard to find, so I added an in-application Help Window. New members can now
-            learn how to use Trajplanner without searching for external docs, and experienced members can discover
-            rare functions more easily.</p>
-        <img src="../assets/images/Robocon2023_trajplanner/trajplanner_help_window.png" alt="Trajplanner Help Window"
-            class="project-image">
-        <div class="image-caption">Help Window providing on-screen guidance</div>
+    <h3>Help Window</h3>
+    <p>Previously, documentation was hard to find, so I added an in-application Help Window. New members can now
+        learn how to use Trajplanner without searching for external docs, and experienced members can discover
+        rare functions more easily.</p>
+    <img src="../assets/images/Robocon2023_trajplanner/trajplanner_help_window.png" alt="Trajplanner Help Window"
+        class="project-image">
+    <div class="image-caption">Help Window providing on-screen guidance</div>
 
-        <h3>Flipping Functions</h3>
-        <p>Because the 2024 game field is left-right symmetrical, I added a one-click flip button to mirror paths
-            from red field to blue field. This saved hours of manual path tuning during test runs. Additional flip
-            directions were included for potential future symmetrical fields.</p>
-        <img src="../assets/images/Robocon2023_trajplanner/trajplanner_flip_functions.png" alt="Flipping functions"
-            class="project-image">
-        <div class="image-caption">Left-right flip and other orientation flips</div>
+    <h3>Flipping Functions</h3>
+    <p>Because the 2024 game field is left-right symmetrical, I added a one-click flip button to mirror paths
+        from red field to blue field. This saved hours of manual path tuning during test runs. Additional flip
+        directions were included for potential future symmetrical fields.</p>
+    <img src="../assets/images/Robocon2023_trajplanner/trajplanner_flip_functions.png" alt="Flipping functions"
+        class="project-image">
+    <div class="image-caption">Left-right flip and other orientation flips</div>
 
-        <h3>Start / End Velocity Control</h3>
-        <p>While exploring the code, I rediscovered hidden parameters for start and end velocity. I exposed them in
-            the GUI, allowing us to set non-zero start/end speeds. This was applied to WD R2's starting path,
-            enabling a much faster jump start during competition.</p>
-        <img src="../assets/images/Robocon2023_trajplanner/trajplanner_start_end_vel.png"
-            alt="Start/End velocity settings" class="project-image">
-        <div class="image-caption">Start and end velocity controls</div>
+    <h3>Start / End Velocity Control</h3>
+    <p>While exploring the code, I rediscovered hidden parameters for start and end velocity. I exposed them in
+        the GUI, allowing us to set non-zero start/end speeds. This was applied to WD R2's starting path,
+        enabling a much faster jump start during competition.</p>
+    <img src="../assets/images/Robocon2023_trajplanner/trajplanner_start_end_vel.png" alt="Start/End velocity settings"
+        class="project-image">
+    <div class="image-caption">Start and end velocity controls</div>
 
-        <h3>Memory Optimization</h3>
-        <p>Each Bézier path consumed about 0.5% of the mainboard's flash memory. With 10+ paths × 2 (red/blue),
-            memory usage became significant. I analysed the output data and removed redundant information, tailoring
-            it to our wheelbase library. The optimisation was completed just before winter training, but I did not
-            merge it due to lack of testing time.</p>
-        <!-- <img src="../assets/images/Robocon2023_trajplanner/trajplanner_memory_usage.png" alt="Memory usage"
+    <h3>Memory Optimization</h3>
+    <p>Each Bézier path consumed about 0.5% of the mainboard's flash memory. With 10+ paths × 2 (red/blue),
+        memory usage became significant. I analysed the output data and removed redundant information, tailoring
+        it to our wheelbase library. The optimisation was completed just before winter training, but I did not
+        merge it due to lack of testing time.</p>
+    <!-- <img src="../assets/images/Robocon2023_trajplanner/trajplanner_memory_usage.png" alt="Memory usage"
                 class="project-image">
             <div class="image-caption">Flash memory usage for WD R1 paths (before optimisation)</div> -->
 
-        <h2>Test Results</h2>
-        <ul>
-            <li><strong>Help Window:</strong> Juniors learned Trajplanner much faster during winter training,
-                spending less time guessing and more time tuning.</li>
-            <li><strong>Flipping Functions:</strong> Greatly improved path tuning efficiency for all four robots,
-                especially during test room and test run sessions.</li>
-            <li><strong>Start / End Velocity:</strong> Allowed WD R2 to jump-start quickly; potential for seamless
-                path-to-path transitions remains to be explored.</li>
-            <li><strong>Memory Optimization:</strong> Not yet merged; needs thorough testing before deployment.</li>
-        </ul>
+    <h2>Test Results</h2>
+    <ul>
+        <li><strong>Help Window:</strong> Juniors learned Trajplanner much faster during winter training,
+            spending less time guessing and more time tuning.</li>
+        <li><strong>Flipping Functions:</strong> Greatly improved path tuning efficiency for all four robots,
+            especially during test room and test run sessions.</li>
+        <li><strong>Start / End Velocity:</strong> Allowed WD R2 to jump-start quickly; potential for seamless
+            path-to-path transitions remains to be explored.</li>
+        <li><strong>Memory Optimization:</strong> Not yet merged; needs thorough testing before deployment.</li>
+    </ul>
 
-        <h2>Future Work & Improvements</h2>
-        <p>I hope next year's software team will continue to maintain the Help Window and flipping functions to
-            match each year's field. Start/End Velocity has great potential for connecting Bézier paths seamlessly
-            or merging with trapezoidal motion profiles. The memory optimisation should be tested and merged - or
-            possibly rendered unnecessary if the team switches to ROS.</p>
+    <h2>Future Work & Improvements</h2>
+    <p>I hope next year's software team will continue to maintain the Help Window and flipping functions to
+        match each year's field. Start/End Velocity has great potential for connecting Bézier paths seamlessly
+        or merging with trapezoidal motion profiles. The memory optimisation should be tested and merged - or
+        possibly rendered unnecessary if the team switches to ROS.</p>
 
-        <h2>Reflection</h2>
-        <p>Working on Trajplanner taught me the value of digging into legacy code and the impact of small UI
-            improvements. Even features as simple as a help button can significantly boost team productivity.</p>
-    </div>
+    <h2>Reflection</h2>
+    <p>Working on Trajplanner taught me the value of digging into legacy code and the impact of small UI
+        improvements. Even features as simple as a help button can significantly boost team productivity.</p>
 </div>
 {% endblock %}
 

@@ -73,129 +73,127 @@
 {% endblock %}
 
 {% block content %}
-<div class="main-content">
-    <a href="../index.html" class="back-home">← Back to Home</a>
-    <a href="./index.html" class="back-home">← Back to Projects</a>
-    <div class="detail-card">
-        <div class="detail-header">
-            <h1 class="detail-title">ABU Robocon 2023 - Fiery Dragon (FD) Rabbit Robot (RR)</h1>
-        </div>
-        <p class="date-badge">Jan - June 2023</p>
-        <p><strong>Role:</strong> FD RR SW Junior, FD Pit Crew, FD RR Backup Controller</p>
-        <p><strong>Technologies:</strong> STM32, RM Motor Positioning, Trapezoidal Pathing, ToF Sensors, C, Embedded
-            Systems</p>
+<a href="../index.html" class="back-home">← Back to Home</a>
+<a href="./index.html" class="back-home">← Back to Projects</a>
+<div class="detail-card">
+    <div class="detail-header">
+        <h1 class="detail-title">ABU Robocon 2023 - Fiery Dragon (FD) Rabbit Robot (RR)</h1>
+    </div>
+    <p class="date-badge">Jan - June 2023</p>
+    <p><strong>Role:</strong> FD RR SW Junior, FD Pit Crew, FD RR Backup Controller</p>
+    <p><strong>Technologies:</strong> STM32, RM Motor Positioning, Trapezoidal Pathing, ToF Sensors, C, Embedded
+        Systems</p>
 
-        <!-- New Section: About ABU Robocon 2023 -->
-        <h2>🏆 About ABU Robocon 2023</h2>
-        <p>The theme for ABU Robocon 2023 was <strong>"Casting Flowers over Angkor Wat"</strong>. Two teams (red
-            and blue) compete in a 3-minute match. Each team operates two robots: a <strong>Elephant Robot
-                (ER)</strong> and a <strong>Rabbit Robot (RR)</strong>. The goal is to throw rings onto poles to
-            score points.</p>
-        <p>The <strong>Rabbit Robot (RR)</strong> - the robot I worked on - is responsible for collecting rings from
-            the base and throwing them onto the poles. It must navigate a small, confined area with high agility.
-            The RR can move autonomously or be manually controlled, and its throws are crucial for winning the game.
-        </p>
-        <p>Below is the official theme video explaining the rules in detail:</p>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/mOXJfGUyQSk" title="ABU Robocon 2023 theme video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-            </iframe>
-        </div>
-        <div class="video-caption">ABU Robocon 2023 Official Theme Video: "Casting Flowers over Angkor Wat"
-        </div>
+    <!-- New Section: About ABU Robocon 2023 -->
+    <h2>🏆 About ABU Robocon 2023</h2>
+    <p>The theme for ABU Robocon 2023 was <strong>"Casting Flowers over Angkor Wat"</strong>. Two teams (red
+        and blue) compete in a 3-minute match. Each team operates two robots: a <strong>Elephant Robot
+            (ER)</strong> and a <strong>Rabbit Robot (RR)</strong>. The goal is to throw rings onto poles to
+        score points.</p>
+    <p>The <strong>Rabbit Robot (RR)</strong> - the robot I worked on - is responsible for collecting rings from
+        the base and throwing them onto the poles. It must navigate a small, confined area with high agility.
+        The RR can move autonomously or be manually controlled, and its throws are crucial for winning the game.
+    </p>
+    <p>Below is the official theme video explaining the rules in detail:</p>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/mOXJfGUyQSk" title="ABU Robocon 2023 theme video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
+    <div class="video-caption">ABU Robocon 2023 Official Theme Video: "Casting Flowers over Angkor Wat"
+    </div>
 
-        <h2>Overview</h2>
-        <p>I was responsible for the embedded system programming of the RR (Rabbit Robot) for the 2023 ABU Robocon
-            Hong Kong regional contest. The robot had to navigate a small field and shoot poles with high agility. I
-            focused on three main innovations: RM wheelbase positioning, real-time trapezoidal pathing with
-            trap-aiming, and ToF-based wall following pathing.</p>
+    <h2>Overview</h2>
+    <p>I was responsible for the embedded system programming of the RR (Rabbit Robot) for the 2023 ABU Robocon
+        Hong Kong regional contest. The robot had to navigate a small field and shoot poles with high agility. I
+        focused on three main innovations: RM wheelbase positioning, real-time trapezoidal pathing with
+        trap-aiming, and ToF-based wall following pathing.</p>
 
-        <img src="../assets/images/Robocon2023_RR/robocon2023_rr_robot.png" width="50%" alt="Fiery Dragon RR Robot"
-            class="project-image">
-        <div class="image-caption">Fiery Dragon RR during testing</div>
+    <img src="../assets/images/Robocon2023_RR/robocon2023_rr_robot.png" width="50%" alt="Fiery Dragon RR Robot"
+        class="project-image">
+    <div class="image-caption">Fiery Dragon RR during testing</div>
 
-        <h2>RM Wheelbase Positioning</h2>
-        <p>Since the RR was too small to accommodate a traditional XY-encoder, I implemented a positioning system
-            using the built-in readings from the RM motors of the four mecanum wheels. By integrating optional IMU
-            data from our Vegvisir board, the system calculated the robot's position in real time. This method was
-            used for all auto paths on both FD and WD RR robots.</p>
+    <h2>RM Wheelbase Positioning</h2>
+    <p>Since the RR was too small to accommodate a traditional XY-encoder, I implemented a positioning system
+        using the built-in readings from the RM motors of the four mecanum wheels. By integrating optional IMU
+        data from our Vegvisir board, the system calculated the robot's position in real time. This method was
+        used for all auto paths on both FD and WD RR robots.</p>
 
-        <h2>Real-Time Trapezoidal Pathing and Trap-Aiming</h2>
-        <p>I divided the game field into 12 areas connected by turning points (blue circles in the diagram). Using
-            the current position (from RM positioning) and target coordinates, the robot calculated the shortest
-            straight-line path in real time and executed it with trapezoidal velocity profiles for maximum speed.
-            This allowed the robot to shoot from any point that maintained the correct distance to the pole, rather
-            than being limited to fixed shooting zones.</p>
-        <img src="../assets/images/Robocon2023_RR/robocon2023_field_areas.png" alt="Field areas with turning points"
-            class="project-image">
-        <div class="image-caption">Game field divided into 12 areas with turning points (blue circles)</div>
-        <img src="../assets/images/Robocon2023_RR/robocon2023_trapezoidal_profile.png"
-            alt="Trapezoidal velocity profile" class="project-image">
-        <div class="image-caption">Trapezoidal motion profile used for acceleration/deceleration</div>
-        <img src="../assets/images/Robocon2023_RR/robocon2023_shoot_paths.png" alt="Possible shooting paths"
-            class="project-image">
-        <div class="image-caption">Example shortest paths to shoot pole 1 from various positions</div>
+    <h2>Real-Time Trapezoidal Pathing and Trap-Aiming</h2>
+    <p>I divided the game field into 12 areas connected by turning points (blue circles in the diagram). Using
+        the current position (from RM positioning) and target coordinates, the robot calculated the shortest
+        straight-line path in real time and executed it with trapezoidal velocity profiles for maximum speed.
+        This allowed the robot to shoot from any point that maintained the correct distance to the pole, rather
+        than being limited to fixed shooting zones.</p>
+    <img src="../assets/images/Robocon2023_RR/robocon2023_field_areas.png" alt="Field areas with turning points"
+        class="project-image">
+    <div class="image-caption">Game field divided into 12 areas with turning points (blue circles)</div>
+    <img src="../assets/images/Robocon2023_RR/robocon2023_trapezoidal_profile.png" alt="Trapezoidal velocity profile"
+        class="project-image">
+    <div class="image-caption">Trapezoidal motion profile used for acceleration/deceleration</div>
+    <img src="../assets/images/Robocon2023_RR/robocon2023_shoot_paths.png" alt="Possible shooting paths"
+        class="project-image">
+    <div class="image-caption">Example shortest paths to shoot pole 1 from various positions</div>
 
-        <h2>ToF Pathing</h2>
-        <p>To overcome the instability of RM positioning due to wheel slip, I developed a ToF-based pathing system
-            using front and side ToF sensors. The difference between left and right ToF readings gave the angle
-            error (corrected with PID), while the average gave vertical error. The robot moved horizontally using
-            trapezoidal speed control. At corners, one sensor lost sight of the wall, triggering a 90° rotation
-            around the corner, after which the robot resumed wall-following.</p>
-        <img src="../assets/images/Robocon2023_RR/robocon2023_tof_correction.png" alt="ToF PID correction"
-            class="project-image">
-        <div class="image-caption">a path going from left to right using ToF sensors</div>
+    <h2>ToF Pathing</h2>
+    <p>To overcome the instability of RM positioning due to wheel slip, I developed a ToF-based pathing system
+        using front and side ToF sensors. The difference between left and right ToF readings gave the angle
+        error (corrected with PID), while the average gave vertical error. The robot moved horizontally using
+        trapezoidal speed control. At corners, one sensor lost sight of the wall, triggering a 90° rotation
+        around the corner, after which the robot resumed wall-following.</p>
+    <img src="../assets/images/Robocon2023_RR/robocon2023_tof_correction.png" alt="ToF PID correction"
+        class="project-image">
+    <div class="image-caption">a path going from left to right using ToF sensors</div>
 
-        <h2>Test Results</h2>
-        <ul>
-            <li><strong>RM Wheelbase Positioning:</strong> Worked well at low speeds and without collisions. After
-                impacts or high acceleration, wheel slip caused position shifts, but the shift was consistent, so
-                both dragons continued using it for auto paths.</li>
-            <li><strong>Real-Time Trapezoidal Pathing:</strong> Limited to low acceleration to maintain accuracy,
-                but still offered unparalleled flexibility - our robot could shoot from anywhere in the red zones
-                (see image), while most teams had only 2-6 fixed shooting points.</li>
-            <li><strong>ToF Pathing:</strong> Stable but slow due to horizontal movement (mecanum wheels are slower
-                horizontally). Used only for short distances; longer moves used traditional Bézier paths.</li>
-        </ul>
-        <img src="../assets/images/Robocon2023_RR/robocon2023_shootable_area.png" alt="Shootable area"
-            class="project-image">
-        <div class="image-caption">Shootable area (red) - our robot could shoot from any of these positions</div>
+    <h2>Test Results</h2>
+    <ul>
+        <li><strong>RM Wheelbase Positioning:</strong> Worked well at low speeds and without collisions. After
+            impacts or high acceleration, wheel slip caused position shifts, but the shift was consistent, so
+            both dragons continued using it for auto paths.</li>
+        <li><strong>Real-Time Trapezoidal Pathing:</strong> Limited to low acceleration to maintain accuracy,
+            but still offered unparalleled flexibility - our robot could shoot from anywhere in the red zones
+            (see image), while most teams had only 2-6 fixed shooting points.</li>
+        <li><strong>ToF Pathing:</strong> Stable but slow due to horizontal movement (mecanum wheels are slower
+            horizontally). Used only for short distances; longer moves used traditional Bézier paths.</li>
+    </ul>
+    <img src="../assets/images/Robocon2023_RR/robocon2023_shootable_area.png" alt="Shootable area"
+        class="project-image">
+    <div class="image-caption">Shootable area (red) - our robot could shoot from any of these positions</div>
 
-        <h2>Summary & Future Improvements</h2>
-        <p>We compensated for a weak shooter with agility, achieving similar speeds to top teams despite using
-            mecanum wheels. However, stronger opponents with linear shooters and independent steering ultimately
-            prevailed.</p>
-        <ul>
-            <li><strong>RM Positioning:</strong> Can be merged into the wheelbase library and extended to support
-                other wheel types.</li>
-            <li><strong>Trapezoidal Pathing:</strong> Game-specific, but the methodology is worth documenting for
-                future years.</li>
-            <li><strong>ToF Pathing:</strong> Parts like wall-following and corner rotation can be passed down.</li>
-        </ul>
+    <h2>Summary & Future Improvements</h2>
+    <p>We compensated for a weak shooter with agility, achieving similar speeds to top teams despite using
+        mecanum wheels. However, stronger opponents with linear shooters and independent steering ultimately
+        prevailed.</p>
+    <ul>
+        <li><strong>RM Positioning:</strong> Can be merged into the wheelbase library and extended to support
+            other wheel types.</li>
+        <li><strong>Trapezoidal Pathing:</strong> Game-specific, but the methodology is worth documenting for
+            future years.</li>
+        <li><strong>ToF Pathing:</strong> Parts like wall-following and corner rotation can be passed down.</li>
+    </ul>
 
-        <h2>Reflection</h2>
-        <p>I achieved my personal goal of testing and implementing ideas: RM positioning (first conceived during
-            F6), real-time trapezoidal pathing, and ToF pathing. I believe we reached over 90% of the robot's
-            potential. The team goal of winning the regional was not met, but I have no regrets - I gave my best.
-            Better balance between work and rest could have improved mechanical design, as exhausted members
-            couldn't innovate effectively.</p>
+    <h2>Reflection</h2>
+    <p>I achieved my personal goal of testing and implementing ideas: RM positioning (first conceived during
+        F6), real-time trapezoidal pathing, and ToF pathing. I believe we reached over 90% of the robot's
+        potential. The team goal of winning the regional was not met, but I have no regrets - I gave my best.
+        Better balance between work and rest could have improved mechanical design, as exhausted members
+        couldn't innovate effectively.</p>
 
-        <h2>Resources</h2>
-        <div class="resources-links">
-            <a href="../assets/docs/robocon2023/ENGG3960V-Final-Report.docx" target="_blank" class="styled-link">
-                📄 Download Final Report
-            </a>
-            <a href="https://www.roboconhk.com/2023/theme.html" target="_blank" class="styled-link">
-                ABU Robocon 2023 Theme & Rules
-            </a>
-            <a href="https://www.youtube.com/watch?v=z2xcCdDISo8" target="_blank" class="styled-link">
-                RTHK Documentary: "Robocon 2023: The Road to Victory"
-            </a>
-            <a href="https://www.youtube.com/watch?v=rvWQPI6Zmrc" target="_blank" class="styled-link">
-                ABU Robocon 2023 Hong Kong Regional Finals
-            </a>
-        </div>
+    <h2>Resources</h2>
+    <div class="resources-links">
+        <a href="../assets/docs/robocon2023/ENGG3960V-Final-Report.docx" target="_blank" class="styled-link">
+            📄 Download Final Report
+        </a>
+        <a href="https://www.roboconhk.com/2023/theme.html" target="_blank" class="styled-link">
+            ABU Robocon 2023 Theme & Rules
+        </a>
+        <a href="https://www.youtube.com/watch?v=z2xcCdDISo8" target="_blank" class="styled-link">
+            RTHK Documentary: "Robocon 2023: The Road to Victory"
+        </a>
+        <a href="https://www.youtube.com/watch?v=rvWQPI6Zmrc" target="_blank" class="styled-link">
+            ABU Robocon 2023 Hong Kong Regional Finals
+        </a>
     </div>
 </div>
 {% endblock %}
