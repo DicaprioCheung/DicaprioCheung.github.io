@@ -1,10 +1,11 @@
+<!-- templates/projects/glyphmaster.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dicaprio Cheung - Glyphmaster</title>
+    <title>Dicaprio Cheung - Glyphmaster - 3D RPG with Gesture-Based Spellcasting</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -496,6 +497,91 @@
         }
     </style>
     
+<style>
+    /* Additional styles for technical presentation */
+    .tech-figure {
+        margin: 30px 0;
+        text-align: center;
+    }
+
+    .tech-figure img {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .tech-figure .caption {
+        margin-top: 8px;
+        font-style: italic;
+        color: #555;
+    }
+
+    .code-block {
+        background: #2c3e50;
+        color: #ecf0f1;
+        padding: 15px;
+        border-radius: 8px;
+        font-family: monospace;
+        overflow-x: auto;
+        margin: 20px 0;
+    }
+
+    .glyph-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    .glyph-card {
+        background: #f0f4f8;
+        border-radius: 12px;
+        padding: 15px;
+        text-align: center;
+        border-left: 4px solid #3498db;
+    }
+
+    .glyph-card img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        margin-bottom: 10px;
+    }
+
+    .fsm-diagram {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .fsm-state {
+        background: #e9f0f5;
+        border-radius: 8px;
+        padding: 10px 15px;
+        text-align: center;
+        min-width: 100px;
+    }
+
+    .fsm-arrow {
+        font-size: 1.5rem;
+        color: #7f8c8d;
+        align-self: center;
+    }
+
+    @media (max-width: 768px) {
+        .fsm-diagram {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .fsm-arrow {
+            transform: rotate(90deg);
+        }
+    }
+</style>
+
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -552,37 +638,226 @@
     <a href="#" class="back-to-top">↑</a>
     <div class="main-content">
         
-
 <a href="../index.html" class="back-home">← Back to Home</a>
 <a href="./index.html" class="back-home">← Back to Projects</a>
 
 <div class="detail-card">
     <div class="detail-header">
-        <!-- <div class="logo-large">
-                    <img src="https://via.placeholder.com/80?text=Glyph" alt="Glyphmaster">
-                </div> -->
-        <h1 class="detail-title">Glyphmaster</h1>
+        <h1 class="detail-title">Glyphmaster - 3D RPG with Gesture-Based Spellcasting</h1>
     </div>
     <p class="date-badge">Sep - Dec 2024</p>
-    <p><strong>Technologies:</strong> WebGL, Three.js, Socket.io, JavaScript</p>
-    <h2>Overview</h2>
-    <p>Glyphmaster is a 3D RPG game where players draw glyphs to cast spells and battle monsters in a fantasy
-        world. It features both single-player and real-time multiplayer modes.</p>
-    <h2>Key Features</h2>
+    <p><strong>Technologies:</strong> Three.js, WebGL, Socket.io, MediaPipe HandPose, Python (Flask), TensorFlow.js,
+        HTML/CSS/JS</p>
+
+    <!-- Overview -->
+    <h2>📜 Overview</h2>
+    <p>
+        <em>Glyphmaster</em> is a 3D action RPG where players become wizards, drawing magical glyphs with mouse or hand
+        gestures
+        to cast spells. Battle monsters across 8 fantasy worlds (40 levels + infinite procedurally generated level),
+        collect pets, and duel other players in real-time multiplayer. All core mechanics were implemented from scratch
+        using Three.js.
+    </p>
+
+    <!-- ========== 1. BASIC GAME MECHANICS ========== -->
+    <h2>⚙️ 1. Basic Game Mechanisms (Built from Scratch with Three.js)</h2>
+    <div class="tech-figure">
+        <img src="../assets/images/glyphmaster/game-ui.png" alt="Game UI">
+        <div class="caption">Left: tutorial text; bottom right: permanent guide; centre: glyph hint overlay.</div>
+    </div>
     <ul>
-        <li>Implemented a magic glyph identification algorithm that recognizes player-drawn shapes using mouse
-            or hand input.</li>
-        <li>Created a real-time multiplayer mode with Socket.io, synchronizing player movements, spells, and
-            game states.</li>
-        <li>Built immersive 3D environments with Three.js, including lighting, shadows, and animations.</li>
-        <li>Designed multiple enemy types with AI behavior and spell effects.</li>
+        <li><strong>Player movement</strong> - first-person controls with WASD keys, collision detection with scene
+            objects.</li>
+        <li><strong>Health & XP system</strong> - real-time health bars, XP gain from defeating enemies, and automatic
+            level-up with attribute allocation.</li>
+        <li><strong>Enemy AI</strong> - enemies track the player, have health bars, and follow a finite state machine
+            (see section 7).</li>
+        <li><strong>Bullets handling</strong> - projectile system with trajectory, collision, and different behaviours
+            per glyph type.</li>
+        <li><strong>UI</strong> - text-based tutorial on the left and a permanent guide panel on the bottom right.</li>
     </ul>
-    <h2>Technical Highlights</h2>
+
+
+    <!-- ========== 2. SINGLE PLAYER LEVELS & SCENES ========== -->
+    <h2>🗺️ 2. Single Player Levels & Scenes</h2>
+    <div style="flex:1; text-align:center;">
+        <img src="../assets/images/glyphmaster/world-map.png" alt="World map" class="project-image">
+        <div class="caption">8 worlds × 5 levels = 40 hand-crafted levels (map drawn with Inkarnate)</div>
+    </div>
     <ul>
-        <li>Custom gesture recognition system for glyph drawing.</li>
-        <li>Network synchronization with low latency using WebSockets.</li>
-        <li>Modular code architecture for easy addition of new spells and enemies.</li>
+        <li><strong>40 hand-crafted levels</strong> - each world has a distinct visual theme (forest, volcano, ice,
+            etc.) using WebGL and online 3D models.</li>
+        <li><strong>Infinite level generation</strong> - after completing all 40 levels, players enter an endless mode
+            that generates new levels with random monster combinations and increasing difficulty.</li>
     </ul>
+
+    <!-- ========== 3. MAGIC GLYPH IDENTIFICATION ALGORITHM ========== -->
+    <h2>🔮 3. Magic Glyph Identification Algorithm (Core Innovation)</h2>
+    <p>Unlike traditional gesture recognition, our algorithm evaluates drawn glyphs without fixed templates, allowing
+        for size variation, rotation, and natural drawing inaccuracy.</p>
+
+    <div class="tech-figure">
+        <img src="../assets/images/glyphmaster/magic-glyph.png" alt="6 Different Magic Glyphs">
+        <div class="caption">Different Magic Glyphs</div>
+    </div>
+
+    <ol>
+        <li><strong>Drawing capture:</strong> Player draws on an off-screen canvas via mouse drag or hand-pose tracking
+            (MediaPipe).</li>
+        <li><strong>Bounding box & normalization:</strong> Compute bounding box to obtain radius <code>r</code> and
+            center <code>(cx, cy)</code> of the drawn shape.</li>
+        <li><strong>Binary downsampling:</strong> Convert the canvas to a small binary image (e.g., 64×64) to reduce
+            computation.</li>
+        <li><strong>Distance to glyph primitives:</strong> For each of the 7 glyph definitions (combinations of straight
+            lines, circles, arcs), we compute the distance from every binary pixel to the closest primitive.
+            <ul>
+                <li>Width tolerance = 0.1 × radius - pixel is “inside” if distance &lt; tolerance.</li>
+                <li>This function is also used to draw the translucent hint overlay in the centre of the screen.</li>
+            </ul>
+        </li>
+        <li><strong>Dilation with inside/outside logic:</strong>
+            <ul>
+                <li>Original drawing is only 1-pixel wide; we dilate it to <code>0.1 × radius</code> width, but
+                    <strong>not standard dilation</strong>:
+                </li>
+                <li>If original pixel is inside the glyph → only dilated pixels inside the glyph are drawn.</li>
+                <li>If original pixel is outside the glyph → only dilated pixels outside are drawn.</li>
+                <li>This preserves shape boundaries and prevents over-scoring.</li>
+            </ul>
+        </li>
+        <li><strong>Accuracy calculation:</strong>
+            <div class="code-block">
+                accuracy = (% of drawn pixels inside) - (% of drawn pixels outside)
+            </div>
+            This subtractive formula prevents a simple circle from achieving high accuracy for all glyphs.
+        </li>
+        <li><strong>Selection:</strong> Repeat steps 4-6 for all 7 glyphs, pick the one with the highest accuracy.</li>
+    </ol>
+
+    <!-- <div class="tech-figure">
+        <img src="../assets/images/glyphmaster/accuracy-feedback.png" alt="Accuracy feedback">
+        <div class="caption">Real-time feedback: “Good”, “Great”, “Perfect” shown based on accuracy.</div>
+    </div> -->
+
+    <!-- ========== 4. MAGIC SPELL EFFECTS & VISUALS ========== -->
+    <h2>✨ 4. Magic Spell Effects & Visuals</h2>
+    <div class="image-row">
+        <div style="flex:1; text-align:center;">
+            <img src="../assets/images/glyphmaster/fire-spell.png" alt="Fire spell" class="project-image">
+            <div class="caption">Fire glyph - fireball with particle trail and burn effect</div>
+        </div>
+        <div style="flex:1; text-align:center;">
+            <img src="../assets/images/glyphmaster/water-spell.png" alt="Water spell" class="project-image">
+            <div class="caption">Water glyph - Area-of-effect splash</div>
+        </div>
+    </div>
+    <ul>
+        <li><strong>Plain (circle):</strong> Fast projectile, low damage.</li>
+        <li><strong>Grass (plant):</strong> Slows enemy movement & rotation by 50%.</li>
+        <li><strong>Water (drop):</strong> Area-of-effect splash that damages multiple enemies.</li>
+        <li><strong>Earth (mountain):</strong> Three stone spikes in a fan shape, high close-range damage.</li>
+        <li><strong>Fire (candle):</strong> Fireball that deals initial damage + 10% burn per second for 3s.</li>
+        <li><strong>Lightning:</strong> Bolt that stuns enemy (unable to move/rotate/shoot) for 2 seconds.</li>
+        <li><strong>Summon (star):</strong> Summons a pet (previously generated or owned).</li>
+    </ul>
+    <p>All particle effects (trails, explosions) are implemented with a custom <code>Particle</code> class using
+        Three.js points.</p>
+
+    <!-- ========== 7. MONSTERS FINITE STATE MACHINE ========== -->
+    <h2>👾 5. Monsters Finite State Machine</h2>
+    <div class="tech-figure">
+        <img src="../assets/images/glyphmaster/monsters.png" alt="Multiplayer">
+        <div class="caption">Monsters and Enemies</div>
+    </div>
+    <div class="fsm-diagram">
+        <div class="fsm-state">IDLE (wander)</div>
+        <div class="fsm-arrow">→</div>
+        <div class="fsm-state">CHASE (alert distance)</div>
+        <div class="fsm-arrow">→</div>
+        <div class="fsm-state">DRAW (attack distance)</div>
+        <div class="fsm-arrow">→</div>
+        <div class="fsm-state">SHOOT</div>
+        <div class="fsm-arrow">↺</div>
+    </div>
+    <ul>
+        <li><strong>Chase:</strong> Actively pursues player when within alert range.</li>
+        <li><strong>Draw/Shoot:</strong> Begins drawing a spell when player enters attack distance; shoots after drawing
+            completes.</li>
+        <li><strong>Wander:</strong> If no enemies in sight, moves randomly.</li>
+        <li><strong>Stun state:</strong> Added when hit by lightning glyph - disables movement/actions for 2 seconds.
+        </li>
+    </ul>
+
+    <!-- ========== 8. PET FINITE STATE MACHINE ========== -->
+    <h2>🐾 6. Pet Finite State Machine</h2>
+    <div class="fsm-diagram">
+        <div class="fsm-state">FOLLOW OWNER</div>
+        <div class="fsm-arrow">→</div>
+        <div class="fsm-state">CHASE ENEMY (in sight)</div>
+        <div class="fsm-arrow">→</div>
+        <div class="fsm-state">ATTACK</div>
+        <div class="fsm-arrow">→</div>
+        <div class="fsm-state">RETURN (enemy lost)</div>
+    </div>
+    <ul>
+        <li><strong>Follow owner:</strong> Default state; pet stays near player.</li>
+        <li><strong>Chase & attack:</strong> When enemy detected, pet pursues and attacks independently.</li>
+        <li><strong>Return:</strong> If enemy disappears or is defeated, pet returns to owner.</li>
+    </ul>
+
+    <!-- ========== 9. MULTI-PLAYER REAL-TIME BATTLE SYNCHRONIZATION ========== -->
+    <h2>🌐 7. Multi-player Real-Time Battle Synchronization</h2>
+    <div class="tech-figure">
+        <img src="../assets/images/glyphmaster/multiplayer.png" alt="Multiplayer">
+        <div class="caption">1v1 real-time battle with synchronised health bars and spells.</div>
+    </div>
+    <ul>
+        <li><strong>Server:</strong> Node.js + Express + Socket.io handles matchmaking and broadcasts.</li>
+        <li><strong>Message bag design:</strong> Each update contains:
+            <ul>
+                <li>Player position & rotation</li>
+                <li>Health, speed, bullet cooldown status</li>
+                <li>Glyph being cast (to replicate spell effect on opponent's screen)</li>
+            </ul>
+        </li>
+        <li><strong>Latency mitigation:</strong> Client-side prediction and interpolation smooth out movement; glyph
+            cast events are time-stamped and processed in order.</li>
+        <li><strong>Synchronisation challenge:</strong> The large message size increases latency - optimised by delta
+            compression and prioritising movement over non-critical data.</li>
+    </ul>
+
+    <!-- ========== ADDITIONAL VISUALS (Hand Pose, Pet Generation) ========== -->
+    <h2>🖐️ Hand-Pose Drawing Integration</h2>
+    <div class="image-row">
+        <div style="flex:1; text-align:center;">
+            <img src="../assets/images/glyphmaster/handpose-demo.png" alt="Hand pose drawing" class="project-image">
+            <div class="caption">Drawing fire glyph using index finger tracked by MediaPipe.</div>
+        </div>
+        <div style="flex:1; text-align:center;">
+            <img src="../assets/images/glyphmaster/pet-generation.png" alt="Pet generation" class="project-image">
+            <div class="caption">3D pet generated from a real-world cup via AI pipeline.</div>
+        </div>
+    </div>
+    <p>MediaPipe HandPose model is loaded once; fingertip positions are smoothed over three frames to reduce jitter. A
+        fist gesture triggers “pen up”.</p>
+
+    <!-- Video Demo -->
+    <!-- <h2>🎥 Video Demo</h2>
+    <div class="video-wrapper" style="padding-bottom: 56.25%;">
+        <iframe src="https://www.youtube.com/embed/your-video-id" title="Glyphmaster Gameplay Demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+    <p class="caption">Full gameplay demonstration covering glyph drawing, spells, PvP, and pet generation.</p> -->
+
+    <!-- Resources -->
+    <!-- <h2>🔗 Resources</h2>
+    <p>
+        <a href="../assets/docs/glyphmaster/A2_Group10.pptx" target="_blank" class="styled-link">
+            <i class="fas fa-file-pdf"></i> Presentation Slides (PPTX)
+        </a>
+    </p> -->
 </div>
 
     </div>
