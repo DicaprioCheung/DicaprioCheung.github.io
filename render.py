@@ -26,6 +26,7 @@ pages = [
     {'template': 'projects/Robocon2023_RR.html', 'output': 'docs/projects/Robocon2023_RR.html'},
     {'template': 'projects/Robocon2024_R1.html', 'output': 'docs/projects/Robocon2024_R1.html'},
     {'template': 'projects/Robocon2024_R2.html', 'output': 'docs/projects/Robocon2024_R2.html'},
+    {'template': 'projects/robotic-arm-tic-tac-toe.html', 'output': 'docs/projects/robotic-arm-tic-tac-toe.html'},
 ]
 
 for page in pages:
